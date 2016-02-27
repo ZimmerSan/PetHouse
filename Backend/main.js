@@ -45,10 +45,19 @@ function configureEndpoints(app) {
         .get(api.getUserById)
 
         // update the user with this id (accessed at PUT http://localhost:8080/api/users/:user_id)
-        .put(api.updateUserbyId)
+        .put(api.updateUserById)
 
         // delete the bear with this id (accessed at DELETE http://localhost:8080/api/bears/:bear_id)
         .delete(api.deleteUserById);
+
+    router.route('/posts')
+
+        .post(api.createPost)
+        .get(api.getAllPosts);
+
+    router.route('/posts/:post_id')
+
+        .get(api.getPostById);
 
     // REGISTER OUR ROUTES -------------------------------
     // all of our routes will be prefixed with /api

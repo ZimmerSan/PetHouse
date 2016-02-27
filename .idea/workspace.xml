@@ -1,339 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a00c3085-ae64-46de-bd6a-c550e47e2a9e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/bin/advanced.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/bin/args.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/lib/_empty.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/lib/builtins.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/args.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/array.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/array/one.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/array/three.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/array/two.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/backbone.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/bare.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/bare/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/bare_shebang.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/bin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/bin_entry.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/bin_tr_error.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/bin_tr_error/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/bin_tr_error/tr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/bom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/bom/hello.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/browser_field_file.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/browser_field_file/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/browser_field_file/wow.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/browser_field_resolve.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/buffer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/bundle-bundle-external.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/bundle-stream.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/bundle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/bundle_external.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/bundle_external/boop.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/bundle_external/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/bundle_external/robot.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/bundle_external_global.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/bundle_sourcemap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/catch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/catch/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/circular.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/circular/a.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/circular/b.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/circular/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/coffee_bin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/coffee_bin/main.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/coffee_bin/x.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/coffeeify.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/coffeeify/main.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/comment.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/comment/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/constants.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/crypto.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/crypto_ig.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/cycle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/cycle/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/cycle/entry.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/cycle/mod1/a.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/cycle/mod1/b.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/cycle/mod2/a.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/cycle/mod2/b.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/debug_standalone.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/debug_standalone/x.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/dedupe-deps.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/dedupe-nomap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/delay.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/delay/diverted.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/delay/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/dep.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/dollar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/dollar/dollar/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/double_buffer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/double_buffer/explicit.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/double_buffer/implicit.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/double_buffer/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/double_bundle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/double_bundle_error.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/double_bundle_error/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/double_bundle_error/needs_three.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/double_bundle_error/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/double_bundle_error/two.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/double_bundle_json.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/double_bundle_parallel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/double_bundle_parallel_cache.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/dup/foo-dup.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/dup/foo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/dup/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/entry.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/entry/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/entry/needs_three.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/entry/one.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/entry/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/entry/three.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/entry/two.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/entry_exec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/entry_exec/fail.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/entry_exec/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/entry_expose.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/entry_expose/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/entry_relative.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/error_code.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/error_code/src.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/export.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/export/entry.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/external.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/external/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/external/x.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/external_args/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/external_shim.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/external_shim/bundle1.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/external_shim/bundle2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/external_shim/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/external_shim/shim.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/externalize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/externalize/beep.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/externalize/boop.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/externalize/robot.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/fake.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/fake/fake_fs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/fake/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/field.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/field/miss.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/field/node_modules/z-miss/browser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/field/node_modules/z-miss/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/field/node_modules/z-miss/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/field/node_modules/z-object/browser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/field/node_modules/z-object/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/field/node_modules/z-object/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/field/node_modules/z-string/browser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/field/node_modules/z-string/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/field/node_modules/z-string/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/field/node_modules/z-sub/browser/a.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/field/node_modules/z-sub/browser/b.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/field/node_modules/z-sub/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/field/node_modules/z-sub/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/field/object.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/field/string.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/field/sub.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/file_event.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/five_bundle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/full_paths.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/glob.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/glob/a.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/glob/b.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/glob/lib/z.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/glob/vendor/x.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/glob/vendor/y.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/global.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/global/buffer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/global/filename.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/global/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/global/node_modules/aaa/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/global/node_modules/robot/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/global/node_modules/robot/lib/beep.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/global/tick.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/global_coffeeify.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/global_noparse.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/global_recorder.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/global_recorder/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/hash.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/hash/foo/other.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/hash/foo/two.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/hash/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/hash/one.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/hash/other.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/hash_instance_context.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/identical.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/identical/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/identical/x.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/identical/y.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/identical_different.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/ignore.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/ignore/by-id.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/ignore/by-relative.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/ignore/double-skip.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/ignore/double-skip/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/ignore/double-skip/skip.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/ignore/ignored/skip.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/ignore/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/ignore/relative/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/ignore/skip.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/ignore_browser_field.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/ignore_missing.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/ignore_missing/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/json.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/json/beep.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/json/evil-chars.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/json/evil.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/json/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/leak.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/maxlisteners.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/maxlisteners/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/multi_bundle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/multi_bundle/_prelude.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/multi_bundle/a.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/multi_bundle/b.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/multi_bundle/c.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/multi_bundle_unique.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/multi_entry.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/multi_entry/a.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/multi_entry/b.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/multi_entry/c.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/multi_entry_cross_require.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/multi_require.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/multi_require/a.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/multi_require/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/multi_symlink.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/multi_symlink/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/multi_symlink/x.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/no_builtins.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/no_builtins/extra/fs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/no_builtins/extra/tls.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/no_builtins/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/no_builtins/x.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/node_modules/beep/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/node_modules/plugin-foo/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/node_modules/tr/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/noparse.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/noparse/a.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/noparse/b.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/noparse/dir1/1.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/noparse/dir1/dir2/2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/noparse/node_modules/robot/lib/beep.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/noparse/node_modules/robot/lib/boop.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/noparse/node_modules/robot/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/noparse/node_modules/robot/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/pack.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/paths.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/paths/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/paths/x/aaa/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/paths/x/ccc/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/paths/y/bbb/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/paths/y/ccc/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/paths_transform.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/pipeline_deps.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/pipeline_deps/bar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/pipeline_deps/foo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/pipeline_deps/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/pipeline_deps/xyz.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/pkg.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/pkg/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/pkg/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/pkg_event.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/pkg_event/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/pkg_event/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/plugin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/plugin/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/process.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/process/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/process/one.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/process/two.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/relative_dedupe.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/relative_dedupe/a/a.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/relative_dedupe/a/b.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/relative_dedupe/a/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/relative_dedupe/b/a.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/relative_dedupe/b/b.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/relative_dedupe/b/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/relative_dedupe/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/relative_dedupe/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/require_cache.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/require_expose.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/require_expose/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/require_expose/some_dep.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/reset.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/resolve_exposed.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/resolve_exposed/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/resolve_exposed/x.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/retarget.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/reverse_multi_bundle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/shared_symlink.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/shared_symlink/app/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/shared_symlink/app/node_modules/foo/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/shared_symlink/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/shared_symlink/shared/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/shebang.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/shebang/foo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/shebang/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/standalone.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/standalone/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/standalone/one.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/standalone/two.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/standalone_events.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/standalone_sourcemap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/stdin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/stream.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/stream/bar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/stream/foo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/stream/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/stream_file.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/subdep.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/subdep/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/subdep/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/symlink_dedupe.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/symlink_dedupe/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/symlink_dedupe/one/f.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/symlink_dedupe/one/g.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/syntax_cache.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/syntax_cache/invalid.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/syntax_cache/valid.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr/f.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr/subdir/g.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr_args.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr_args/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr_args/tr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr_error.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr_flags.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr_global.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr_global/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr_global/node_modules/tr/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr_global/node_modules/x/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr_global/node_modules/x/node_modules/tr/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr_no_entry.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr_no_entry/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr_once.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr_once/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr_order.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr_order/replace_aaa.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr_order/replace_bbb.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr_symlink.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr_symlink/a-module/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr_symlink/app/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr_symlink/app/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr_symlink/b-module/ext.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/tr_symlink/b-module/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/unicode.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/unicode/main.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/unicode/one.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/unicode/two.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/util.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/yield.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/yield/f.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/node_modules/watchify/node_modules/browserify/test/yield/main.js" />
+    <list default="true" id="a00c3085-ae64-46de-bd6a-c550e47e2a9e" name="Default" comment="Almost completed auth, started post creation">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Backend/app/models/post.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Backend/views/auth/connect-local.ejs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Backend/views/auth/signup.ejs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Backend/views/index.ejs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Backend/views/post/create_post.ejs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Backend/views/profile/profile.ejs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Frontend/src/api.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Frontend/src/post.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Backend/views/mainPage.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Backend/views/profile.ejs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Backend/views/signup.ejs" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Backend/views/login.ejs" afterPath="$PROJECT_DIR$/Backend/views/auth/loginDraft.ejs" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Backend/views/loginFin.ejs" afterPath="$PROJECT_DIR$/Backend/views/auth/login.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Backend/app/api.js" afterPath="$PROJECT_DIR$/Backend/app/api.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Backend/app/models/user.js" afterPath="$PROJECT_DIR$/Backend/app/models/user.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Backend/app/routes.js" afterPath="$PROJECT_DIR$/Backend/app/routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Backend/config/auth.js" afterPath="$PROJECT_DIR$/Backend/config/auth.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Backend/config/passport.js" afterPath="$PROJECT_DIR$/Backend/config/passport.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Backend/main.js" afterPath="$PROJECT_DIR$/Backend/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Backend/views/common/footer.ejs" afterPath="$PROJECT_DIR$/Backend/views/common/footer.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Backend/views/common/header.ejs" afterPath="$PROJECT_DIR$/Backend/views/common/header.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Frontend/src/login-form.js" afterPath="$PROJECT_DIR$/Frontend/src/login-form.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Frontend/src/main.js" afterPath="$PROJECT_DIR$/Frontend/src/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Frontend/www/assets/js/main.js" afterPath="$PROJECT_DIR$/Frontend/www/assets/js/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="Base-structure.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -396,61 +90,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="mainPage.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Backend/views/mainPage.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.615385">
-              <caret line="30" column="11" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="login.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Backend/views/login.ejs">
+        <entry file="file://$PROJECT_DIR$/Backend/views/auth/login.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.9230769">
-              <caret line="6" column="51" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+            <state vertical-scroll-proportion="-39.23077">
+              <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="signup.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Backend/views/signup.ejs">
+        <entry file="file://$PROJECT_DIR$/Backend/views/auth/signup.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.9230769">
-              <caret line="6" column="64" selection-start-line="6" selection-start-column="64" selection-end-line="6" selection-end-column="64" />
+            <state vertical-scroll-proportion="-30.538462">
+              <caret line="54" column="14" selection-start-line="54" selection-start-column="14" selection-end-line="54" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile.ejs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Backend/views/profile.ejs">
+      <file leaf-file-name="connect-local.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Backend/views/auth/connect-local.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5159011">
-              <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="passport.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="create_post.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Backend/views/post/create_post.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.6153846">
+              <caret line="5" column="67" selection-start-line="5" selection-start-column="67" selection-end-line="5" selection-end-column="67" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="passport.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Backend/config/passport.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="203" column="36" selection-start-line="203" selection-start-column="36" selection-end-line="203" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.33277026">
+              <caret line="87" column="70" selection-start-line="87" selection-start-column="70" selection-end-line="87" selection-end-column="70" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="auth.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Backend/config/auth.js">
+      <file leaf-file-name="api.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Frontend/src/api.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="51" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
+              <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -460,17 +154,37 @@
         <entry file="file://$PROJECT_DIR$/Backend/app/routes.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="89" column="12" selection-start-line="89" selection-start-column="12" selection-end-line="89" selection-end-column="12" />
+              <caret line="51" column="10" selection-start-line="42" selection-start-column="6" selection-end-line="51" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Backend/main.js">
+      <file leaf-file-name="api.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Backend/app/api.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="64" column="4" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
+              <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="post.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Backend/app/models/post.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="post.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Frontend/src/post.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -501,31 +215,42 @@
         <option value="$PROJECT_DIR$/Gruntfile.ts" />
         <option value="$PROJECT_DIR$/Frontend/src/js/main.js" />
         <option value="$PROJECT_DIR$/Gruntfile.js" />
-        <option value="$PROJECT_DIR$/Backend/views/common/footer.ejs" />
-        <option value="$PROJECT_DIR$/Backend/views/common/header.ejs" />
         <option value="$PROJECT_DIR$/Frontend/src/js/login-form.js" />
-        <option value="$PROJECT_DIR$/Frontend/src/main.js" />
         <option value="$PROJECT_DIR$/Frontend/www/assets/less/login-form.less" />
         <option value="$PROJECT_DIR$/Frontend/www/assets/less/main.less" />
         <option value="$PROJECT_DIR$/Backend/models/user.js" />
         <option value="$PROJECT_DIR$/Backend/api.js" />
         <option value="$PROJECT_DIR$/config/auth.js" />
         <option value="$PROJECT_DIR$/config/passport.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/Backend/app/main.js" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/Backend/config/database.js" />
-        <option value="$PROJECT_DIR$/Frontend/src/login-form.js" />
         <option value="$PROJECT_DIR$/Backend/views/loginFinal.ejs" />
-        <option value="$PROJECT_DIR$/Backend/views/login.ejs" />
-        <option value="$PROJECT_DIR$/Backend/views/signup.ejs" />
-        <option value="$PROJECT_DIR$/Backend/app/models/user.js" />
-        <option value="$PROJECT_DIR$/Backend/main.js" />
-        <option value="$PROJECT_DIR$/Backend/config/passport.js" />
-        <option value="$PROJECT_DIR$/Backend/app/routes.js" />
-        <option value="$PROJECT_DIR$/Backend/views/mainPage.ejs" />
         <option value="$PROJECT_DIR$/Backend/config/auth.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/Backend/app/models/user.js" />
+        <option value="$PROJECT_DIR$/Backend/views/common/header.ejs" />
+        <option value="$PROJECT_DIR$/Backend/views/connect-local.ejs" />
+        <option value="$PROJECT_DIR$/Backend/views/mainPage.ejs" />
+        <option value="$PROJECT_DIR$/Frontend/src/login-form.js" />
+        <option value="$PROJECT_DIR$/Backend/views/signup.ejs" />
+        <option value="$PROJECT_DIR$/Backend/views/login.ejs" />
         <option value="$PROJECT_DIR$/Backend/views/profile.ejs" />
+        <option value="$PROJECT_DIR$/Backend/main.js" />
+        <option value="$PROJECT_DIR$/Backend/views/auth/login.ejs" />
+        <option value="$PROJECT_DIR$/Backend/views/auth/signup.ejs" />
+        <option value="$PROJECT_DIR$/Backend/views/auth/connect-local.ejs" />
+        <option value="$PROJECT_DIR$/Backend/views/profile/profile.ejs" />
+        <option value="$PROJECT_DIR$/Frontend/api.js" />
+        <option value="$PROJECT_DIR$/Frontend/src/api.js" />
+        <option value="$PROJECT_DIR$/Backend/views/common/footer.ejs" />
+        <option value="$PROJECT_DIR$/Frontend/src/main.js" />
+        <option value="$PROJECT_DIR$/Backend/views/post/create_post.ejs" />
+        <option value="$PROJECT_DIR$/Backend/app/routes.js" />
+        <option value="$PROJECT_DIR$/Backend/app/api.js" />
+        <option value="$PROJECT_DIR$/Frontend/src/post.js" />
+        <option value="$PROJECT_DIR$/Backend/app/models/post.js" />
+        <option value="$PROJECT_DIR$/Backend/config/passport.js" />
       </list>
     </option>
   </component>
@@ -567,6 +292,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -583,6 +310,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Base-structure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Base-structure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Base-structure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Base-structure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Base-structure" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -654,39 +413,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Base-structure" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Base-structure" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Backend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="last_opened_file_path" value="C:/Work/OPTUS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
@@ -696,13 +431,15 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Study\Base-structure\Backend\views" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Study\Base-structure\Frontend\src" />
+      <recent name="C:\Study\Base-structure\Backend\views\profile" />
+      <recent name="C:\Study\Base-structure\Backend\views\auth" />
       <recent name="C:\Study\Base-structure\Backend\app" />
       <recent name="C:\Study\Base-structure\Backend" />
-      <recent name="C:\Study\Base-structure\Frontend\src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Study\Base-structure\Backend\views" />
     </key>
   </component>
   <component name="RunManager">
@@ -1144,11 +881,13 @@
       <workItem from="1456411077048" duration="1054000" />
       <workItem from="1456419063408" duration="4812000" />
       <workItem from="1456481569860" duration="15224000" />
+      <workItem from="1456502441274" duration="2813000" />
+      <workItem from="1456566293837" duration="25427000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24977000" />
+    <option name="totallyTimeSpent" value="53217000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1156,16 +895,18 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32864866" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20108108" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.51731604" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.119936034" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1176,7 +917,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1190,14 +930,34 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Almost completed auth, started post creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Almost completed auth, started post creation" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Backend/views/mainPage.ejs">
+    <entry file="file://$PROJECT_DIR$/Backend/app/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="89" column="12" selection-start-line="89" selection-start-column="12" selection-end-line="89" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="64" column="4" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
@@ -1217,7 +977,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1233,7 +992,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1241,7 +999,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="43" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1253,7 +1010,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/views/mainPage.ejs">
+    <entry file="file://$PROJECT_DIR$/Backend/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
@@ -1273,11 +1030,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/views/mainPage.ejs">
+    <entry file="file://$PROJECT_DIR$/Backend/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
@@ -1297,7 +1053,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1323,14 +1078,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/views/common/footer.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="21" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/www/assets/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1342,15 +1089,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.95218">
           <caret line="56" column="6" selection-start-line="56" selection-start-column="6" selection-end-line="56" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/views/common/header.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2729927">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1358,15 +1096,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="43" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1382,39 +1111,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="30" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/app/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="22" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/views/loginFin.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/config/database.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.023909986">
-          <caret line="1" column="47" selection-start-line="1" selection-start-column="47" selection-end-line="1" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7941606">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1422,6 +1118,77 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="58" column="20" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/config/auth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="56" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.84502923">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/views/common/header.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5384617">
+          <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/query.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33239436">
+          <caret line="1203" column="0" selection-start-line="1203" selection-start-column="0" selection-end-line="1203" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/config/database.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.023943663">
+          <caret line="1" column="47" selection-start-line="1" selection-start-column="47" selection-end-line="1" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33239436">
+          <caret line="1201" column="0" selection-start-line="1201" selection-start-column="0" selection-end-line="1201" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/examples/schema/storing-schemas-as-json/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5267606">
+          <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/express/lib/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3325893">
+          <caret line="264" column="4" selection-start-line="264" selection-start-column="4" selection-end-line="264" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/views/profile/profile.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -1429,15 +1196,15 @@
     <entry file="file://$PROJECT_DIR$/Frontend/src/login-form.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="8" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <caret line="15" column="40" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/views/login.ejs">
+    <entry file="file://$PROJECT_DIR$/Backend/views/common/footer.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9230769">
-          <caret line="6" column="51" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+        <state vertical-scroll-proportion="-5.230769">
+          <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
           <folding />
         </state>
       </provider>
@@ -1445,31 +1212,97 @@
     <entry file="file://$PROJECT_DIR$/Backend/app/models/user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="2" selection-start-line="32" selection-start-column="2" selection-end-line="32" selection-end-column="2" />
+          <caret line="31" column="33" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/views/signup.ejs">
+    <entry file="file://$PROJECT_DIR$/Backend/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9230769">
-          <caret line="6" column="64" selection-start-line="6" selection-start-column="64" selection-end-line="6" selection-end-column="64" />
+        <state vertical-scroll-proportion="-11.115385">
+          <caret line="17" column="7" selection-start-line="2" selection-start-column="0" selection-end-line="17" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.5185184">
+          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/views/auth/connect-local.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/views/auth/loginDraft.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="11" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/views/auth/login.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-39.23077">
+          <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Backend/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="64" column="4" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
+        <state vertical-scroll-proportion="1.0189732">
+          <caret line="59" column="28" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/config/passport.js">
+    <entry file="file://$PROJECT_DIR$/Backend/views/auth/signup.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-30.538462">
+          <caret line="54" column="14" selection-start-line="54" selection-start-column="14" selection-end-line="54" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/document.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4258373">
+          <caret line="1817" column="45" selection-start-line="1817" selection-start-column="45" selection-end-line="1817" selection-end-column="45" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/views/post/create_post.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.6153846">
+          <caret line="5" column="67" selection-start-line="5" selection-start-column="67" selection-end-line="5" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/post.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="203" column="36" selection-start-line="203" selection-start-column="36" selection-end-line="203" selection-end-column="36" />
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/src/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1477,31 +1310,31 @@
     <entry file="file://$PROJECT_DIR$/Backend/app/routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="89" column="12" selection-start-line="89" selection-start-column="12" selection-end-line="89" selection-end-column="12" />
+          <caret line="51" column="10" selection-start-line="42" selection-start-column="6" selection-end-line="51" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/config/auth.js">
+    <entry file="file://$PROJECT_DIR$/Backend/app/api.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="51" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/views/mainPage.ejs">
+    <entry file="file://$PROJECT_DIR$/Backend/app/models/post.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.615385">
-          <caret line="30" column="11" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Backend/views/profile.ejs">
+    <entry file="file://$PROJECT_DIR$/Backend/config/passport.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5159011">
-          <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.33277026">
+          <caret line="87" column="70" selection-start-line="87" selection-start-column="70" selection-end-line="87" selection-end-column="70" />
           <folding />
         </state>
       </provider>

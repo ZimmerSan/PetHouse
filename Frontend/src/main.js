@@ -1,3 +1,6 @@
 $(function(){
-   var loginForm = require('./login-form');
+   var Post = require('./post');
+   var api = require('./api');
+
+   Post.initializePostForm();
 });

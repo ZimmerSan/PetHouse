@@ -1,13 +1,59 @@
-var flash = require('connect-flash');
+var flash   = require('connect-flash');
+var api     = require('./api');
 
 module.exports = function (app, passport) {
+
+    // normal routes ===============================================================
 
     // =====================================
     // HOME PAGE (with login links) ========
     // =====================================
     app.get('/', function (req, res) {
-        res.render('mainPage', {pageTitle: 'Main page'});
+        res.render('index', {pageTitle: 'Main page'});
     });
+
+    // =====================================
+    // PROFILE SECTION =====================
+    // =====================================
+    // we will want this protected so you have to be logged in to visit
+    // we will use route middleware to verify this (the isLoggedIn function)
+    app.get('/profile', isLoggedIn, function (req, res) {
+        res.render('profile/profile.ejs', {
+            user        : req.user, // get the user out of session and pass to template
+            pageTitle   : 'Profile'
+        });
+    });
+
+    // =====================================
+    // LOGOUT ==============================
+    // =====================================
+    app.get('/logout', function (req, res) {
+        req.logout();
+        res.redirect('/');
+    });
+
+    // create post
+    app.get('/posts/create', isLoggedIn, function (req, res) {
+        res.render('post/create_post', {
+            user        : req.user, // get the user out of session and pass to template
+            pageTitle   : 'Create post'
+        });
+    });
+
+    //app.post('/posts', function (req, res) {
+    //    api.createPost(req, function (err, result) {
+    //        if (err) {
+    //            alert("Can't create post");
+    //        } else {
+    //            console.log(result, "res");
+    //        }
+    //    });
+    //    //res.redirect("/posts/"+res._id);
+    //});
+
+// =============================================================================
+// AUTHENTICATE (FIRST LOGIN) ==================================================
+// =============================================================================
 
     // =====================================
     // LOGIN ===============================
@@ -16,17 +62,17 @@ module.exports = function (app, passport) {
     app.get('/login', function (req, res) {
 
         // render the page and pass in any flash data if it exists
-        res.render('login.ejs', {
-            message: req.flash('loginMessage'),
-            pageTitle: 'Login'
+        res.render('auth/login.ejs', {
+            message     : req.flash('loginMessage'),
+            pageTitle   : 'Login'
         });
     });
 
     // process the login form
     app.post('/login', passport.authenticate('local-login', {
-        successRedirect: '/profile', // redirect to the secure profile section
-        failureRedirect: '/login', // redirect back to the signup page if there is an error
-        failureFlash: true // allow flash messages
+        successRedirect : '/profile', // redirect to the secure profile section
+        failureRedirect : '/login', // redirect back to the signup page if there is an error
+        failureFlash    : true // allow flash messages
     }));
 
     // =====================================
@@ -36,30 +82,18 @@ module.exports = function (app, passport) {
     app.get('/signup', function (req, res) {
 
         // render the page and pass in any flash data if it exists
-        res.render('signup.ejs', {
-            message: req.flash('signupMessage'),
-            pageTitle: 'Sign up'
+        res.render('auth/signup.ejs', {
+            message     : req.flash('signupMessage'),
+            pageTitle   : 'Sign up'
         });
     });
 
     // process the signup form
     app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/profile', // redirect to the secure profile section
-        failureRedirect: '/signup', // redirect back to the signup page if there is an error
-        failureFlash: true // allow flash messages
+        successRedirect : '/profile', // redirect to the secure profile section
+        failureRedirect : '/signup', // redirect back to the signup page if there is an error
+        failureFlash    : true // allow flash messages
     }));
-
-    // =====================================
-    // PROFILE SECTION =====================
-    // =====================================
-    // we will want this protected so you have to be logged in to visit
-    // we will use route middleware to verify this (the isLoggedIn function)
-    app.get('/profile', isLoggedIn, function (req, res) {
-        res.render('profile.ejs', {
-            user: req.user, // get the user out of session and pass to template
-            pageTitle: 'Profile'
-        });
-    });
 
     // =====================================
     // FACEBOOK ROUTES =====================
@@ -70,8 +104,8 @@ module.exports = function (app, passport) {
     // handle the callback after facebook has authenticated the user
     app.get('/auth/facebook/callback',
         passport.authenticate('facebook', {
-            successRedirect: '/profile',
-            failureRedirect: '/'
+            successRedirect : '/profile',
+            failureRedirect : '/'
         }));
 
     // =====================================
@@ -90,12 +124,74 @@ module.exports = function (app, passport) {
         }));
 
     // =====================================
-    // LOGOUT ==============================
+    // VK ROUTES ===========================
     // =====================================
-    app.get('/logout', function (req, res) {
-        req.logout();
-        res.redirect('/');
+    // send to google to do the authentication
+    // profile gets us their basic information including their name
+    // email gets their emails
+    app.get('/auth/vk', passport.authenticate('vkontakte'));
+
+    // the callback after google has authenticated the user
+    app.get('/auth/vk/callback',
+        passport.authenticate('vkontakte', {
+            successRedirect : '/profile',
+            failureRedirect : '/'
+        }));
+
+// =============================================================================
+// AUTHORIZE (ALREADY LOGGED IN / CONNECTING OTHER SOCIAL ACCOUNT) =============
+// =============================================================================
+
+    // locally --------------------------------
+    app.get('/connect/local', function(req, res) {
+        res.render('auth/connect-local.ejs', {
+            message     : req.flash('signupMessage'),
+            pageTitle   : "Add Local Account"
+        });
     });
+    app.post('/connect/local', passport.authenticate('local-signup', {
+        successRedirect : '/profile', // redirect to the secure profile section
+        failureRedirect : '/connect/local', // redirect back to the signup page if there is an error
+        failureFlash    : true // allow flash messages
+    }));
+
+    // facebook -------------------------------
+
+    // send to facebook to do the authentication
+    app.get('/connect/facebook', passport.authorize('facebook', { scope : 'email' }));
+
+    // handle the callback after facebook has authorized the user
+    app.get('/connect/facebook/callback',
+        passport.authorize('facebook', {
+            successRedirect : '/profile',
+            failureRedirect : '/'
+        }));
+
+    // google ---------------------------------
+
+    // send to google to do the authentication
+    app.get('/connect/google', passport.authorize('google', { scope : ['profile', 'email'] }));
+
+    // the callback after google has authorized the user
+    app.get('/connect/google/callback',
+        passport.authorize('google', {
+            successRedirect : '/profile',
+            failureRedirect : '/'
+        }));
+
+    // VK -------------------------------------
+
+    // send to vk to do the authentication
+    app.get('/connect/vk', passport.authorize('vkontakte'));
+
+    // the callback after vk has authorized the user
+    app.get('/connect/vk/callback',
+        passport.authorize('vkontakte', {
+            successRedirect : '/profile',
+            failureRedirect : '/'
+        }));
+
+
 };
 
 // route middleware to make sure a user is logged in

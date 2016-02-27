@@ -6,6 +6,7 @@ var userSchema = new Schema({
     local            : {
         email        : String,
         password     : String,
+        name         : String
     },
     facebook         : {
         id           : String,
@@ -14,6 +15,13 @@ var userSchema = new Schema({
         name         : String
     },
     google           : {
+        id           : String,
+        token        : String,
+        email        : String,
+        name         : String
+    },
+
+    vk               : {
         id           : String,
         token        : String,
         email        : String,

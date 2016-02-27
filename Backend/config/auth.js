@@ -11,6 +11,12 @@ module.exports = {
         'clientID'      : '843147385208-f0qgvn0lgtidc7d6of53q1j2c3t6798s.apps.googleusercontent.com',
         'clientSecret'  : 'eNTaN9mkRJWfYdJIKEUmryXV',
         'callbackURL'   : 'http://localhost:5050/auth/google/callback'
+    },
+
+    'vkAuth' : {
+        'clientID'      : '5321612',
+        'clientSecret'  : 'R86taYtQoSxhLeQqrkuP',
+        'callbackURL'   : 'http://localhost:5050/auth/vk/callback'
     }
 
 };
