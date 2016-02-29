@@ -1,7 +1,9 @@
 var api         = require('./api');
 var Templates   = require('./templates');
 
+
 $('.create-pet-form').submit(function( event ) {
+
     api.createPet({
         name            : $('.create-pet-form #name').val(),
         //TODO: image
@@ -18,7 +20,8 @@ $('.create-pet-form').submit(function( event ) {
         if(err) {
             alert("Can't create pet");
         } else {
-            window.location.href = "/pets/"+result.pet._id;
+
+            //window.location.href = "/pets/"+result.pet._id;
         }
     });
     event.preventDefault();

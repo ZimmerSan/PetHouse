@@ -52,7 +52,6 @@ function deleteUserById(req, res) {
 }
 
 function createPet(req, res) {
-    //console.log(req.body, "body");
     var pet                    = new Pet();
     pet.pet.name               = req.body.name;
     //TODO: image
@@ -66,14 +65,16 @@ function createPet(req, res) {
     pet.pet.other              = req.body.other;
 
     pet.system.created_at      = Date.now();
+    pet.system.updated_at      = Date.now();
     pet.system.status          = "New";
+    pet.system.author          = req.user._id;
 
     // save the user and check for errors
     pet.save(function (err) {
         if (err) res.send(err);
         res.json({
             message : 'Pet created!',
-            pet    : pet,
+            pet     : pet,
             user    : req.user
         });
     });
@@ -94,9 +95,34 @@ function getPetById(req, res) {
 }
 
 function getPetsByAuthor(req, res) {
-    Pet.find({ 'system.author' : req.user._id },function (err, pets) {
+    Pet.find({ 'system.author' : req.params.author_id },function (err, pets) {
         if (err) res.send(err);
         res.json(pets);
+    });
+}
+
+function uploadImg(req, res) {
+    var fs      = require('fs');
+    var Img     = require('../../Backend/app/models/img.js');
+    //var imgPath = $('.create-pet-form #image').val();
+    var imgPath = "Backend/Chrysanthemum.jpg";
+
+    // empty the collection
+    Img.remove(function (err) {
+        if (err) throw err;
+
+        console.error('removed old docs');
+
+        // store an img in binary in mongo
+        var a = new Img;
+        a.img.data = fs.readFileSync(imgPath);
+        a.img.contentType = 'image/png';
+        a.save(function (err, a) {
+            if (err) throw err;
+            console.error(a);
+            console.error('saved img to mongo');
+
+        });
     });
 }
 
