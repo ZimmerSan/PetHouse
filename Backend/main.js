@@ -58,7 +58,13 @@ function configureEndpoints(app) {
         .get(api.getPetsByAuthor);
 
     router.route('/pets/:pet_id')
-        .get(api.getPetById);
+        .get(api.getPetById)
+
+    router.route('/img')
+        .post(api.uploadImg);
+
+    router.route('/img/:img_id')
+        .get(api.getImgById);
 
     // REGISTER OUR ROUTES -------------------------------
     // all of our routes will be prefixed with /api

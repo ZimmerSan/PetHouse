@@ -1,5 +1,6 @@
-var User = require('./models/user');
-var Pet = require('./models/pet');
+var User    = require('./models/user');
+var Pet     = require('./models/pet');
+var Img     = require('./models/img');
 
 function createUser(req, res) {
     var user = new User();      // create a new instance of the User model
@@ -104,40 +105,58 @@ function getPetsByAuthor(req, res) {
 function uploadImg(req, res) {
     var fs      = require('fs');
     var Img     = require('../../Backend/app/models/img.js');
-    //var imgPath = $('.create-pet-form #image').val();
-    var imgPath = "Backend/Chrysanthemum.jpg";
+    var imgPath = req.body.filepath;
 
-    // empty the collection
-    Img.remove(function (err) {
+    var a = new Img;
+    a.img.data = fs.readFileSync(imgPath);
+    a.img.contentType = 'image/png';
+    a.save(function (err, a) {
         if (err) throw err;
+        console.error(a);
+        console.error('saved img to mongo');
+        res.json(a._id);
+    });
 
-        console.error('removed old docs');
+    //todo: deal with clearing uploaded data
+    // empty the collection
+    //Img.remove(function (err) {
+    //    if (err) throw err;
+    //
+    //    console.error('removed old docs');
+    //
+    //    // store an img in binary in mongo
+    //    var a = new Img;
+    //    a.img.data = fs.readFileSync(imgPath);
+    //    a.img.contentType = 'image/png';
+    //    a.save(function (err, a) {
+    //        if (err) throw err;
+    //        console.error(a);
+    //        console.error('saved img to mongo');
+    //        res.json(a._id);
+    //    });
+    //});
+}
 
-        // store an img in binary in mongo
-        var a = new Img;
-        a.img.data = fs.readFileSync(imgPath);
-        a.img.contentType = 'image/png';
-        a.save(function (err, a) {
-            if (err) throw err;
-            console.error(a);
-            console.error('saved img to mongo');
-
-        });
+function getImgById(req, res) {
+    Img.findById(req.params.img_id, function (err, doc) {
+        if (err) return next(err);
+        res.contentType(doc.img.contentType);
+        //res.json(doc.img.data);
+        //todo: don't lose
+        res.send(doc.img.data);
     });
 }
 
-
-
-exports.createUser  = createUser;
-exports.getAllUsers = getAllUsers;
-
+exports.createUser      = createUser;
+exports.getAllUsers     = getAllUsers;
 exports.getUserById     = getUserById;
 exports.updateUserById  = updateUserById;
 exports.deleteUserById  = deleteUserById;
 
-exports.createPet   = createPet;
-exports.getAllPets  = getAllPets;
-
-exports.getPetById  = getPetById;
-
+exports.createPet       = createPet;
+exports.getAllPets      = getAllPets;
+exports.getPetById      = getPetById;
 exports.getPetsByAuthor = getPetsByAuthor;
+
+exports.uploadImg       = uploadImg;
+exports.getImgById      = getImgById;

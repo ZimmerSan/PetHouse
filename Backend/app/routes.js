@@ -1,8 +1,6 @@
 var flash   = require('connect-flash');
 var api     = require('./api');
 
-var Img = require('./models/img');
-
 module.exports = function (app, passport) {
 
     // normal routes ===============================================================
@@ -53,7 +51,7 @@ module.exports = function (app, passport) {
     });
 
     app.get('/img', function (req, res, next) {
-        Img.findById("56d46f718faabd880a3d996f", function (err, doc) {
+        Img.findById("56d47d4778061e581ab9a168", function (err, doc) {
             if (err) return next(err);
             res.contentType(doc.img.contentType);
             res.send(doc.img.data);
