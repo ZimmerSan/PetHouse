@@ -51,12 +51,13 @@ function configureEndpoints(app) {
         .delete(api.deleteUserById);
 
     router.route('/pets')
-
         .post(api.createPet)
         .get(api.getAllPets);
 
-    router.route('/pets/:pet_id')
+    router.route('/pets/author/:author_id')
+        .get(api.getPetsByAuthor);
 
+    router.route('/pets/:pet_id')
         .get(api.getPetById);
 
     // REGISTER OUR ROUTES -------------------------------

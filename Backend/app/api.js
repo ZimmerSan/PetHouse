@@ -93,14 +93,25 @@ function getPetById(req, res) {
     });
 }
 
-exports.createUser = createUser;
+function getPetsByAuthor(req, res) {
+    Pet.find({ 'system.author' : req.user._id },function (err, pets) {
+        if (err) res.send(err);
+        res.json(pets);
+    });
+}
+
+
+
+exports.createUser  = createUser;
 exports.getAllUsers = getAllUsers;
 
-exports.getUserById = getUserById;
-exports.updateUserById = updateUserById;
-exports.deleteUserById = deleteUserById;
+exports.getUserById     = getUserById;
+exports.updateUserById  = updateUserById;
+exports.deleteUserById  = deleteUserById;
 
-exports.createPet = createPet;
-exports.getAllPets = getAllPets;
+exports.createPet   = createPet;
+exports.getAllPets  = getAllPets;
 
-exports.getPetById = getPetById;
+exports.getPetById  = getPetById;
+
+exports.getPetsByAuthor = getPetsByAuthor;

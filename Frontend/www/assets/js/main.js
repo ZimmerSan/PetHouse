@@ -41,6 +41,10 @@ exports.createPet = function(pet_info, callback) {
     backendPost("/api/pets/", pet_info, callback);
 };
 
+exports.getPetsByAuthor = function(author_id, callback) {
+    backendGet("/api/pets/author"+author_id, callback);
+};
+
 },{}],2:[function(require,module,exports){
 $(function(){
    var Pet = require('./pet');
