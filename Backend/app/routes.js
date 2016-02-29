@@ -17,6 +17,7 @@ module.exports = function (app, passport) {
     // =====================================
     // we will want this protected so you have to be logged in to visit
     // we will use route middleware to verify this (the isLoggedIn function)
+    //todo: maybe change to /profile/:user_id
     app.get('/profile', isLoggedIn, function (req, res) {
         res.render('profile/profile.ejs', {
             user        : req.user, // get the user out of session and pass to template
@@ -34,22 +35,21 @@ module.exports = function (app, passport) {
 
     // create post
     app.get('/posts/create', isLoggedIn, function (req, res) {
-        res.render('post/create_post', {
+        res.render('posts/create_post', {
             user        : req.user, // get the user out of session and pass to template
             pageTitle   : 'Create post'
         });
     });
 
-    //app.post('/posts', function (req, res) {
-    //    api.createPost(req, function (err, result) {
-    //        if (err) {
-    //            alert("Can't create post");
-    //        } else {
-    //            console.log(result, "res");
-    //        }
-    //    });
-    //    //res.redirect("/posts/"+res._id);
-    //});
+    app.get('/posts/:post_id', function (req, res) {
+        res.render('posts/single', {
+            user        : req.user, // get the user out of session and pass to template
+            pageTitle   : 'Single post'
+        });
+    });
+
+    //todo: create page for post editing
+    //todo: create page for user's posts review
 
 // =============================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================
@@ -191,7 +191,7 @@ module.exports = function (app, passport) {
             failureRedirect : '/'
         }));
 
-
+    //TODO: implement unlinking
 };
 
 // route middleware to make sure a user is logged in

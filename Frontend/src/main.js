@@ -2,5 +2,7 @@ $(function(){
    var Post = require('./post');
    var api = require('./api');
 
-   Post.initializePostForm();
+   if(window.location.pathname === '/'){
+      Post.initializeMainPostList();
+   }
 });

@@ -3,7 +3,8 @@
 <div class="container">
 
     <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+        <h1><span class="fa fa-anchor"></span>Profile Page</h1>
+        <p><%= user._id %></p>
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
         <a href="/posts/create" class="btn btn-primary btn-sm">Create post</a>
     </div>
@@ -65,8 +66,7 @@
                 <p>
                     <strong>id</strong>: <%= user.vk.id %><br>
                     <strong>token</strong>: <%= user.vk.token %><br>
-                    <strong>display name</strong>: <%= user.vk.displayName %><br>
-                    <strong>username</strong>: <%= user.vk.username %>
+                    <strong>name</strong>: <%= user.vk.name %>
                 </p>
 
                 <a href="/unlink/vk" class="btn btn-info">Unlink</a>

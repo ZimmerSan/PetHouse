@@ -1,4 +1,5 @@
-var api = require('./api');
+var api         = require('./api');
+var Templates   = require('./templates');
 
 $('.create-post-form').submit(function( event ) {
     api.createPost({
@@ -27,4 +28,29 @@ $('.create-post-form').submit(function( event ) {
 function initializePostForm() {
 }
 
+function showPostList(list, element){
+    element.html("");
+
+    function showOnePost(post) {
+        var html_code = Templates.Post_Short({post: post});
+        var $node = $(html_code);
+        //$node.find(".buy-big").click(function(){});
+
+        element.append($node);
+    }
+
+    list.forEach(showOnePost);
+}
+
+function initializeMainPostList() {
+    api.getAllPosts(function(err, result){
+        if(err) {
+            alert("Can't get all posts");
+        } else {
+            showPostList(result, $("#post_list"));
+        }
+    });
+}
+
 exports.initializePostForm = initializePostForm;
+exports.initializeMainPostList = initializeMainPostList;
