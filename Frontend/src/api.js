@@ -28,14 +28,14 @@ function backendPost(url, data, callback) {
     })
 }
 
-exports.getAllPosts = function(callback) {
-    backendGet("/api/posts", callback);
+exports.getAllPets = function(callback) {
+    backendGet("/api/pets", callback);
 };
 
-exports.getPostById = function(id, callback) {
-    backendGet("/api/posts/"+id, callback);
+exports.getPetById = function(id, callback) {
+    backendGet("/api/pets/"+id, callback);
 };
 
-exports.createPost = function(post_info, callback) {
-    backendPost("/api/posts/", post_info, callback);
+exports.createPet = function(pet_info, callback) {
+    backendPost("/api/pets/", pet_info, callback);
 };

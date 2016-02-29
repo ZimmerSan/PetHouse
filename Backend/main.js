@@ -50,14 +50,14 @@ function configureEndpoints(app) {
         // delete the bear with this id (accessed at DELETE http://localhost:8080/api/bears/:bear_id)
         .delete(api.deleteUserById);
 
-    router.route('/posts')
+    router.route('/pets')
 
-        .post(api.createPost)
-        .get(api.getAllPosts);
+        .post(api.createPet)
+        .get(api.getAllPets);
 
-    router.route('/posts/:post_id')
+    router.route('/pets/:pet_id')
 
-        .get(api.getPostById);
+        .get(api.getPetById);
 
     // REGISTER OUR ROUTES -------------------------------
     // all of our routes will be prefixed with /api

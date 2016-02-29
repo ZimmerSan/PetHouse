@@ -29,89 +29,88 @@ function backendPost(url, data, callback) {
     })
 }
 
-exports.getAllPosts = function(callback) {
-    backendGet("/api/posts", callback);
+exports.getAllPets = function(callback) {
+    backendGet("/api/pets", callback);
 };
 
-exports.getPostById = function(id, callback) {
-    backendGet("/api/posts/"+id, callback);
+exports.getPetById = function(id, callback) {
+    backendGet("/api/pets/"+id, callback);
 };
 
-exports.createPost = function(post_info, callback) {
-    backendPost("/api/posts/", post_info, callback);
+exports.createPet = function(pet_info, callback) {
+    backendPost("/api/pets/", pet_info, callback);
 };
 
 },{}],2:[function(require,module,exports){
 $(function(){
-   var Post = require('./post');
+   var Pet = require('./pet');
    var api = require('./api');
 
    if(window.location.pathname === '/'){
-      Post.initializeMainPostList();
+      Pet.initializeMainPetList();
    }
 });
-},{"./api":1,"./post":3}],3:[function(require,module,exports){
+},{"./api":1,"./pet":3}],3:[function(require,module,exports){
 var api         = require('./api');
 var Templates   = require('./templates');
 
-$('.create-post-form').submit(function( event ) {
-    api.createPost({
-        name            : $('.create-post-form #name').val(),
+$('.create-pet-form').submit(function( event ) {
+    api.createPet({
+        name            : $('.create-pet-form #name').val(),
         //TODO: image
-        species         : $('.create-post-form #species').val(),
+        species         : $('.create-pet-form #species').val(),
         //TODO: all other fields
-        //breed           : $('.create-post-form #breed').val(),
-        sex             : $('.create-post-form input[name="sex"]').val(),
-        //location        : $('.create-post-form #location').val(),
-        //att_to_children : $('.create-post-form #att_to_children').val(),
-        //character       : $('.create-post-form #character').val(),
-        //vaccinations    : $('.create-post-form #vaccinations').val(),
-        other           : $('.create-post-form #other').val()
+        //breed           : $('.create-pet-form #breed').val(),
+        sex             : $('.create-pet-form input[name="sex"]').val(),
+        //location        : $('.create-pet-form #location').val(),
+        //att_to_children : $('.create-pet-form #att_to_children').val(),
+        //character       : $('.create-pet-form #character').val(),
+        //vaccinations    : $('.create-pet-form #vaccinations').val(),
+        other           : $('.create-pet-form #other').val()
     }, function(err, result){
         if(err) {
-            alert("Can't create post");
+            alert("Can't create pet");
         } else {
-            console.log(result);
-            //window.location.href = "/posts/"+result.post._id;
+            window.location.href = "/pets/"+result.pet._id;
         }
     });
     event.preventDefault();
 });
 
-function initializePostForm() {
+function initializePetForm() {
 }
 
-function showPostList(list, element){
+function showPetList(list, element){
     element.html("");
 
-    function showOnePost(post) {
-        var html_code = Templates.Post_Short({post: post});
+    function showOnePet(pet) {
+        var html_code = Templates.Pet_Short({pet: pet});
         var $node = $(html_code);
         //$node.find(".buy-big").click(function(){});
 
         element.append($node);
     }
 
-    list.forEach(showOnePost);
+    list.forEach(showOnePet);
 }
 
-function initializeMainPostList() {
-    api.getAllPosts(function(err, result){
+function initializeMainPetList() {
+    api.getAllPets(function(err, result){
         if(err) {
-            alert("Can't get all posts");
+            alert("Can't get all Pets");
         } else {
-            showPostList(result, $("#post_list"));
+            showPetList(result, $("#pet_list"));
         }
     });
 }
 
-exports.initializePostForm = initializePostForm;
-exports.initializeMainPostList = initializeMainPostList;
+exports.initializePetForm = initializePetForm;
+exports.initializeMainPetList = initializeMainPetList;
 },{"./api":1,"./templates":4}],4:[function(require,module,exports){
 
 var ejs = require('ejs');
 
-exports.Post_Short = ejs.compile("<!--TODO complete this page-->\r\n<div>\r\n    <span><a href=\"posts/<%=post._id%>\">link</a>  : <%=post.pet.species%></span>\r\n</div>\r\n");
+exports.Pet_Short = ejs.compile("<!--TODO complete this page-->\r\n<div>\r\n    <span><a href=\"pets/<%=pet._id%>\">link</a>  : <%=pet.pet.species%></span>\r\n</div>\r\n");
 },{"ejs":6}],5:[function(require,module,exports){
 
 },{}],6:[function(require,module,exports){

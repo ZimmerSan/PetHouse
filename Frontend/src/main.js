@@ -1,8 +1,8 @@
 $(function(){
-   var Post = require('./post');
+   var Pet = require('./pet');
    var api = require('./api');
 
    if(window.location.pathname === '/'){
-      Post.initializeMainPostList();
+      Pet.initializeMainPetList();
    }
 });

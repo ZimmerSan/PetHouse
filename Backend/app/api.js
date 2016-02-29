@@ -1,5 +1,5 @@
 var User = require('./models/user');
-var Post = require('./models/post');
+var Pet = require('./models/pet');
 
 function createUser(req, res) {
     var user = new User();      // create a new instance of the User model
@@ -51,45 +51,45 @@ function deleteUserById(req, res) {
     });
 }
 
-function createPost(req, res) {
+function createPet(req, res) {
     //console.log(req.body, "body");
-    var post                    = new Post();
-    post.pet.name               = req.body.name;
+    var pet                    = new Pet();
+    pet.pet.name               = req.body.name;
     //TODO: image
-    post.pet.species            = req.body.species;
-    post.pet.breed              = req.body.breed;
-    post.pet.sex                = req.body.sex;
-    post.pet.location           = req.body.location;
-    post.pet.att_to_children    = req.body.att_to_children;
-    post.pet.character          = req.body.character;
-    post.pet.vaccinations       = req.body.vaccinations;
-    post.pet.other              = req.body.other;
+    pet.pet.species            = req.body.species;
+    pet.pet.breed              = req.body.breed;
+    pet.pet.sex                = req.body.sex;
+    pet.pet.location           = req.body.location;
+    pet.pet.att_to_children    = req.body.att_to_children;
+    pet.pet.character          = req.body.character;
+    pet.pet.vaccinations       = req.body.vaccinations;
+    pet.pet.other              = req.body.other;
 
-    post.system.created_at      = Date.now();
-    post.system.status          = "New";
+    pet.system.created_at      = Date.now();
+    pet.system.status          = "New";
 
     // save the user and check for errors
-    post.save(function (err) {
+    pet.save(function (err) {
         if (err) res.send(err);
         res.json({
-            message : 'Post created!',
-            post    : post,
+            message : 'Pet created!',
+            pet    : pet,
             user    : req.user
         });
     });
 }
 
-function getAllPosts(req, res) {
-    Post.find(function (err, posts) {
+function getAllPets(req, res) {
+    Pet.find(function (err, pets) {
         if (err) res.send(err);
-        res.json(posts);
+        res.json(pets);
     });
 }
 
-function getPostById(req, res) {
-    Post.findById(req.params.post_id, function (err, post) {
+function getPetById(req, res) {
+    Pet.findById(req.params.pet_id, function (err, pet) {
         if (err) res.send(err);
-        res.json(post);
+        res.json(pet);
     });
 }
 
@@ -100,7 +100,7 @@ exports.getUserById = getUserById;
 exports.updateUserById = updateUserById;
 exports.deleteUserById = deleteUserById;
 
-exports.createPost = createPost;
-exports.getAllPosts = getAllPosts;
+exports.createPet = createPet;
+exports.getAllPets = getAllPets;
 
-exports.getPostById = getPostById;
+exports.getPetById = getPetById;

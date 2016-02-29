@@ -25,6 +25,8 @@ module.exports = function (app, passport) {
         });
     });
 
+
+
     // =====================================
     // LOGOUT ==============================
     // =====================================
@@ -33,23 +35,23 @@ module.exports = function (app, passport) {
         res.redirect('/');
     });
 
-    // create post
-    app.get('/posts/create', isLoggedIn, function (req, res) {
-        res.render('posts/create_post', {
+    // create pet
+    app.get('/pets/create', isLoggedIn, function (req, res) {
+        res.render('pets/create_pet', {
             user        : req.user, // get the user out of session and pass to template
-            pageTitle   : 'Create post'
+            pageTitle   : 'Create pet'
         });
     });
 
-    app.get('/posts/:post_id', function (req, res) {
-        res.render('posts/single', {
+    app.get('/pets/:pet_id', function (req, res) {
+        res.render('pets/single_pet', {
             user        : req.user, // get the user out of session and pass to template
-            pageTitle   : 'Single post'
+            pageTitle   : 'Single pet'
         });
     });
 
-    //todo: create page for post editing
-    //todo: create page for user's posts review
+    //todo: create page for pet editing
+    //todo: create page for user's pets review
 
 // =============================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================

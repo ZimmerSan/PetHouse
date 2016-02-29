@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema   = mongoose.Schema;
 
-var postSchema = new Schema({
+var petSchema = new Schema({
     pet                 :{
         name            : String,
         img             : { data : Buffer, contentType : String },
@@ -23,10 +23,10 @@ var postSchema = new Schema({
 });
 
 // methods ======================
-postSchema.methods.changeStatus = function(status) {
+petSchema.methods.changeStatus = function(status) {
     this.system.status = status;
     this.system.updated_at = Date.now();
     return this.system.status;
 };
 
-module.exports = mongoose.model('Post', postSchema);
+module.exports = mongoose.model('Pet', petSchema);
