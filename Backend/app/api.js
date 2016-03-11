@@ -54,14 +54,13 @@ function deleteUserById(req, res) {
 }
 
 function createPet(req, res) {
-    //console.log("API request: ", req.body);
-
+    //save image
     var img = new Img();
     img.img.data = fs.readFileSync(req.body.file.path);
     img.img.contentType = 'image/png';
     img.save();
-    //console.log("Image:",img._id);
 
+    //fill the pet
     var pet                    = new Pet();
     pet.pet.name               = req.body.form.name;
     pet.pet.img                = img._id;
@@ -79,7 +78,7 @@ function createPet(req, res) {
     pet.system.status          = "New";
     pet.system.author          = req.body.user._id;
 
-    // save the user and check for errors
+    // save the pet and check for errors
     pet.save(function (err) {
         if (err) res.send(err);
         else res.json({

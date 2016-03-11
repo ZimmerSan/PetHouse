@@ -53,12 +53,10 @@ module.exports = function (app, passport) {
         filename: function (req, file, cb) {
             cb(null, file.fieldname)
         }
-    })
-    var upload = multer({ storage: storage })
+    });
+    var upload = multer({ storage: storage });
 
     app.post('/pets', isLoggedIn, upload.single('image'), function (req, res){
-        //console.log("Fields:", req.body);
-        console.log("Files:", req.file);
         request({
             uri: API_URL+"/api/pets",
             method: "POST",
@@ -68,7 +66,6 @@ module.exports = function (app, passport) {
                 user: req.user
             }
         }, function(error, response, body) {
-            //console.log("Response body: ", body);
             res.redirect("/pets/"+body.pet._id);
         });
     });
@@ -86,16 +83,6 @@ module.exports = function (app, passport) {
             pageTitle   : 'Single pet'
         });
     });
-
-    app.get('/img/:img_id', function (req, res, next) {
-        Img.findById(req.params.img_id, function (err, doc) {
-            if (err) return next(err);
-            res.contentType(doc.img.contentType);
-            res.send(doc.img.data);
-        });
-    });
-
-
 
     //todo: create page for pet editing
     //todo: create page for user's pets review
