@@ -64,7 +64,7 @@ var Templates   = require('./templates');
 
 
 $('#create-pet-button').click(function( event ){
-    alert("I've been clicked");
+    //alert("I've been clicked");
     $('.create-pet-form').submit();
     event.preventDefault();
 });
@@ -133,7 +133,7 @@ exports.initializeMainPetList = initializeMainPetList;
 
 var ejs = require('ejs');
 
-exports.Pet_Short = ejs.compile("<!--TODO complete this page-->\r\n<div>\r\n    <span><a href=\"pets/<%=pet._id%>\">link</a>  : <%=pet.pet.species%></span>\r\n</div>\r\n");
+exports.Pet_Short = ejs.compile("<!--TODO complete this page-->\r\n<div>\r\n    <span><a href=\"pets/<%=pet._id%>\">link</a>  : <%=pet.pet.species%> | <a href=\"/api/img/<%=pet.pet.img%>\">image</a></span>\r\n</div>\r\n");
 },{"ejs":6}],5:[function(require,module,exports){
 
 },{}],6:[function(require,module,exports){

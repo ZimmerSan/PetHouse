@@ -3,7 +3,7 @@ var Templates   = require('./templates');
 
 
 $('#create-pet-button').click(function( event ){
-    alert("I've been clicked");
+    //alert("I've been clicked");
     $('.create-pet-form').submit();
     event.preventDefault();
 });
