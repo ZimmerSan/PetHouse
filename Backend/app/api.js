@@ -1,6 +1,7 @@
 var User    = require('./models/user');
 var Pet     = require('./models/pet');
 var Img     = require('./models/img');
+var fs      = require('fs');
 
 function createUser(req, res) {
     var user = new User();      // create a new instance of the User model
@@ -53,30 +54,37 @@ function deleteUserById(req, res) {
 }
 
 function createPet(req, res) {
+    //save image
+    var img = new Img();
+    img.img.data = fs.readFileSync(req.body.file.path);
+    img.img.contentType = 'image/png';
+    img.save();
+
+    //fill the pet
     var pet                    = new Pet();
-    pet.pet.name               = req.body.name;
-    //TODO: image
-    pet.pet.species            = req.body.species;
-    pet.pet.breed              = req.body.breed;
-    pet.pet.sex                = req.body.sex;
-    pet.pet.location           = req.body.location;
-    pet.pet.att_to_children    = req.body.att_to_children;
-    pet.pet.character          = req.body.character;
-    pet.pet.vaccinations       = req.body.vaccinations;
-    pet.pet.other              = req.body.other;
+    pet.pet.name               = req.body.form.name;
+    pet.pet.img                = img._id;
+    pet.pet.species            = req.body.form.species;
+    pet.pet.breed              = req.body.form.breed;
+    pet.pet.sex                = req.body.form.sex;
+    pet.pet.location           = req.body.form.location;
+    pet.pet.att_to_children    = req.body.form.att_to_children;
+    pet.pet.character          = req.body.form.character;
+    pet.pet.vaccinations       = req.body.form.vaccinations;
+    pet.pet.other              = req.body.form.other;
 
     pet.system.created_at      = Date.now();
     pet.system.updated_at      = Date.now();
     pet.system.status          = "New";
-    pet.system.author          = req.user._id;
+    pet.system.author          = req.body.user._id;
 
-    // save the user and check for errors
+    // save the pet and check for errors
     pet.save(function (err) {
         if (err) res.send(err);
-        res.json({
+        else res.json({
             message : 'Pet created!',
             pet     : pet,
-            user    : req.user
+            user    : req.body.user
         });
     });
 }

@@ -49,6 +49,10 @@ exports.uploadImg = function(filepath, callback) {
     backendPost("/api/img/", {filepath : filepath}, callback);
 };
 
+exports.getImg = function(img_id, callback) {
+    backendGet("/api/img/"+img_id, callback);
+}
+
 },{}],2:[function(require,module,exports){
 $(function(){
    var Pet = require('./pet');
@@ -62,44 +66,6 @@ $(function(){
 var api         = require('./api');
 var Templates   = require('./templates');
 
-
-$('#create-pet-button').click(function( event ){
-    alert("I've been clicked");
-    $('.create-pet-form').submit();
-    event.preventDefault();
-});
-
-//$('.create-pet-form').submit(function( event ) {
-//
-//    api.createPet({
-//        name            : $('.create-pet-form #name').val(),
-//        //TODO: image
-//        species         : $('.create-pet-form #species').val(),
-//        //TODO: all other fields
-//        //breed           : $('.create-pet-form #breed').val(),
-//        sex             : $('.create-pet-form input[name="sex"]').val(),
-//        //location        : $('.create-pet-form #location').val(),
-//        //att_to_children : $('.create-pet-form #att_to_children').val(),
-//        //character       : $('.create-pet-form #character').val(),
-//        //vaccinations    : $('.create-pet-form #vaccinations').val(),
-//        other           : $('.create-pet-form #other').val()
-//    }, function(err, result){
-//        if(err) {
-//            alert("Can't create pet");
-//        } else {
-//            api.uploadImg($('.create-pet-form #image').val(), function(err, result){
-//                if(err) {
-//                    alert("Can't create pet");
-//                } else {
-//                    alert("Uploaded!");
-//                }
-//            });
-//            //window.location.href = "/pets/"+result.pet._id;
-//        }
-//    });
-//    event.preventDefault();
-//});
-
 function initializePetForm() {
 }
 
@@ -109,6 +75,9 @@ function showPetList(list, element){
     function showOnePet(pet) {
         var html_code = Templates.Pet_Short({pet: pet});
         var $node = $(html_code);
+
+        $node.find(".image").attr('src', "/img/"+pet.pet.img);
+
         //$node.find(".buy-big").click(function(){});
 
         element.append($node);
@@ -133,7 +102,7 @@ exports.initializeMainPetList = initializeMainPetList;
 
 var ejs = require('ejs');
 
-exports.Pet_Short = ejs.compile("<!--TODO complete this page-->\r\n<div>\r\n    <span><a href=\"pets/<%=pet._id%>\">link</a>  : <%=pet.pet.species%></span>\r\n</div>\r\n");
+exports.Pet_Short = ejs.compile("<!--TODO complete this page-->\r\n<div>\r\n    <span><a href=\"pets/<%=pet._id%>\">link</a>  : <%=pet.pet.species%> | <a href=\"/api/img/<%=pet.pet.img%>\">image</a></span>\r\n    <img class=\"image\"/>\r\n</div>\r\n");
 },{"ejs":6}],5:[function(require,module,exports){
 
 },{}],6:[function(require,module,exports){

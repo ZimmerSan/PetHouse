@@ -1,5 +1,12 @@
 var flash   = require('connect-flash');
 var api     = require('./api');
+var request = require('request');
+var multer  = require('multer');
+
+
+var Img     = require('./models/img');
+
+var API_URL = "http://localhost:5050"
 
 module.exports = function (app, passport) {
 
@@ -35,7 +42,34 @@ module.exports = function (app, passport) {
         res.redirect('/');
     });
 
-    // create pet
+    // =====================================
+    // PETS ================================
+    // =====================================
+
+    var storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, './uploads/')
+        },
+        filename: function (req, file, cb) {
+            cb(null, file.fieldname)
+        }
+    });
+    var upload = multer({ storage: storage });
+
+    app.post('/pets', isLoggedIn, upload.single('image'), function (req, res){
+        request({
+            uri: API_URL+"/api/pets",
+            method: "POST",
+            json: {
+                form: req.body,
+                file: req.file,
+                user: req.user
+            }
+        }, function(error, response, body) {
+            res.redirect("/pets/"+body.pet._id);
+        });
+    });
+
     app.get('/pets/create', isLoggedIn, function (req, res) {
         res.render('pets/create_pet', {
             user        : req.user, // get the user out of session and pass to template
@@ -50,11 +84,18 @@ module.exports = function (app, passport) {
         });
     });
 
-    app.get('/img', function (req, res, next) {
-        Img.findById("56d47d4778061e581ab9a168", function (err, doc) {
-            if (err) return next(err);
-            res.contentType(doc.img.contentType);
-            res.send(doc.img.data);
+    // =====================================
+    // IMAGES ==============================
+    // =====================================
+
+    app.get('/img/:img_id', function (req, res, next) {
+        Img.findById(req.param("img_id"), function (err, doc) {
+            if (err) res.send(err);
+            else if (doc) {
+                res.contentType(doc.img.contentType);
+                res.send(doc.img.data);
+            }
+            else res.send("Oops! Image not found.");
         });
     });
 
