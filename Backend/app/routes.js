@@ -90,9 +90,12 @@ module.exports = function (app, passport) {
 
     app.get('/img/:img_id', function (req, res, next) {
         Img.findById(req.param("img_id"), function (err, doc) {
-            if (err) return next(err);
-            res.contentType(doc.img.contentType);
-            res.send(doc.img.data);
+            if (err) res.send(err);
+            else if (doc) {
+                res.contentType(doc.img.contentType);
+                res.send(doc.img.data);
+            }
+            else res.send("Oops! Image not found.");
         });
     });
 
