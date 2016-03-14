@@ -47,3 +47,7 @@ exports.getPetsByAuthor = function(author_id, callback) {
 exports.uploadImg = function(filepath, callback) {
     backendPost("/api/img/", {filepath : filepath}, callback);
 };
+
+exports.getImg = function(img_id, callback) {
+    backendGet("/api/img/"+img_id, callback);
+}

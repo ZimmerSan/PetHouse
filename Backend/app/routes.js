@@ -84,6 +84,18 @@ module.exports = function (app, passport) {
         });
     });
 
+    // =====================================
+    // IMAGES ==============================
+    // =====================================
+
+    app.get('/img/:img_id', function (req, res, next) {
+        Img.findById(req.param("img_id"), function (err, doc) {
+            if (err) return next(err);
+            res.contentType(doc.img.contentType);
+            res.send(doc.img.data);
+        });
+    });
+
     //todo: create page for pet editing
     //todo: create page for user's pets review
 
