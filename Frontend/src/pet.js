@@ -56,6 +56,7 @@ function showPetList(list, element){
     list.forEach(showOnePet);
 }
 
+
 function initializeMainPetList() {
     api.getAllPets(function(err, result){
         if(err) {
@@ -66,5 +67,30 @@ function initializeMainPetList() {
     });
 }
 
+function showOnePetFull(pet, element){
+    element.html("");
+
+    function showOnePet(pet) {
+        var html_code = Templates.Pet_Full({pet: pet});
+        var $node = $(html_code);
+        //$node.find(".buy-big").click(function(){});
+
+        element.append($node);
+    }
+
+    showOnePet(pet);
+}
+
+function onePetFull(id) {
+    api.getPetById(id,function(err, result){
+        if(err) {
+            alert("Can't get all Pets");
+        } else {
+            showOnePetFull(result, $("#pet_full"));
+        }
+    });
+}
+
 exports.initializePetForm = initializePetForm;
 exports.initializeMainPetList = initializeMainPetList;
+exports.onePetFull = onePetFull;
