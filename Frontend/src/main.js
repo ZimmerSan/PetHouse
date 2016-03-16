@@ -5,4 +5,7 @@ $(function(){
    if(window.location.pathname === '/'){
       Pet.initializeMainPetList();
    }
+    if(window.location.pathname === '/pets/:pet_id'){
+      Pet.onePetFull();
+   }
 });
