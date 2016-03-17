@@ -12,7 +12,6 @@ function showPetList(list, element){
         var $node = $(html_code);
 
         $node.find(".image").attr('src', "/img/"+pet.pet.img);
-
         //$node.find(".buy-big").click(function(){});
 
         element.append($node);
@@ -38,6 +37,8 @@ function showOnePetFull(pet, element){
     function showOnePet(pet) {
         var html_code = Templates.Pet_Full({pet: pet});
         var $node = $(html_code);
+
+        $node.find(".image").attr('src', "/img/"+pet.pet.img);
         //$node.find(".buy-big").click(function(){});
 
         element.append($node);
@@ -47,6 +48,7 @@ function showOnePetFull(pet, element){
 }
 
 function onePetFull(id) {
+    console.log("I'm here!", id);
     api.getPetById(id,function(err, result){
         if(err) {
             alert("Can't get all Pets");
@@ -56,6 +58,18 @@ function onePetFull(id) {
     });
 }
 
+function initializeUserPetList(user_id) {
+    api.getPetsByAuthor(user_id, function(err, result){
+        if(err) {
+            alert("Can't get user Pets");
+        } else {
+            console.log('result: ',result);
+            showPetList(result, $("#profile_pets"));
+        }
+    });
+}
+
 exports.initializePetForm = initializePetForm;
 exports.initializeMainPetList = initializeMainPetList;
+exports.initializeUserPetList = initializeUserPetList;
 exports.onePetFull = onePetFull;

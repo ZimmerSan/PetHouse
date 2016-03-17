@@ -1,12 +1,21 @@
 <% include ../common/header.ejs %>
 
+<%
+var myProfile = false;
+if (user && user._id.toString() === profile._id.toString()) myProfile = true;
+%>
+
 <div class="container">
+    <a href="/"><< Home</a>
 
     <div class="page-header text-center">
         <h1><span class="fa fa-anchor"></span>Profile Page</h1>
-        <p><%= user._id %></p>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-        <a href="/pets/create" class="btn btn-primary btn-sm">Create pet</a>
+        <p><%= profile._id %></p>
+        <% if (myProfile) { %>
+            <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+            <a href="/pets/create" class="btn btn-primary btn-sm">Create pet</a>
+        <% } %>
+        <a href="/user/<%= profile._id %>/pets" class="btn btn-success btn-sm"><% if (myProfile) { %>My pets<% } else { %>Author's pets<% } %></a>
     </div>
 
     <div class="row">
@@ -16,13 +25,13 @@
             <div class="well">
                 <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
 
-                <!-- check if the user has this token (is the user authenticated with this social account) -->
-                <% if (user.facebook.token) { %>
+                <!-- check if the profile has this token (is the profile authenticated with this social account) -->
+                <% if (profile.facebook.token) { %>
                 <p>
-                    <strong>id</strong>: <%= user.facebook.id %><br>
-                    <strong>token</strong>: <%= user.facebook.token %><br>
-                    <strong>email</strong>: <%= user.facebook.email %><br>
-                    <strong>name</strong>: <%= user.facebook.name %><br>
+                    <strong>id</strong>: <%= profile.facebook.id %><br>
+                    <strong>token</strong>: <%= profile.facebook.token %><br>
+                    <strong>email</strong>: <%= profile.facebook.email %><br>
+                    <strong>name</strong>: <%= profile.facebook.name %><br>
                 </p>
 
                 <a href="/unlink/facebook" class="btn btn-primary">Unlink</a>
@@ -41,12 +50,12 @@
             <div class="well">
                 <h3 class="text-info"><span class="fa fa-twitter"></span> Vk</h3>
 
-                <!-- check if the user has this token (is the user authenticated with this social account) -->
-                <% if (user.vk.token) { %>
+                <!-- check if the profile has this token (is the profile authenticated with this social account) -->
+                <% if (profile.vk.token) { %>
                 <p>
-                    <strong>id</strong>: <%= user.vk.id %><br>
-                    <strong>token</strong>: <%= user.vk.token %><br>
-                    <strong>name</strong>: <%= user.vk.name %>
+                    <strong>id</strong>: <%= profile.vk.id %><br>
+                    <strong>token</strong>: <%= profile.vk.token %><br>
+                    <strong>name</strong>: <%= profile.vk.name %>
                 </p>
 
                 <a href="/unlink/vk" class="btn btn-info">Unlink</a>
@@ -62,13 +71,13 @@
             <div class="well">
                 <h3 class="text-danger"><span class="fa fa-google-plus"></span> Google+</h3>
 
-                <!-- check if the user has this token (is the user authenticated with this social account) -->
-                <% if (user.google.token) { %>
+                <!-- check if the profile has this token (is the profile authenticated with this social account) -->
+                <% if (profile.google.token) { %>
                 <p>
-                    <strong>id</strong>: <%= user.google.id %><br>
-                    <strong>token</strong>: <%= user.google.token %><br>
-                    <strong>email</strong>: <%= user.google.email %><br>
-                    <strong>name</strong>: <%= user.google.name %>
+                    <strong>id</strong>: <%= profile.google.id %><br>
+                    <strong>token</strong>: <%= profile.google.token %><br>
+                    <strong>email</strong>: <%= profile.google.email %><br>
+                    <strong>name</strong>: <%= profile.google.name %>
                 </p>
 
                 <a href="/unlink/google" class="btn btn-danger">Unlink</a>

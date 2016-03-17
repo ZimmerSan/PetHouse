@@ -41,7 +41,7 @@ exports.createPet = function(pet_info, callback) {
 };
 
 exports.getPetsByAuthor = function(author_id, callback) {
-    backendGet("/api/pets/author"+author_id, callback);
+    backendGet("/api/pets/author/"+author_id, callback);
 };
 
 exports.uploadImg = function(filepath, callback) {

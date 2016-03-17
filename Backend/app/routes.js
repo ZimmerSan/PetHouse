@@ -22,24 +22,38 @@ module.exports = function (app, passport) {
     // =====================================
     // PROFILE SECTION =====================
     // =====================================
-    // we will want this protected so you have to be logged in to visit
-    // we will use route middleware to verify this (the isLoggedIn function)
-    //todo: maybe change to /profile/:user_id
     app.get('/profile', isLoggedIn, function (req, res) {
-        res.render('profile/profile.ejs', {
-            user        : req.user, // get the user out of session and pass to template
-            pageTitle   : 'Profile'
+        res.redirect('/user/'+req.user._id);
+    });
+
+    app.get('/user/:user_id', function (req, res) {
+        request(API_URL+'/api/users/'+req.param('user_id'), function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                res.render('profile/profile.ejs', {
+                    user        : req.user, // get the user out of session and pass to template
+                    profile     : JSON.parse(body),
+                    pageTitle   : 'Profile'
+                });
+            } else {
+                res.redirect('/');
+            }
         });
     });
 
-
+    app.get('/user/:user_id/pets', function (req, res) {
+        res.render('profile/pets.ejs', {
+            user        : req.user, // get the user out of session and pass to template
+            author      : req.param('user_id'),
+            pageTitle   : 'Profile'
+        });
+    });
 
     // =====================================
     // LOGOUT ==============================
     // =====================================
     app.get('/logout', function (req, res) {
         req.logout();
-        res.redirect('/');
+        res.redirect('back');
     });
 
     // =====================================
@@ -106,25 +120,25 @@ module.exports = function (app, passport) {
 // AUTHENTICATE (FIRST LOGIN) ==================================================
 // =============================================================================
 
-    // =====================================
-    // LOGIN ===============================
-    // =====================================
-    // show the login form
-    app.get('/login', function (req, res) {
-
-        // render the page and pass in any flash data if it exists
-        res.render('auth/login.ejs', {
-            message     : req.flash('loginMessage'),
-            pageTitle   : 'Login'
-        });
-    });
-
-    // process the login form
-    app.post('/login', passport.authenticate('local-login', {
-        successRedirect : '/profile', // redirect to the secure profile section
-        failureRedirect : '/login', // redirect back to the signup page if there is an error
-        failureFlash    : true // allow flash messages
-    }));
+    //// =====================================
+    //// LOGIN ===============================
+    //// =====================================
+    //// show the login form
+    //app.get('/login', function (req, res) {
+    //
+    //    // render the page and pass in any flash data if it exists
+    //    res.render('auth/login.ejs', {
+    //        message     : req.flash('loginMessage'),
+    //        pageTitle   : 'Login'
+    //    });
+    //});
+    //
+    //// process the login form
+    //app.post('/login', passport.authenticate('local-login', {
+    //    successRedirect : '/profile',
+    //    failureRedirect : '/login', // redirect back to the signup page if there is an error
+    //    failureFlash    : true // allow flash messages
+    //}));
 
     //// =====================================
     //// SIGNUP ==============================
@@ -145,7 +159,7 @@ module.exports = function (app, passport) {
     //    failureRedirect : '/signup', // redirect back to the signup page if there is an error
     //    failureFlash    : true // allow flash messages
     //}));
-
+    //todo make redirect to 'back'
     // =====================================
     // FACEBOOK ROUTES =====================
     // =====================================

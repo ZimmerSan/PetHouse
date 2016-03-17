@@ -3,6 +3,8 @@ var Pet     = require('./models/pet');
 var Img     = require('./models/img');
 var fs      = require('fs');
 
+var DEFAULT_IMAGE = '0000000000';
+
 function createUser(req, res) {
     var user = new User();      // create a new instance of the User model
     user.name = req.body.name;  // set the users name (comes from the request)
@@ -55,15 +57,18 @@ function deleteUserById(req, res) {
 
 function createPet(req, res) {
     //save image
-    var img = new Img();
-    img.img.data = fs.readFileSync(req.body.file.path);
-    img.img.contentType = 'image/png';
-    img.save();
+    if(req.body.file){
+        var img = new Img();
+        img.img.data = fs.readFileSync(req.body.file.path);
+        img.img.contentType = 'image/png';
+        img.save();
+    }
 
     //fill the pet
     var pet                    = new Pet();
     pet.pet.name               = req.body.form.name;
-    pet.pet.img                = img._id;
+    if (req.body.file)  pet.pet.img = img._id;
+    else                pet.pet.img = DEFAULT_IMAGE;
     pet.pet.species            = req.body.form.species;
     pet.pet.breed              = req.body.form.breed;
     pet.pet.sex                = req.body.form.sex;

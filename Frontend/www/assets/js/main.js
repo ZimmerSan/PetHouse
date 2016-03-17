@@ -42,7 +42,7 @@ exports.createPet = function(pet_info, callback) {
 };
 
 exports.getPetsByAuthor = function(author_id, callback) {
-    backendGet("/api/pets/author"+author_id, callback);
+    backendGet("/api/pets/author/"+author_id, callback);
 };
 
 exports.uploadImg = function(filepath, callback) {
@@ -58,14 +58,26 @@ $(function () {
     var Pet = require('./pet');
     var api = require('./api');
 
+    //show list of all pets on main page
     if (window.location.pathname === '/') {
         Pet.initializeMainPetList();
     }
+
+    //show single pet on '/pets/:pet_id'
     if (window.location.pathname.indexOf('/pets/')>=0) {
         var id = window.location.pathname.substring(window.location.pathname.indexOf('/pets/')+'/pets/'.length);
         if(id !== 'create')
-        Pet.onePetFull();
+        Pet.onePetFull(id);
     }
+
+    //show list of user's pets on '/user/:user_id/pets'
+    if (window.location.pathname.match(/\/user\/\w+\/pets/g)) {
+        var id = window.location.pathname.substring(window.location.pathname.indexOf('/user/')+'/user/'.length, window.location.pathname.indexOf('/pets'));
+        console.log('id', id);
+        if(id !== 'create')
+        Pet.initializeUserPetList(id);
+    }
+
 });
 },{"./api":1,"./pet":3}],3:[function(require,module,exports){
 var api         = require('./api');
@@ -82,7 +94,6 @@ function showPetList(list, element){
         var $node = $(html_code);
 
         $node.find(".image").attr('src', "/img/"+pet.pet.img);
-
         //$node.find(".buy-big").click(function(){});
 
         element.append($node);
@@ -108,6 +119,8 @@ function showOnePetFull(pet, element){
     function showOnePet(pet) {
         var html_code = Templates.Pet_Full({pet: pet});
         var $node = $(html_code);
+
+        $node.find(".image").attr('src', "/img/"+pet.pet.img);
         //$node.find(".buy-big").click(function(){});
 
         element.append($node);
@@ -117,6 +130,7 @@ function showOnePetFull(pet, element){
 }
 
 function onePetFull(id) {
+    console.log("I'm here!", id);
     api.getPetById(id,function(err, result){
         if(err) {
             alert("Can't get all Pets");
@@ -126,15 +140,27 @@ function onePetFull(id) {
     });
 }
 
+function initializeUserPetList(user_id) {
+    api.getPetsByAuthor(user_id, function(err, result){
+        if(err) {
+            alert("Can't get user Pets");
+        } else {
+            console.log('result: ',result);
+            showPetList(result, $("#profile_pets"));
+        }
+    });
+}
+
 exports.initializePetForm = initializePetForm;
 exports.initializeMainPetList = initializeMainPetList;
+exports.initializeUserPetList = initializeUserPetList;
 exports.onePetFull = onePetFull;
 },{"./api":1,"./templates":4}],4:[function(require,module,exports){
 
 var ejs = require('ejs');
 
-exports.Pet_Short = ejs.compile("<!--TODO complete this page-->\r\n<div>\r\n    <span><a href=\"pets/<%=pet._id%>\">link</a>  : <%=pet.pet.species%> | <a href=\"/api/img/<%=pet.pet.img%>\">image</a></span>\r\n    <img class=\"image\"/>\r\n</div>\r\n");
-exports.Pet_Full = ejs.compile("<!--TODO complete this page-->\r\n<div>\r\n    <span>Full<a href=\"pets/<%=pet._id%>\">link</a>  : <%=pet.pet.species%></span>\r\n</div>\r\n");
+exports.Pet_Short = ejs.compile("<!--TODO complete this page-->\r\n<div>\r\n    <span><a href=\"/pets/<%=pet._id%>\">link</a>  : <%=pet.pet.species%> | <a href=\"/api/img/<%=pet.pet.img%>\">image</a> | <a href=\"/user/<%=pet.system.author%>\">author</a></span>\r\n    <img class=\"image\"/>\r\n</div>\r\n");
+exports.Pet_Full = ejs.compile("<!--TODO complete this page-->\r\n<div>\r\n    <h1>Full pet page</h1>\r\n    <div><a href=\"/pets/<%=pet._id%>\">link</a>  : <%=pet.pet.species%></div>\r\n    <img class=\"image\"/>\r\n</div>\r\n");
 
 },{"ejs":6}],5:[function(require,module,exports){
 
