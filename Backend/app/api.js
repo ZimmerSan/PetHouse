@@ -98,8 +98,8 @@ function getAllPets(req, res) {
 
 function getPetById(req, res) {
     Pet.findById(req.params.pet_id, function (err, pet) {
-        if (err) res.send(err);
-        res.json(pet);
+        if (err)    res.send(err);
+        else        res.json(pet);
     });
 }
 

@@ -54,13 +54,18 @@ exports.getImg = function(img_id, callback) {
 }
 
 },{}],2:[function(require,module,exports){
-$(function(){
-   var Pet = require('./pet');
-   var api = require('./api');
+$(function () {
+    var Pet = require('./pet');
+    var api = require('./api');
 
-   if(window.location.pathname === '/'){
-      Pet.initializeMainPetList();
-   }
+    if (window.location.pathname === '/') {
+        Pet.initializeMainPetList();
+    }
+    if (window.location.pathname.indexOf('/pets/')>=0) {
+        var id = window.location.pathname.substring(window.location.pathname.indexOf('/pets/')+'/pets/'.length);
+        if(id !== 'create')
+        Pet.onePetFull();
+    }
 });
 },{"./api":1,"./pet":3}],3:[function(require,module,exports){
 var api         = require('./api');
@@ -86,6 +91,7 @@ function showPetList(list, element){
     list.forEach(showOnePet);
 }
 
+
 function initializeMainPetList() {
     api.getAllPets(function(err, result){
         if(err) {
@@ -96,13 +102,40 @@ function initializeMainPetList() {
     });
 }
 
+function showOnePetFull(pet, element){
+    element.html("");
+
+    function showOnePet(pet) {
+        var html_code = Templates.Pet_Full({pet: pet});
+        var $node = $(html_code);
+        //$node.find(".buy-big").click(function(){});
+
+        element.append($node);
+    }
+
+    showOnePet(pet);
+}
+
+function onePetFull(id) {
+    api.getPetById(id,function(err, result){
+        if(err) {
+            alert("Can't get all Pets");
+        } else {
+            showOnePetFull(result, $("#pet_full"));
+        }
+    });
+}
+
 exports.initializePetForm = initializePetForm;
 exports.initializeMainPetList = initializeMainPetList;
+exports.onePetFull = onePetFull;
 },{"./api":1,"./templates":4}],4:[function(require,module,exports){
 
 var ejs = require('ejs');
 
 exports.Pet_Short = ejs.compile("<!--TODO complete this page-->\r\n<div>\r\n    <span><a href=\"pets/<%=pet._id%>\">link</a>  : <%=pet.pet.species%> | <a href=\"/api/img/<%=pet.pet.img%>\">image</a></span>\r\n    <img class=\"image\"/>\r\n</div>\r\n");
+exports.Pet_Full = ejs.compile("<!--TODO complete this page-->\r\n<div>\r\n    <span>Full<a href=\"pets/<%=pet._id%>\">link</a>  : <%=pet.pet.species%></span>\r\n</div>\r\n");
+
 },{"ejs":6}],5:[function(require,module,exports){
 
 },{}],6:[function(require,module,exports){
