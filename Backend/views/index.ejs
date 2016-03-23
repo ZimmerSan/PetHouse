@@ -12,6 +12,9 @@
         <a href="/auth/vk" class="btn btn-info"><span class="fa fa-twitter"></span> Vk</a>
         <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google+</a>
 
+        <% if( user ) {%>
+            <a href="/user/<%=user._id%>" class="btn btn-warning">My page</a>
+        <% } %>
     </div>
 
     <div class="jumbotron text-center">

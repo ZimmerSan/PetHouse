@@ -16,7 +16,10 @@ module.exports = function (app, passport) {
     // HOME PAGE (with login links) ========
     // =====================================
     app.get('/', function (req, res) {
-        res.render('index', {pageTitle: 'Main page'});
+        res.render('index', {
+            user        : req.user,
+            pageTitle   : 'Main page'
+        });
     });
 
     // =====================================
@@ -169,7 +172,7 @@ module.exports = function (app, passport) {
     // handle the callback after facebook has authenticated the user
     app.get('/auth/facebook/callback',
         passport.authenticate('facebook', {
-            successRedirect : '/profile',
+            successRedirect : 'back',
             failureRedirect : '/'
         }));
 
@@ -184,7 +187,7 @@ module.exports = function (app, passport) {
     // the callback after google has authenticated the user
     app.get('/auth/google/callback',
         passport.authenticate('google', {
-            successRedirect : '/profile',
+            successRedirect : 'back',
             failureRedirect : '/'
         }));
 
@@ -199,7 +202,7 @@ module.exports = function (app, passport) {
     // the callback after google has authenticated the user
     app.get('/auth/vk/callback',
         passport.authenticate('vkontakte', {
-            successRedirect : '/profile',
+            successRedirect : 'back',
             failureRedirect : '/'
         }));
 
@@ -207,18 +210,18 @@ module.exports = function (app, passport) {
 // AUTHORIZE (ALREADY LOGGED IN / CONNECTING OTHER SOCIAL ACCOUNT) =============
 // =============================================================================
 
-    // locally --------------------------------
-    app.get('/connect/local', function(req, res) {
-        res.render('auth/connect-local.ejs', {
-            message     : req.flash('signupMessage'),
-            pageTitle   : "Add Local Account"
-        });
-    });
-    app.post('/connect/local', passport.authenticate('local-signup', {
-        successRedirect : '/profile', // redirect to the secure profile section
-        failureRedirect : '/connect/local', // redirect back to the signup page if there is an error
-        failureFlash    : true // allow flash messages
-    }));
+    //// locally --------------------------------
+    //app.get('/connect/local', function(req, res) {
+    //    res.render('auth/connect-local.ejs', {
+    //        message     : req.flash('signupMessage'),
+    //        pageTitle   : "Add Local Account"
+    //    });
+    //});
+    //app.post('/connect/local', passport.authenticate('local-signup', {
+    //    successRedirect : 'back', // redirect to the secure profile section
+    //    failureRedirect : '/connect/local', // redirect back to the signup page if there is an error
+    //    failureFlash    : true // allow flash messages
+    //}));
 
     // facebook -------------------------------
 
@@ -228,7 +231,7 @@ module.exports = function (app, passport) {
     // handle the callback after facebook has authorized the user
     app.get('/connect/facebook/callback',
         passport.authorize('facebook', {
-            successRedirect : '/profile',
+            successRedirect : 'back',
             failureRedirect : '/'
         }));
 
@@ -240,7 +243,7 @@ module.exports = function (app, passport) {
     // the callback after google has authorized the user
     app.get('/connect/google/callback',
         passport.authorize('google', {
-            successRedirect : '/profile',
+            successRedirect : 'back',
             failureRedirect : '/'
         }));
 
@@ -252,7 +255,7 @@ module.exports = function (app, passport) {
     // the callback after vk has authorized the user
     app.get('/connect/vk/callback',
         passport.authorize('vkontakte', {
-            successRedirect : '/profile',
+            successRedirect : 'back',
             failureRedirect : '/'
         }));
 
