@@ -75,9 +75,9 @@ module.exports = function (app, passport) {
 
     app.post('/pets', isLoggedIn, upload.single('image'), function (req, res){
         request({
-            uri: API_URL+"/api/pets",
-            method: "POST",
-            json: {
+            uri     : API_URL+"/api/pets",
+            method  : "POST",
+            json    : {
                 form: req.body,
                 file: req.file,
                 user: req.user
@@ -95,6 +95,18 @@ module.exports = function (app, passport) {
     });
 
     app.get('/pets/:pet_id', function (req, res) {
+        isAuthorBool(req, function(err, isAuthor){
+            if (err) res.redirect('/');
+
+            res.render('pets/single_pet', {
+                isAuthor    : isAuthor,
+                user        : req.user, // get the user out of session and pass to template
+                pageTitle   : 'Single pet'
+            });
+        });
+    });
+
+    app.get('/pets/:pet_id/edit', isLoggedIn, isAuthor, function (req, res) {
         res.render('pets/single_pet', {
             user        : req.user, // get the user out of session and pass to template
             pageTitle   : 'Single pet'
@@ -105,7 +117,7 @@ module.exports = function (app, passport) {
     // IMAGES ==============================
     // =====================================
 
-    app.get('/img/:img_id', function (req, res, next) {
+    app.get('/img/:img_id', function (req, res) {
         Img.findById(req.param("img_id"), function (err, doc) {
             if (err) res.send(err);
             else if (doc) {
@@ -117,7 +129,6 @@ module.exports = function (app, passport) {
     });
 
     //todo: create page for pet editing
-    //todo: create page for user's pets review
 
 // =============================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================
@@ -162,7 +173,6 @@ module.exports = function (app, passport) {
     //    failureRedirect : '/signup', // redirect back to the signup page if there is an error
     //    failureFlash    : true // allow flash messages
     //}));
-    //todo make redirect to 'back'
     // =====================================
     // FACEBOOK ROUTES =====================
     // =====================================
@@ -271,4 +281,31 @@ function isLoggedIn(req, res, next) {
 
     // if they aren't redirect them to the home page
     res.redirect('/');
+}
+
+// route middleware to make sure a user is an author of the pet's profile
+function isAuthor(req, res, next) {
+
+    request(API_URL+'/api/pets/'+req.param('pet_id'), function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            console.log(JSON.parse(body).system.author.toString() === req.user._id.toString());
+            if (JSON.parse(body).system.author.toString() === req.user._id.toString()) return next();
+        } else {
+            console.log('Cannot get pet ', error);
+            res.redirect('/');
+        }
+    });
+}
+
+function isAuthorBool(req, callback){
+    request(API_URL+'/api/pets/'+req.param('pet_id'), function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            //todo return false for not logged users
+            console.log((req.user || JSON.parse(body).system.author.toString() === req.user._id.toString()));
+            callback(error, (req.user && JSON.parse(body).system.author.toString() === req.user._id.toString()));
+        } else {
+            console.log('Cannot get pet ', error);
+            callback(error, null);
+        }
+    });
 }

@@ -115,6 +115,7 @@ function getPetsByAuthor(req, res) {
     });
 }
 
+//todo upload images to remote storage
 function uploadImg(req, res) {
     var fs      = require('fs');
     var Img     = require('../../Backend/app/models/img.js');
@@ -129,33 +130,12 @@ function uploadImg(req, res) {
         console.error('saved img to mongo');
         res.json(a._id);
     });
-
-    //todo: deal with clearing uploaded data
-    // empty the collection
-    //Img.remove(function (err) {
-    //    if (err) throw err;
-    //
-    //    console.error('removed old docs');
-    //
-    //    // store an img in binary in mongo
-    //    var a = new Img;
-    //    a.img.data = fs.readFileSync(imgPath);
-    //    a.img.contentType = 'image/png';
-    //    a.save(function (err, a) {
-    //        if (err) throw err;
-    //        console.error(a);
-    //        console.error('saved img to mongo');
-    //        res.json(a._id);
-    //    });
-    //});
 }
 
 function getImgById(req, res) {
     Img.findById(req.params.img_id, function (err, doc) {
         if (err) return next(err);
         res.contentType(doc.img.contentType);
-        //res.json(doc.img.data);
-        //todo: don't lose
         res.send(doc.img.data);
     });
 }

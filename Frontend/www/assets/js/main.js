@@ -130,10 +130,9 @@ function showOnePetFull(pet, element){
 }
 
 function onePetFull(id) {
-    console.log("I'm here!", id);
     api.getPetById(id,function(err, result){
         if(err) {
-            alert("Can't get all Pets");
+            alert("Can't get the pet");
         } else {
             showOnePetFull(result, $("#pet_full"));
         }
