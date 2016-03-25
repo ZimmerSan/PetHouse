@@ -26,7 +26,7 @@ if (user && user._id.toString() === profile._id.toString()) myProfile = true;
                 <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
 
                 <!-- check if the profile has this token (is the profile authenticated with this social account) -->
-                <% if (profile.facebook.token) { %>
+                <% if (profile.facebook && profile.facebook.token) { %>
                 <p>
                     <strong>id</strong>: <%= profile.facebook.id %><br>
                     <strong>token</strong>: <%= profile.facebook.token %><br>
@@ -45,16 +45,17 @@ if (user && user._id.toString() === profile._id.toString()) myProfile = true;
 
     <div class="row">
 
-        <!-- TWITTER INFORMATION -->
+        <!-- VK INFORMATION -->
         <div class="col-sm-6">
             <div class="well">
                 <h3 class="text-info"><span class="fa fa-twitter"></span> Vk</h3>
 
                 <!-- check if the profile has this token (is the profile authenticated with this social account) -->
-                <% if (profile.vk.token) { %>
+                <% if (profile.vk && profile.vk.token) { %>
                 <p>
                     <strong>id</strong>: <%= profile.vk.id %><br>
                     <strong>token</strong>: <%= profile.vk.token %><br>
+                    <strong>email</strong>: <%= profile.vk.email %><br>
                     <strong>name</strong>: <%= profile.vk.name %>
                 </p>
 
@@ -72,7 +73,7 @@ if (user && user._id.toString() === profile._id.toString()) myProfile = true;
                 <h3 class="text-danger"><span class="fa fa-google-plus"></span> Google+</h3>
 
                 <!-- check if the profile has this token (is the profile authenticated with this social account) -->
-                <% if (profile.google.token) { %>
+                <% if (profile.google && profile.google.token) { %>
                 <p>
                     <strong>id</strong>: <%= profile.google.id %><br>
                     <strong>token</strong>: <%= profile.google.token %><br>

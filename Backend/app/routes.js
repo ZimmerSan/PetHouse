@@ -6,7 +6,7 @@ var multer  = require('multer');
 
 var Img     = require('./models/img');
 
-var API_URL = "http://localhost:5050"
+var API_URL = "http://localhost:5050";
 
 module.exports = function (app, passport) {
 
@@ -208,7 +208,7 @@ module.exports = function (app, passport) {
     // send to google to do the authentication
     // profile gets us their basic information including their name
     // email gets their emails
-    app.get('/auth/vk', passport.authenticate('vkontakte'));
+    app.get('/auth/vk', passport.authenticate('vkontakte', {scope: 'email'}));
 
     // the callback after google has authenticated the user
     app.get('/auth/vk/callback',

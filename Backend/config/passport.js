@@ -274,11 +274,12 @@ module.exports = function (passport) {
             clientID            : configAuth.vkAuth.clientID,
             clientSecret        : configAuth.vkAuth.clientSecret,
             callbackURL         : configAuth.vkAuth.callbackURL,
+            apiVersion          : "5.50",
             passReqToCallback   : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
 
         },
 
-        function(req, token, refreshToken, profile, done) {
+        function(req, token, refreshToken, params, profile, done) {
 
             // make the code asynchronous
             // User.findOne won't fire until we have all our data back from Vk
@@ -302,7 +303,7 @@ module.exports = function (passport) {
                             newUser.vk.id       = profile.id;
                             newUser.vk.token    = token;
                             newUser.vk.name     = profile.displayName;
-                            //TODO: VK does not allow to get user's email. Ask user to enter his email.
+                            newUser.vk.email    = params.email;
                             //newUser.vk.email = profile.emails[0].value; // pull the first email
 
                             // save the user
