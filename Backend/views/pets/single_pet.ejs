@@ -5,6 +5,8 @@
 <div class="container">
     <a href="/"><< Home</a>
     <div id="pet_full"></div>
-    <%=isAuthor%>
+    <% if (isAuthor){%>
+        <a href="edit/">edit</a>
+    <%}%>
 </div>
 <% include ../common/footer.ejs %>

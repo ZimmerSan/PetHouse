@@ -158,7 +158,7 @@ exports.onePetFull = onePetFull;
 
 var ejs = require('ejs');
 
-exports.Pet_Short = ejs.compile("<!--TODO complete this page-->\r\n<div>\r\n    <span><a href=\"/pets/<%=pet._id%>\">link</a>  : <%=pet.pet.species%> | <a href=\"/api/img/<%=pet.pet.img%>\">image</a> | <a href=\"/user/<%=pet.system.author%>\">author</a></span>\r\n    <img class=\"image\"/>\r\n</div>\r\n");
+exports.Pet_Short = ejs.compile("<!--TODO complete this page-->\r\n<div>\r\n    <span><a href=\"/pets/<%=pet._id%>/\">link</a>  : <%=pet.pet.species%> | <a href=\"/api/img/<%=pet.pet.img%>\">image</a> | <a href=\"/user/<%=pet.system.author%>\">author</a></span>\r\n    <img class=\"image\"/>\r\n</div>\r\n");
 exports.Pet_Full = ejs.compile("<!--TODO complete this page-->\r\n<div>\r\n    <h1>Full pet page</h1>\r\n    <div><a href=\"/pets/<%=pet._id%>\">link</a>  : <%=pet.pet.species%></div>\r\n    <img class=\"image\"/>\r\n</div>\r\n");
 
 },{"ejs":6}],5:[function(require,module,exports){

@@ -108,6 +108,7 @@ module.exports = function (app, passport) {
 
     app.get('/pets/:pet_id/edit', isLoggedIn, isAuthor, function (req, res) {
         res.render('pets/single_pet', {
+            isAuthor    : true,
             user        : req.user, // get the user out of session and pass to template
             pageTitle   : 'Single pet'
         });
@@ -300,9 +301,8 @@ function isAuthor(req, res, next) {
 function isAuthorBool(req, callback){
     request(API_URL+'/api/pets/'+req.param('pet_id'), function (error, response, body) {
         if (!error && response.statusCode == 200) {
-            //todo return false for not logged users
-            console.log((req.user || JSON.parse(body).system.author.toString() === req.user._id.toString()));
-            callback(error, (req.user && JSON.parse(body).system.author.toString() === req.user._id.toString()));
+            if(req.user)    callback(error, (JSON.parse(body).system.author.toString() === req.user._id.toString()));
+            else            callback(error, false);
         } else {
             console.log('Cannot get pet ', error);
             callback(error, null);
