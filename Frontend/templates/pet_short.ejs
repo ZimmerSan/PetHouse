@@ -1,5 +1,19 @@
 <!--TODO complete this page-->
-<div>
-    <span><a href="/pets/<%=pet._id%>/">link</a>  : <%=pet.pet.species%> | <a href="/api/img/<%=pet.pet.img%>">image</a> | <a href="/user/<%=pet.system.author%>">author</a></span>
-    <img class="image"/>
+<!--<div>-->
+    <!--<span><a href="/pets/<%=pet._id%>/">link</a>  : <%=pet.pet.species%> |-->
+        <!--<a href="/api/img/<%=pet.pet.img%>">image</a> |-->
+        <!--<a href="/user/<%=pet.system.author%>">author</a></span>-->
+    <!--<img class="image"/>-->
+<!--</div>-->
+
+<div class="element">
+    <div class="panel panel-warning">
+        <div class="panel-heading"><%=pet.pet.species%></div>
+        <div class="panel-body">
+            <a href="/api/img/<%=pet.pet.img%>">image</a>
+            <img class="image"/>
+            <a href="/user/<%=pet.system.author%>">author</a>
+            <a href="/pets/<%=pet._id%>/">Докладніше</a>
+        </div>
+    </div>
 </div>

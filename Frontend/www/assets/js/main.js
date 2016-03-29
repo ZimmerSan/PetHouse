@@ -158,12 +158,10 @@ exports.onePetFull = onePetFull;
 
 var ejs = require('ejs');
 
-exports.Pet_Short = ejs.compile("<!--TODO complete this page-->\r\n<div>\r\n    <span><a href=\"/pets/<%=pet._id%>/\">link</a>  : <%=pet.pet.species%> | <a href=\"/api/img/<%=pet.pet.img%>\">image</a> | <a href=\"/user/<%=pet.system.author%>\">author</a></span>\r\n    <img class=\"image\"/>\r\n</div>\r\n");
+exports.Pet_Short = ejs.compile("<!--TODO complete this page-->\r\n<!--<div>-->\r\n    <!--<span><a href=\"/pets/<%=pet._id%>/\">link</a>  : <%=pet.pet.species%> |-->\r\n        <!--<a href=\"/api/img/<%=pet.pet.img%>\">image</a> |-->\r\n        <!--<a href=\"/user/<%=pet.system.author%>\">author</a></span>-->\r\n    <!--<img class=\"image\"/>-->\r\n<!--</div>-->\r\n\r\n<div class=\"element\">\r\n    <div class=\"panel panel-warning\">\r\n        <div class=\"panel-heading\"><%=pet.pet.species%></div>\r\n        <div class=\"panel-body\">\r\n            <a href=\"/api/img/<%=pet.pet.img%>\">image</a>\r\n            <img class=\"image\"/>\r\n            <a href=\"/user/<%=pet.system.author%>\">author</a>\r\n            <a href=\"/pets/<%=pet._id%>/\">Докладніше</a>\r\n        </div>\r\n    </div>\r\n</div>");
 exports.Pet_Full = ejs.compile("<!--TODO complete this page-->\r\n<div>\r\n    <h1>Full pet page</h1>\r\n    <div><a href=\"/pets/<%=pet._id%>\">link</a>  : <%=pet.pet.species%></div>\r\n    <img class=\"image\"/>\r\n</div>\r\n");
 
-},{"ejs":6}],5:[function(require,module,exports){
-
-},{}],6:[function(require,module,exports){
+},{"ejs":5}],5:[function(require,module,exports){
 /*
  * EJS Embedded JavaScript templates
  * Copyright 2112 Matthew Eernisse (mde@fleegix.org)
@@ -914,7 +912,7 @@ if (typeof window != 'undefined') {
   window.ejs = exports;
 }
 
-},{"../package.json":8,"./utils":7,"fs":5,"path":9}],7:[function(require,module,exports){
+},{"../package.json":7,"./utils":6,"fs":8,"path":9}],6:[function(require,module,exports){
 /*
  * EJS Embedded JavaScript templates
  * Copyright 2112 Matthew Eernisse (mde@fleegix.org)
@@ -1057,49 +1055,20 @@ exports.cache = {
 };
 
 
-},{}],8:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 module.exports={
-  "_args": [
-    [
-      "ejs@^2.4.1",
-      "C:\\Study\\Base-structure"
-    ]
+  "name": "ejs",
+  "description": "Embedded JavaScript templates",
+  "keywords": [
+    "template",
+    "engine",
+    "ejs"
   ],
-  "_from": "ejs@>=2.4.1 <3.0.0",
-  "_id": "ejs@2.4.1",
-  "_inCache": true,
-  "_installable": true,
-  "_location": "/ejs",
-  "_nodeVersion": "0.12.4",
-  "_npmUser": {
-    "email": "mde@fleegix.org",
-    "name": "mde"
-  },
-  "_npmVersion": "2.10.1",
-  "_phantomChildren": {},
-  "_requested": {
-    "name": "ejs",
-    "raw": "ejs@^2.4.1",
-    "rawSpec": "^2.4.1",
-    "scope": null,
-    "spec": ">=2.4.1 <3.0.0",
-    "type": "range"
-  },
-  "_requiredBy": [
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/ejs/-/ejs-2.4.1.tgz",
-  "_shasum": "82e15b1b2a1f948b18097476ba2bd7c66f4d1566",
-  "_shrinkwrap": null,
-  "_spec": "ejs@^2.4.1",
-  "_where": "C:\\Study\\Base-structure",
+  "version": "2.4.1",
   "author": {
-    "email": "mde@fleegix.org",
     "name": "Matthew Eernisse",
+    "email": "mde@fleegix.org",
     "url": "http://fleegix.org"
-  },
-  "bugs": {
-    "url": "https://github.com/mde/ejs/issues"
   },
   "contributors": [
     {
@@ -1108,8 +1077,17 @@ module.exports={
       "url": "https://timothygu.github.io"
     }
   ],
+  "license": "Apache-2.0",
+  "main": "./lib/ejs.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mde/ejs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mde/ejs/issues"
+  },
+  "homepage": "https://github.com/mde/ejs",
   "dependencies": {},
-  "description": "Embedded JavaScript templates",
   "devDependencies": {
     "browserify": "^8.0.3",
     "istanbul": "~0.3.5",
@@ -1120,22 +1098,25 @@ module.exports={
     "rimraf": "^2.2.8",
     "uglify-js": "^2.4.16"
   },
-  "directories": {},
-  "dist": {
-    "shasum": "82e15b1b2a1f948b18097476ba2bd7c66f4d1566",
-    "tarball": "http://registry.npmjs.org/ejs/-/ejs-2.4.1.tgz"
-  },
   "engines": {
     "node": ">=0.10.0"
   },
-  "homepage": "https://github.com/mde/ejs",
-  "keywords": [
-    "ejs",
-    "engine",
-    "template"
-  ],
-  "license": "Apache-2.0",
-  "main": "./lib/ejs.js",
+  "scripts": {
+    "test": "mocha",
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha",
+    "doc": "rimraf out && jsdoc -c jsdoc.json lib/* docs/jsdoc/*",
+    "devdoc": "rimraf out && jsdoc -p -c jsdoc.json lib/* docs/jsdoc/*"
+  },
+  "_id": "ejs@2.4.1",
+  "_shasum": "82e15b1b2a1f948b18097476ba2bd7c66f4d1566",
+  "_resolved": "https://registry.npmjs.org/ejs/-/ejs-2.4.1.tgz",
+  "_from": "ejs@>=2.4.1 <3.0.0",
+  "_npmVersion": "2.10.1",
+  "_nodeVersion": "0.12.4",
+  "_npmUser": {
+    "name": "mde",
+    "email": "mde@fleegix.org"
+  },
   "maintainers": [
     {
       "name": "tjholowaychuk",
@@ -1146,21 +1127,15 @@ module.exports={
       "email": "mde@fleegix.org"
     }
   ],
-  "name": "ejs",
-  "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/mde/ejs.git"
+  "dist": {
+    "shasum": "82e15b1b2a1f948b18097476ba2bd7c66f4d1566",
+    "tarball": "http://registry.npmjs.org/ejs/-/ejs-2.4.1.tgz"
   },
-  "scripts": {
-    "coverage": "istanbul cover node_modules/mocha/bin/_mocha",
-    "devdoc": "rimraf out && jsdoc -p -c jsdoc.json lib/* docs/jsdoc/*",
-    "doc": "rimraf out && jsdoc -c jsdoc.json lib/* docs/jsdoc/*",
-    "test": "mocha"
-  },
-  "version": "2.4.1"
+  "directories": {},
+  "readme": "ERROR: No README data found!"
 }
+
+},{}],8:[function(require,module,exports){
 
 },{}],9:[function(require,module,exports){
 (function (process){

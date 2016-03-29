@@ -110,5 +110,4 @@ function startServer(port) {
         console.log('My Application Running on http://localhost:'+port+'/');
     });
 }
-
 exports.startServer = startServer;
