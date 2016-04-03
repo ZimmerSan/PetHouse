@@ -5,12 +5,13 @@ var multer  = require('multer');
 var azure   = require('azure-storage');
 var Img     = require('./models/img');
 var API_URL = "http://localhost:5050";
+var storage = require('../config/storage');
 
 // Azure Storage init
-var accessKey       = 'HRQS2gBP8aYZ7jdnnIoa6eQStJn/sMU0ZnlOzIY5snwr9WLXDjS8eBv3xZruANO/yHSovh9rhF+HTw7GQiSxPg==';
-var storageAccount  = 'togoodhands';
+var accessKey       = storage.accessKey;
+var storageAccount  = storage.storageAccount;
 var blobService     = azure.createBlobService(storageAccount, accessKey);
-var containerName   = 'imagecontainer';
+var containerName   = storage.containerName;
 
 blobService.createContainerIfNotExists(containerName, {
     publicAccessLevel: 'blob'
