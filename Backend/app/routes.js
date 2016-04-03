@@ -2,11 +2,24 @@ var flash   = require('connect-flash');
 var api     = require('./api');
 var request = require('request');
 var multer  = require('multer');
-
-
+var azure   = require('azure-storage');
 var Img     = require('./models/img');
-
 var API_URL = "http://localhost:5050";
+
+// Azure Storage init
+var accessKey       = 'HRQS2gBP8aYZ7jdnnIoa6eQStJn/sMU0ZnlOzIY5snwr9WLXDjS8eBv3xZruANO/yHSovh9rhF+HTw7GQiSxPg==';
+var storageAccount  = 'togoodhands';
+var blobService     = azure.createBlobService(storageAccount, accessKey);
+var containerName   = 'imagecontainer';
+
+blobService.createContainerIfNotExists(containerName, {
+    publicAccessLevel: 'blob'
+}, function(error, result, response) {
+    if (error) {
+        console.log("Error while creating Container");
+    }
+    else console.log("Container creation:", result.created);
+});
 
 module.exports = function (app, passport) {
 
@@ -74,17 +87,37 @@ module.exports = function (app, passport) {
     var upload = multer({ storage: storage });
 
     app.post('/pets', isLoggedIn, upload.single('image'), function (req, res){
-        request({
-            uri     : API_URL+"/api/pets",
-            method  : "POST",
-            json    : {
-                form: req.body,
-                file: req.file,
-                user: req.user
-            }
-        }, function(error, response, body) {
-            res.redirect("/pets/"+body.pet._id);
-        });
+        console.log("file", req.file);
+        
+        var extension = req.file.originalname.split('.').pop();
+        var filename = makeFilename() + '.' + extension;
+
+        var options = {
+            contentType: req.file.mimetype,
+            metadata: { fileName: filename }
+        };
+
+        blobService.createBlockBlobFromLocalFile(containerName, filename, req.file.path, options,
+            function(error, result, response) {
+                if (!error) {
+                    setSAS(containerName, filename);
+
+                    request({
+                        uri     : API_URL+"/api/pets",
+                        method  : "POST",
+                        json    : {
+                            form: req.body,
+                            file: req.file,
+                            user: req.user
+                        }
+                    }, function(error, response, body) {
+                        res.redirect("/pets/"+body.pet._id);
+                    });
+                } else {
+                    console.log("Error:", error);
+                }
+            });
+
     });
 
     app.get('/pets/create', isLoggedIn, function (req, res) {
@@ -107,7 +140,7 @@ module.exports = function (app, passport) {
     });
 
     app.get('/pets/:pet_id/edit', isLoggedIn, isAuthor, function (req, res) {
-        res.render('pets/single_pet', {
+        res.render('pets/edit_pet', {
             isAuthor    : true,
             user        : req.user, // get the user out of session and pass to template
             pageTitle   : 'Single pet'
@@ -308,4 +341,25 @@ function isAuthorBool(req, callback){
             callback(error, null);
         }
     });
+}
+
+function makeFilename(){
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for( var i=0; i < 20; i++ )
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
+}
+
+function setSAS(containerName, blobName) {
+    var sharedAccessPolicy = {
+        AccessPolicy: {
+            Expiry: azure.date.minutesFromNow(3)
+        }
+    };
+
+    var blobUrl = blobService.getUrl(containerName, blobName, sharedAccessPolicy);
+    console.log("access the blob at ", blobUrl);
 }

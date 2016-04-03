@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "azure-storage": "^0.10.0",
     "basil.js": "^0.4.3",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.14.2",

@@ -102,6 +102,17 @@ function showPetList(list, element){
     list.forEach(showOnePet);
 }
 
+function initializeUserPetList(user_id) {
+    api.getPetsByAuthor(user_id, function(err, result){
+        if(err) {
+            alert("Can't get user Pets");
+        } else {
+            console.log('result: ',result);
+            showPetList(result, $("#profile_pets"));
+        }
+    });
+}
+
 
 function initializeMainPetList() {
     api.getAllPets(function(err, result){
@@ -129,8 +140,8 @@ function showOnePetFull(pet, element){
     showOnePet(pet);
 }
 
-function onePetFull(id) {
-    api.getPetById(id,function(err, result){
+function onePetFull(pet_id) {
+    api.getPetById(pet_id,function(err, result){
         if(err) {
             alert("Can't get the pet");
         } else {
@@ -139,13 +150,26 @@ function onePetFull(id) {
     });
 }
 
-function initializeUserPetList(user_id) {
-    api.getPetsByAuthor(user_id, function(err, result){
-        if(err) {
-            alert("Can't get user Pets");
+function fillPetEditForm(pet, element) {
+    element.html("");
+    var html_code = Templates.Pet_Edit({pet: pet});
+    var $node = $(html_code);
+
+    var $form = $node.find("#pet_edit_form");
+    console.log("pet", pet);
+    //$node.find(".buy-big").click(function(){});
+
+    element.append($node);
+
+}
+
+function onePetEdit(pet_id){
+    api.getPetById(pet_id, function(err, result){
+        if(err){
+            alert("Can't get pet info");
         } else {
             console.log('result: ',result);
-            showPetList(result, $("#profile_pets"));
+            fillPetEditForm(result, $("#pet_edit")); //todo
         }
     });
 }
@@ -154,12 +178,14 @@ exports.initializePetForm = initializePetForm;
 exports.initializeMainPetList = initializeMainPetList;
 exports.initializeUserPetList = initializeUserPetList;
 exports.onePetFull = onePetFull;
+exports.onePetEdit = onePetEdit;
 },{"./api":1,"./templates":4}],4:[function(require,module,exports){
 
 var ejs = require('ejs');
 
-exports.Pet_Short = ejs.compile("<!--TODO complete this page-->\r\n<!--<div>-->\r\n    <!--<span><a href=\"/pets/<%=pet._id%>/\">link</a>  : <%=pet.pet.species%> |-->\r\n        <!--<a href=\"/api/img/<%=pet.pet.img%>\">image</a> |-->\r\n        <!--<a href=\"/user/<%=pet.system.author%>\">author</a></span>-->\r\n    <!--<img class=\"image\"/>-->\r\n<!--</div>-->\r\n\r\n<div class=\"element\">\r\n    <div class=\"panel panel-warning\">\r\n        <div class=\"panel-heading\"><%=pet.pet.species%></div>\r\n        <div class=\"panel-body\">\r\n            <a href=\"/api/img/<%=pet.pet.img%>\">image</a>\r\n            <img class=\"image\"/>\r\n            <a href=\"/user/<%=pet.system.author%>\">author</a>\r\n            <a href=\"/pets/<%=pet._id%>/\">Докладніше</a>\r\n        </div>\r\n    </div>\r\n</div>");
+exports.Pet_Short = ejs.compile("<!--TODO complete this page-->\r\n<!--<div>-->\r\n    <!--<span><a href=\"/pets/<%=pet._id%>/\">link</a>  : <%=pet.pet.species%> |-->\r\n        <!--<a href=\"/api/img/<%=pet.pet.img%>\">image</a> |-->\r\n        <!--<a href=\"/user/<%=pet.system.author%>\">author</a></span>-->\r\n    <!--<img class=\"image\"/>-->\r\n<!--</div>-->\r\n\r\n    <div class=\"panel\">\r\n        <div class=\"panel-heading\"><%=pet.pet.species%></div>\r\n        <div class=\"panel-body\">\r\n            <a href=\"/api/img/<%=pet.pet.img%>\">image</a>\r\n            <img class=\"image\"/>\r\n            <a href=\"/user/<%=pet.system.author%>\">author</a>\r\n            <a href=\"/pets/<%=pet._id%>/\">Докладніше</a>\r\n        </div>\r\n    </div>");
 exports.Pet_Full = ejs.compile("<!--TODO complete this page-->\r\n<div>\r\n    <h1>Full pet page</h1>\r\n    <div><a href=\"/pets/<%=pet._id%>\">link</a>  : <%=pet.pet.species%></div>\r\n    <img class=\"image\"/>\r\n</div>\r\n");
+exports.Pet_Edit = ejs.compile("<!--TODO complete this page-->\r\n<div>\r\n    <h1>Edit pet page</h1>\r\n    <div><a href=\"/pets/<%=pet._id%>\">link</a>  : <%=pet.pet.species%></div>\r\n    <img class=\"image\"/>\r\n    <form id=\"pet_edit_form\">\r\n\r\n    </form>\r\n</div>\r\n");
 
 },{"ejs":5}],5:[function(require,module,exports){
 /*

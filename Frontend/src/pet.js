@@ -20,6 +20,17 @@ function showPetList(list, element){
     list.forEach(showOnePet);
 }
 
+function initializeUserPetList(user_id) {
+    api.getPetsByAuthor(user_id, function(err, result){
+        if(err) {
+            alert("Can't get user Pets");
+        } else {
+            console.log('result: ',result);
+            showPetList(result, $("#profile_pets"));
+        }
+    });
+}
+
 
 function initializeMainPetList() {
     api.getAllPets(function(err, result){
@@ -47,8 +58,8 @@ function showOnePetFull(pet, element){
     showOnePet(pet);
 }
 
-function onePetFull(id) {
-    api.getPetById(id,function(err, result){
+function onePetFull(pet_id) {
+    api.getPetById(pet_id,function(err, result){
         if(err) {
             alert("Can't get the pet");
         } else {
@@ -57,13 +68,26 @@ function onePetFull(id) {
     });
 }
 
-function initializeUserPetList(user_id) {
-    api.getPetsByAuthor(user_id, function(err, result){
-        if(err) {
-            alert("Can't get user Pets");
+function fillPetEditForm(pet, element) {
+    element.html("");
+    var html_code = Templates.Pet_Edit({pet: pet});
+    var $node = $(html_code);
+
+    var $form = $node.find("#pet_edit_form");
+    console.log("pet", pet);
+    //$node.find(".buy-big").click(function(){});
+
+    element.append($node);
+
+}
+
+function onePetEdit(pet_id){
+    api.getPetById(pet_id, function(err, result){
+        if(err){
+            alert("Can't get pet info");
         } else {
             console.log('result: ',result);
-            showPetList(result, $("#profile_pets"));
+            fillPetEditForm(result, $("#pet_edit")); //todo
         }
     });
 }
@@ -72,3 +96,4 @@ exports.initializePetForm = initializePetForm;
 exports.initializeMainPetList = initializeMainPetList;
 exports.initializeUserPetList = initializeUserPetList;
 exports.onePetFull = onePetFull;
+exports.onePetEdit = onePetEdit;
