@@ -59,6 +59,7 @@ function configureEndpoints(app) {
 
     router.route('/pets/:pet_id')
         .get(api.getPetById)
+        .post(api.updatePetById);
 
     router.route('/img')
         .post(api.uploadImg);

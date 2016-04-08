@@ -5,7 +5,7 @@ var petSchema = new Schema({
     pet                 :{
         name            : String,
         img             : String,
-        species         : { type : String, required    : true },
+        species         : { type : String},
         breed           : String,
         sex             : String,
         location        : String,

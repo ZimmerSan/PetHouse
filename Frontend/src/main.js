@@ -8,7 +8,7 @@ $(function () {
     }
 
     //show single pet on '/pets/:pet_id'
-    if (window.location.pathname.indexOf('/pets/')>=0) {
+    if (window.location.pathname.match(/\/pets\/\w+/g)) {
         var id = window.location.pathname.substring(window.location.pathname.indexOf('/pets/')+'/pets/'.length);
         if(id !== 'create')
         Pet.onePetFull(id);
@@ -21,5 +21,12 @@ $(function () {
         if(id !== 'create')
         Pet.initializeUserPetList(id);
     }
+
+    // //show list of user's pets on '/pets/:pet_id/edit'
+    // if(window.location.pathname.match(/\/pets\/\w+\/edit\//g)){
+    //     var id = window.location.pathname.substring(window.location.pathname.indexOf('/pets/')+'/pets/'.length, window.location.pathname.indexOf('/edit'));
+    //     console.log('id', id);
+    //     Pet.onePetEdit(id);
+    // }
 
 });

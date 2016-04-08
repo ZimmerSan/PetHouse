@@ -2,25 +2,14 @@ var flash   = require('connect-flash');
 var api     = require('./api');
 var request = require('request');
 var multer  = require('multer');
+var fs      = require("fs");
 var azure   = require('azure-storage');
 var Img     = require('./models/img');
 var API_URL = "http://localhost:5050";
-var storage = require('../config/storage');
-
-// Azure Storage init
-var accessKey       = storage.accessKey;
-var storageAccount  = storage.storageAccount;
-var blobService     = azure.createBlobService(storageAccount, accessKey);
-var containerName   = storage.containerName;
-
-blobService.createContainerIfNotExists(containerName, {
-    publicAccessLevel: 'blob'
-}, function(error, result, response) {
-    if (error) {
-        console.log("Error while creating Container");
-    }
-    else console.log("Container creation:", result.created);
-});
+var dbox    = require("dbox");
+var dbox_config = require("../config/dropbox");
+var app     = dbox.app({ "app_key": dbox_config.key, "app_secret": dbox_config.secret });
+var client  = app.client(dbox_config.accessToken)
 
 module.exports = function (app, passport) {
 
@@ -93,31 +82,44 @@ module.exports = function (app, passport) {
         var extension = req.file.originalname.split('.').pop();
         var filename = makeFilename() + '.' + extension;
 
-        var options = {
-            contentType: req.file.mimetype,
-            metadata: { fileName: filename }
-        };
+        var buffer = fs.readFileSync(req.file.path);
 
-        blobService.createBlockBlobFromLocalFile(containerName, filename, req.file.path, options,
-            function(error, result, response) {
-                if (!error) {
-                    setSAS(containerName, filename);
-
-                    request({
-                        uri     : API_URL+"/api/pets",
-                        method  : "POST",
-                        json    : {
-                            form: req.body,
-                            file: req.file,
-                            user: req.user
-                        }
-                    }, function(error, response, body) {
-                        res.redirect("/pets/"+body.pet._id);
-                    });
-                } else {
-                    console.log("Error:", error);
-                }
+        client.put(filename, buffer, function(status, reply){
+            client.media(reply.path, function(status, reply){
+                request({
+                    uri     : API_URL + "/api/pets",
+                    method  : "POST",
+                    json: {
+                        form: req.body,
+                        file: reply.url,
+                        user: req.user
+                    }
+                }, function (error, response, body) {
+                    res.redirect("/pets/" + body.pet._id);
+                });
             });
+        });
+
+        // blobService.createBlockBlobFromLocalFile(containerName, filename, req.file.path, options,
+        //     function(error, result, response) {
+        //         if (!error) {
+        //             var blobUrl = setSAS(containerName, filename);
+        //
+        //             request({
+        //                 uri     : API_URL+"/api/pets",
+        //                 method  : "POST",
+        //                 json    : {
+        //                     form: req.body,
+        //                     file: blobUrl,
+        //                     user: req.user
+        //                 }
+        //             }, function(error, response, body) {
+        //                 res.redirect("/pets/"+body.pet._id);
+        //             });
+        //         } else {
+        //             console.log("Error:", error);
+        //         }
+        //     });
 
     });
 
@@ -141,11 +143,65 @@ module.exports = function (app, passport) {
     });
 
     app.get('/pets/:pet_id/edit', isLoggedIn, isAuthor, function (req, res) {
-        res.render('pets/edit_pet', {
-            isAuthor    : true,
-            user        : req.user, // get the user out of session and pass to template
-            pageTitle   : 'Single pet'
+        request({
+            uri     : API_URL+"/api/pets/"+req.param('pet_id'),
+            method  : "GET",
+        }, function(error, response, body) {
+            res.render('pets/edit_pet', {
+                isAuthor    : true,
+                user        : req.user, // get the user out of session and pass to template
+                pageTitle   : 'Single pet',
+                pet         : JSON.parse(body)
+            });
         });
+    });
+
+    app.post('/pets/:pet_id/edit', isLoggedIn, isAuthor, function (req, res) {
+        if(req.file){
+            var extension = req.file.originalname.split('.').pop();
+            var filename = makeFilename() + '.' + extension;
+
+            var options = {
+                contentType: req.file.mimetype,
+                metadata: { fileName: filename }
+            };
+
+            blobService.createBlockBlobFromLocalFile(containerName, filename, req.file.path, options,
+                function(error, result, response) {
+                    if (!error) {
+                        var blobUrl = setSAS(containerName, filename);
+
+                        request({
+                            uri     : API_URL+"/api/pets/"+req.param('pet_id'),
+                            method  : "POST",
+                            json    : {
+                                form: req.body,
+                                file: blobUrl,
+                                user: req.user
+                            }
+                        }, function(error, response, body) {
+                            res.redirect("/pets/"+body.pet._id);
+                        });
+                    } else {
+                        console.log("Error:", error);
+                    }
+                });
+        } else {
+            request({
+                uri     : API_URL+"/api/pets/"+req.param('pet_id'),
+                method  : "POST",
+                json    : {
+                    form: req.body,
+                    file: req.body.imageOld,
+                    user: req.user
+                }
+            }, function(error, response, body) {
+                console.log('body:', body);
+                // res.redirect("/pets/"+body.pet._id);
+            });
+        }
+
+
     });
 
     // =====================================
@@ -169,45 +225,6 @@ module.exports = function (app, passport) {
 // AUTHENTICATE (FIRST LOGIN) ==================================================
 // =============================================================================
 
-    //// =====================================
-    //// LOGIN ===============================
-    //// =====================================
-    //// show the login form
-    //app.get('/login', function (req, res) {
-    //
-    //    // render the page and pass in any flash data if it exists
-    //    res.render('auth/login.ejs', {
-    //        message     : req.flash('loginMessage'),
-    //        pageTitle   : 'Login'
-    //    });
-    //});
-    //
-    //// process the login form
-    //app.post('/login', passport.authenticate('local-login', {
-    //    successRedirect : '/profile',
-    //    failureRedirect : '/login', // redirect back to the signup page if there is an error
-    //    failureFlash    : true // allow flash messages
-    //}));
-
-    //// =====================================
-    //// SIGNUP ==============================
-    //// =====================================
-    //// show the signup form
-    //app.get('/signup', function (req, res) {
-    //
-    //    // render the page and pass in any flash data if it exists
-    //    res.render('auth/signup.ejs', {
-    //        message     : req.flash('signupMessage'),
-    //        pageTitle   : 'Sign up'
-    //    });
-    //});
-    //
-    //// process the signup form
-    //app.post('/signup', passport.authenticate('local-signup', {
-    //    successRedirect : '/profile', // redirect to the secure profile section
-    //    failureRedirect : '/signup', // redirect back to the signup page if there is an error
-    //    failureFlash    : true // allow flash messages
-    //}));
     // =====================================
     // FACEBOOK ROUTES =====================
     // =====================================
@@ -254,19 +271,6 @@ module.exports = function (app, passport) {
 // =============================================================================
 // AUTHORIZE (ALREADY LOGGED IN / CONNECTING OTHER SOCIAL ACCOUNT) =============
 // =============================================================================
-
-    //// locally --------------------------------
-    //app.get('/connect/local', function(req, res) {
-    //    res.render('auth/connect-local.ejs', {
-    //        message     : req.flash('signupMessage'),
-    //        pageTitle   : "Add Local Account"
-    //    });
-    //});
-    //app.post('/connect/local', passport.authenticate('local-signup', {
-    //    successRedirect : 'back', // redirect to the secure profile section
-    //    failureRedirect : '/connect/local', // redirect back to the signup page if there is an error
-    //    failureFlash    : true // allow flash messages
-    //}));
 
     // facebook -------------------------------
 
@@ -357,10 +361,13 @@ function makeFilename(){
 function setSAS(containerName, blobName) {
     var sharedAccessPolicy = {
         AccessPolicy: {
-            Expiry: azure.date.minutesFromNow(3)
+            Permissions: azure.BlobUtilities.SharedAccessPermissions.READ,
+            Start: new Date()
         }
     };
 
     var blobUrl = blobService.getUrl(containerName, blobName, sharedAccessPolicy);
-    console.log("access the blob at ", blobUrl);
+    console.log('url',blobUrl);
+    return blobUrl;
 }
+

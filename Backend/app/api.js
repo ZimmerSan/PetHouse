@@ -56,18 +56,9 @@ function deleteUserById(req, res) {
 }
 
 function createPet(req, res) {
-    //save image
-    if(req.body.file){
-        var img = new Img();
-        img.img.data = fs.readFileSync(req.body.file.path);
-        img.img.contentType = 'image/png';
-        img.save();
-    }
-
-    //fill the pet
     var pet                    = new Pet();
     pet.pet.name               = req.body.form.name;
-    if (req.body.file)  pet.pet.img = img._id;
+    if (req.body.file)  pet.pet.img = req.body.file;
     else                pet.pet.img = DEFAULT_IMAGE;
     pet.pet.species            = req.body.form.species;
     pet.pet.breed              = req.body.form.breed;
@@ -140,6 +131,40 @@ function getImgById(req, res) {
     });
 }
 
+//todo: complete this function
+function updatePetById(req, res) {
+    var data = req.body;
+    Pet.findById(req.params.pet_id, function (err, pet) {
+        if (err)    res.send(err);
+        else {
+            pet.pet.name               = data.form.name;
+            if (data.file)  pet.pet.img = data.file;
+            else                pet.pet.img = DEFAULT_IMAGE;
+            pet.pet.species            = data.form.species;
+            pet.pet.breed              = data.form.breed;
+            pet.pet.sex                = data.form.sex;
+            pet.pet.location           = data.form.location;
+            pet.pet.att_to_children    = data.form.att_to_children;
+            pet.pet.character          = data.form.character;
+            pet.pet.vaccinations       = data.form.vaccinations;
+            pet.pet.other              = data.form.other;
+
+            pet.system.updated_at      = Date.now();
+            pet.system.status          = data.form.status;
+
+            // save the pet and check for errors
+            pet.save(function (err) {
+                if (err) res.send(err);
+                else res.json({
+                    message : 'Pet updated!',
+                    pet     : pet,
+                    user    : data.user
+                });
+            });
+        };
+    });
+}
+
 exports.createUser      = createUser;
 exports.getAllUsers     = getAllUsers;
 exports.getUserById     = getUserById;
@@ -149,6 +174,7 @@ exports.deleteUserById  = deleteUserById;
 exports.createPet       = createPet;
 exports.getAllPets      = getAllPets;
 exports.getPetById      = getPetById;
+exports.updatePetById   = updatePetById;
 exports.getPetsByAuthor = getPetsByAuthor;
 
 exports.uploadImg       = uploadImg;

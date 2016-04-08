@@ -64,7 +64,7 @@ $(function () {
     }
 
     //show single pet on '/pets/:pet_id'
-    if (window.location.pathname.indexOf('/pets/')>=0) {
+    if (window.location.pathname.match(/\/pets\/\w+/g)) {
         var id = window.location.pathname.substring(window.location.pathname.indexOf('/pets/')+'/pets/'.length);
         if(id !== 'create')
         Pet.onePetFull(id);
@@ -77,6 +77,13 @@ $(function () {
         if(id !== 'create')
         Pet.initializeUserPetList(id);
     }
+
+    // //show list of user's pets on '/pets/:pet_id/edit'
+    // if(window.location.pathname.match(/\/pets\/\w+\/edit\//g)){
+    //     var id = window.location.pathname.substring(window.location.pathname.indexOf('/pets/')+'/pets/'.length, window.location.pathname.indexOf('/edit'));
+    //     console.log('id', id);
+    //     Pet.onePetEdit(id);
+    // }
 
 });
 },{"./api":1,"./pet":3}],3:[function(require,module,exports){
@@ -93,7 +100,7 @@ function showPetList(list, element){
         var html_code = Templates.Pet_Short({pet: pet});
         var $node = $(html_code);
 
-        $node.find(".image").attr('src', "/img/"+pet.pet.img);
+        $node.find(".image").attr('src', pet.pet.img);
         //$node.find(".buy-big").click(function(){});
 
         element.append($node);
@@ -131,7 +138,7 @@ function showOnePetFull(pet, element){
         var html_code = Templates.Pet_Full({pet: pet});
         var $node = $(html_code);
 
-        $node.find(".image").attr('src', "/img/"+pet.pet.img);
+        $node.find(".image").attr('src', pet.pet.img);
         //$node.find(".buy-big").click(function(){});
 
         element.append($node);
@@ -156,7 +163,18 @@ function fillPetEditForm(pet, element) {
     var $node = $(html_code);
 
     var $form = $node.find("#pet_edit_form");
-    console.log("pet", pet);
+    var keys = Object.keys(pet.pet);
+    console.log(keys);
+    keys.forEach(function(item){
+        var temp = pet.pet[item];
+        switch (item){
+            case 'img': $form.append('<img src="'+temp+'"><input id="'+item+'" name="'+item+'" type="file" placeholder="'+item+'" value="'+temp+'" class="form-control input-md">');
+                        break;
+            default:    $form.append('<input id="'+item+'" name="'+item+'" type="text" placeholder="'+item+'" value="'+temp+'" class="form-control input-md">');
+                        break;
+        }
+    });
+    $form.append('<!-- Select Basic --><div class="form-group"><label class="col-md-4 control-label" for="selectbasic">Status</label><div class="col-md-4"><select id="selectbasic" name="selectbasic" class="form-control"><option value="free">free</option><option value="taken">taken</option></select></div></div>');
     //$node.find(".buy-big").click(function(){});
 
     element.append($node);

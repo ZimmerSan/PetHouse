@@ -11,7 +11,7 @@ function showPetList(list, element){
         var html_code = Templates.Pet_Short({pet: pet});
         var $node = $(html_code);
 
-        $node.find(".image").attr('src', "/img/"+pet.pet.img);
+        $node.find(".image").attr('src', pet.pet.img);
         //$node.find(".buy-big").click(function(){});
 
         element.append($node);
@@ -49,7 +49,7 @@ function showOnePetFull(pet, element){
         var html_code = Templates.Pet_Full({pet: pet});
         var $node = $(html_code);
 
-        $node.find(".image").attr('src', "/img/"+pet.pet.img);
+        $node.find(".image").attr('src', pet.pet.img);
         //$node.find(".buy-big").click(function(){});
 
         element.append($node);
@@ -74,7 +74,18 @@ function fillPetEditForm(pet, element) {
     var $node = $(html_code);
 
     var $form = $node.find("#pet_edit_form");
-    console.log("pet", pet);
+    var keys = Object.keys(pet.pet);
+    console.log(keys);
+    keys.forEach(function(item){
+        var temp = pet.pet[item];
+        switch (item){
+            case 'img': $form.append('<img src="'+temp+'"><input id="'+item+'" name="'+item+'" type="file" placeholder="'+item+'" value="'+temp+'" class="form-control input-md">');
+                        break;
+            default:    $form.append('<input id="'+item+'" name="'+item+'" type="text" placeholder="'+item+'" value="'+temp+'" class="form-control input-md">');
+                        break;
+        }
+    });
+    $form.append('<!-- Select Basic --><div class="form-group"><label class="col-md-4 control-label" for="selectbasic">Status</label><div class="col-md-4"><select id="selectbasic" name="selectbasic" class="form-control"><option value="free">free</option><option value="taken">taken</option></select></div></div>');
     //$node.find(".buy-big").click(function(){});
 
     element.append($node);
