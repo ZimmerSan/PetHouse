@@ -2,6 +2,27 @@ var User    = require('./models/user');
 var Pet     = require('./models/pet');
 var Img     = require('./models/img');
 var fs      = require('fs');
+var nodemailer  = require('nodemailer');
+var mail_config = require('../config/mail');
+var transporter = nodemailer.createTransport(mail_config.smtpConfig);
+// verify connection configuration
+transporter.verify(function(error, success) {
+    if (error) {
+        console.log(error);
+    } else {
+        console.log('Server is ready to take our messages');
+        var mailData = {
+            from: "togoodhands@yandex.ru",
+            to: "paultsimura@gmail.com",
+            subject: "Pet subject",
+            text: "Hello. This is a test message"
+        }
+        transporter.sendMail(mailData, function(err, info){
+            if(err) console.log("Err",err);
+            console.log("info:",info);
+        });
+    }
+});
 
 var DEFAULT_IMAGE = '0000000000';
 
@@ -134,11 +155,12 @@ function getImgById(req, res) {
 //todo: complete this function
 function updatePetById(req, res) {
     var data = req.body;
+    console.log("data:", data);
     Pet.findById(req.params.pet_id, function (err, pet) {
         if (err)    res.send(err);
         else {
             pet.pet.name               = data.form.name;
-            if (data.file)  pet.pet.img = data.file;
+            if (data.file)      pet.pet.img = data.file;
             else                pet.pet.img = DEFAULT_IMAGE;
             pet.pet.species            = data.form.species;
             pet.pet.breed              = data.form.breed;
@@ -163,6 +185,10 @@ function updatePetById(req, res) {
             });
         };
     });
+}
+
+function sendMessage(req, res){
+
 }
 
 exports.createUser      = createUser;

@@ -77,50 +77,25 @@ module.exports = function (app, passport) {
     var upload = multer({ storage: storage });
 
     app.post('/pets', isLoggedIn, upload.single('image'), function (req, res){
-        console.log("file", req.file);
-        
-        var extension = req.file.originalname.split('.').pop();
-        var filename = makeFilename() + '.' + extension;
-
-        var buffer = fs.readFileSync(req.file.path);
+        var extension   = req.file.originalname.split('.').pop();
+        var filename    = makeFilename() + '.' + extension;
+        var buffer      = fs.readFileSync(req.file.path);
 
         client.put(filename, buffer, function(status, reply){
             client.media(reply.path, function(status, reply){
                 request({
                     uri     : API_URL + "/api/pets",
                     method  : "POST",
-                    json: {
+                    json    : {
                         form: req.body,
                         file: reply.url,
                         user: req.user
                     }
                 }, function (error, response, body) {
-                    res.redirect("/pets/" + body.pet._id);
+                    res.redirect("/pets/" + body.pet._id+"/");
                 });
             });
         });
-
-        // blobService.createBlockBlobFromLocalFile(containerName, filename, req.file.path, options,
-        //     function(error, result, response) {
-        //         if (!error) {
-        //             var blobUrl = setSAS(containerName, filename);
-        //
-        //             request({
-        //                 uri     : API_URL+"/api/pets",
-        //                 method  : "POST",
-        //                 json    : {
-        //                     form: req.body,
-        //                     file: blobUrl,
-        //                     user: req.user
-        //                 }
-        //             }, function(error, response, body) {
-        //                 res.redirect("/pets/"+body.pet._id);
-        //             });
-        //         } else {
-        //             console.log("Error:", error);
-        //         }
-        //     });
-
     });
 
     app.get('/pets/create', isLoggedIn, function (req, res) {
@@ -156,36 +131,27 @@ module.exports = function (app, passport) {
         });
     });
 
-    app.post('/pets/:pet_id/edit', isLoggedIn, isAuthor, function (req, res) {
+    app.post('/pets/:pet_id/edit', isLoggedIn, isAuthor, upload.single('image'), function (req, res) {
         if(req.file){
-            var extension = req.file.originalname.split('.').pop();
-            var filename = makeFilename() + '.' + extension;
+            var extension   = req.file.originalname.split('.').pop();
+            var filename    = makeFilename() + '.' + extension;
+            var buffer      = fs.readFileSync(req.file.path);
 
-            var options = {
-                contentType: req.file.mimetype,
-                metadata: { fileName: filename }
-            };
-
-            blobService.createBlockBlobFromLocalFile(containerName, filename, req.file.path, options,
-                function(error, result, response) {
-                    if (!error) {
-                        var blobUrl = setSAS(containerName, filename);
-
-                        request({
-                            uri     : API_URL+"/api/pets/"+req.param('pet_id'),
-                            method  : "POST",
-                            json    : {
-                                form: req.body,
-                                file: blobUrl,
-                                user: req.user
-                            }
-                        }, function(error, response, body) {
-                            res.redirect("/pets/"+body.pet._id);
-                        });
-                    } else {
-                        console.log("Error:", error);
-                    }
+            client.put(filename, buffer, function(status, reply){
+                client.media(reply.path, function(status, reply){
+                    request({
+                        uri     : API_URL + "/api/pets/"+req.param('pet_id'),
+                        method  : "POST",
+                        json    : {
+                            form: req.body,
+                            file: reply.url,
+                            user: req.user
+                        }
+                    }, function (error, response, body) {
+                        res.redirect("/pets/" + body.pet._id+"/");
+                    });
                 });
+            });
         } else {
             request({
                 uri     : API_URL+"/api/pets/"+req.param('pet_id'),
@@ -197,11 +163,9 @@ module.exports = function (app, passport) {
                 }
             }, function(error, response, body) {
                 console.log('body:', body);
-                // res.redirect("/pets/"+body.pet._id);
+                res.redirect("/pets/"+body.pet._id+"/");
             });
         }
-
-
     });
 
     // =====================================
@@ -308,7 +272,6 @@ module.exports = function (app, passport) {
             failureRedirect : '/'
         }));
 
-    //TODO: implement unlinking
 };
 
 // route middleware to make sure a user is logged in
