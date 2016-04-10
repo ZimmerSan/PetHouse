@@ -63,6 +63,21 @@
                 </div>
             </div>
 
+            <!-- Multiple Radios (inline) -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="sex">Status:</label>
+                <div class="col-md-4">
+                    <label class="radio-inline" for="status-waiting">
+                        <input type="radio" name="status" id="status-waiting" value="waiting" <% if(pet.system.status === 'waiting' || pet.system.status === 'new'){ %> checked = "checked" <% } %>>
+                        Waiting
+                    </label>
+                    <label class="radio-inline" for="status-taken">
+                        <input type="radio" name="status" id="status-taken" value="taken" <% if(pet.system.status === 'taken'){ %> checked = "checked" <% } %>>
+                        Taken
+                    </label>
+                </div>
+            </div>
+
             <!-- Button -->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="create-pet-button"></label>

@@ -92,7 +92,7 @@ function createPet(req, res) {
 
     pet.system.created_at      = Date.now();
     pet.system.updated_at      = Date.now();
-    pet.system.status          = "New";
+    pet.system.status          = "Waiting";
     pet.system.author          = req.body.user._id;
 
     // save the pet and check for errors
@@ -156,7 +156,6 @@ function getImgById(req, res) {
     });
 }
 
-//todo: complete this function
 function updatePetById(req, res) {
     var data = req.body;
     console.log("data:", data);
@@ -175,6 +174,7 @@ function updatePetById(req, res) {
             pet.pet.vaccinations       = data.form.vaccinations;
             pet.pet.other              = data.form.other;
 
+            pet.system.status          = data.form.status;
             pet.system.updated_at      = Date.now();
             pet.system.status          = data.form.status;
 
