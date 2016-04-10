@@ -17,10 +17,10 @@ transporter.verify(function(error, success) {
             subject: "Pet subject",
             text: "Hello. This is a test message"
         }
-        transporter.sendMail(mailData, function(err, info){
-            if(err) console.log("Err",err);
-            console.log("info:",info);
-        });
+        // transporter.sendMail(mailData, function(err, info){
+        //     if(err) console.log("Err",err);
+        //     console.log("info:",info);
+        // });
     }
 });
 
@@ -107,10 +107,14 @@ function createPet(req, res) {
 }
 
 function getAllPets(req, res) {
-    Pet.find(function (err, pets) {
+    Pet.find({}, null, {sort: {'system.created_at': -1}}, function(err, pets) {
         if (err) res.send(err);
         res.json(pets);
     });
+    // Pet.find({sort: { created_at: -1}},function (err, pets) {
+    //     if (err) res.send(err);
+    //     res.json(pets);
+    // });
 }
 
 function getPetById(req, res) {

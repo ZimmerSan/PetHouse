@@ -1,135 +1,69 @@
-@main-color: #59B2E0;
+@main-color: #fff;
+@dark-color: #393A39;
+@light-color: #F78F1E;
+
+*{
+  font-family: 'Roboto', sans-serif;
+}
 
 @import "login-form";
 
 body {
-  background-color: #ffffff;
-}
-.menu{
-  font-family:Philosopher ;
-  font-size:20px;
-  color:white;
-  background-color: #eba441;
-  border: none;
-}
-.logo{
-  border:none;
-  background: none;
-  padding: 20px;
-  height: 200px;
-  float: left;
+  background-color: @main-color;
 }
 
-*{
-  font-family:Philosopher ;
+header {
+  margin: 0;
+  background: @dark-color;
+  padding: 25px;
+  width: 100%;
+  color: @main-color;
+  margin-bottom: 50px;
+  
+  a {
+    color: #fff;
+    -webkit-transition: ease-in-out 0.1s;
+    -moz-transition: ease-in-out 0.1s;
+    -ms-transition: ease-in-out 0.1s;
+    -o-transition: ease-in-out 0.1s;
+    transition: ease-in-out 0.1s;
+  }
+
+  a:hover {
+    color: @light-color;
+    text-decoration: none;
+  }
+
+  ul.login-buttons {
+    span {
+      margin-right: 15px;
+    }
+    li {
+      list-style: none;
+      margin-right: 10px;
+      float: right;
+    }
+  }
 }
 
-
-.vk {
-  height: 70px;
-  margin-top:60px;
-  margin-right:50px;
+#pet_list {
+  margin-top: 50px;
 }
 
-.google {
-  height: 70px;
-  margin-top:60px;
-  margin-right:20px;
-}
- .facebook {
-height: 70px;
-width: 180px;
-margin-top:60px;
-margin-right:50px;
- }
- .profile{
-   height: 70px;
-   margin-top:60px;
-   margin-right:50px;
- }
- p{
-   font-family:Philosopher;
-
- }
- .last_added{
- margin-left:40%;
-   font-family:Philosopher ;
- }
-#pet_list{
-  margin-top: 20px;
-  font-family:Philosopher ;
-  font-size: 20px;
-}
-.navbar-inverse .navbar-brand {
-  color: white;
-  font-size:25px;
+.pet-short {
+  ul {
+    list-style: none;
+  }
 }
 
-.navbar-inverse .navbar-nav>li>a {
-  color: white;
-}
+.pet-full {
+  h1 {
+    margin-bottom: 50px;
+  }
 
-.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
-  color: #fff;
-  background-color: #cada73;
-}
+  .btn-edit {
+    margin-top: -25px;
+  }
 
-.element{
-  margin-left: 30%;
-  width:400px;
-  height: 150px;
-  float:left;
-  border-bottom-color: #eba441;
-}
-
-.draw-menu{
-  margin-left:23%;
-  margin-top: 5%;
-}
-.dm{
-  font-color: #89571f;
-}
-p{
-  font-size:20px;
-}
-label{
-  font-size:18px;
-}
-legend{
-  font-size:25px;
-}
-#create-pet-button{
-  font-size:20px;
-}
-.jumbotron{
-  margin: 0 auto;
-  width: 800px;
- background-color: #fff4e2;
-}
-
-.illustration-1{
-  width: 800px;
-  margin-left:15%;
-}
-.illustration-2{
-  height:500px;
- float:left;
-}
-li {
-  list-style-type: none; /* Убираем маркеры */
-}
-.social{
-  width: 600px;
-  margin-left: 440px;
-}
-.f{
-  color:white;
-}
-.ttt{
-  position:absolute;
-}
-.illustration-3{
-  margin-left:20%;
-  width: 600px;
-  float: left;
+  margin-bottom: 50px;
 }

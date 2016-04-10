@@ -6,21 +6,24 @@ if (user && user._id.toString() === profile._id.toString()) myProfile = true;
 %>
 
 <div class="container">
-    <p><a href="/">На головну</a></p>
-
     <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span>Мій профіль</h1>
-        <hr>
-        <h3 align="center">Додавайте акаунти з соц. мереж,<br>створюйте нові оголошення та переглядайте вже створені Вами записи.</h3>
-        <!--<p><%= profile._id %></p>-->
+        <h1><span class="fa fa-anchor"></span><%=profile.name%></h1>
         <% if (myProfile) { %>
-            <a href="/logout" class="btn btn-default btn-sm">Вийти</a>
-            <a href="/pets/create" class="btn btn-primary btn-sm">Додати оголошення</a>
+            <a href="/pets/create" class="btn btn-primary btn-sm">Add pet</a>
         <% } %>
-        <a href="/user/<%= profile._id %>/pets" class="btn btn-success btn-sm"><% if (myProfile) { %>Мої тваринки<% } else { %>Улюбленці користувача<% } %></a>
+        <a href="/user/<%= profile._id %>/pets" class="btn btn-success btn-sm"><% if (myProfile) { %>My pets<% } else { %>User's pets<% } %></a>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <img class="img-thumbnail illustration-2" src="https://dl.dropboxusercontent.com/u/92390430/profile.png">
+        </div>
+        <div class="col-md-10">
+            <% if (profile.email) { %><br/><span>Email: <%=profile.email%></span><% } %>
+            <% if (profile.phone) { %><br/><span>Phone: <%=profile.phone%></span><% } %>
+            <% if (profile.img) { %><br/><img src="<%=profile.img%>"><% } %>
+        </div>
     </div>
 
-   <img class="illustration-2" src="https://dl.dropboxusercontent.com/u/92390430/profile.png">
 </div>
 
 <% include ../common/footer.ejs %>

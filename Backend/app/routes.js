@@ -106,13 +106,26 @@ module.exports = function (app, passport) {
     });
 
     app.get('/pets/:pet_id', function (req, res) {
-        isAuthorBool(req, function(err, isAuthor){
-            if (err) res.redirect('/');
+        request({
+            uri     : API_URL+"/api/pets/"+req.param('pet_id'),
+            method  : "GET",
+        }, function(error, response, body) {
+            isAuthorBool(req, function(err, isAuthor){
+                if (err) res.redirect('/');
+                var pet = JSON.parse(body);
 
-            res.render('pets/single_pet', {
-                isAuthor    : isAuthor,
-                user        : req.user, // get the user out of session and pass to template
-                pageTitle   : 'Single pet'
+                request({
+                    uri     : API_URL+"/api/users/"+pet.system.author,
+                    method  : "GET",
+                }, function (err, response, body) {
+                    res.render('pets/single_pet', {
+                        isAuthor    : isAuthor,
+                        user        : req.user, // get the user out of session and pass to template
+                        pageTitle   : 'Single pet',
+                        pet         : pet,
+                        author      : JSON.parse(body)
+                    })
+                });
             });
         });
     });

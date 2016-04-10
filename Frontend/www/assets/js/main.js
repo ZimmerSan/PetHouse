@@ -63,13 +63,6 @@ $(function () {
         Pet.initializeMainPetList();
     }
 
-    //show single pet on '/pets/:pet_id'
-    if (window.location.pathname.match(/\/pets\/\w+/g)) {
-        var id = window.location.pathname.substring(window.location.pathname.indexOf('/pets/')+'/pets/'.length);
-        if(id !== 'create')
-        Pet.onePetFull(id);
-    }
-
     //show list of user's pets on '/user/:user_id/pets'
     if (window.location.pathname.match(/\/user\/\w+\/pets/g)) {
         var id = window.location.pathname.substring(window.location.pathname.indexOf('/user/')+'/user/'.length, window.location.pathname.indexOf('/pets'));
@@ -78,29 +71,21 @@ $(function () {
         Pet.initializeUserPetList(id);
     }
 
-    // //show list of user's pets on '/pets/:pet_id/edit'
-    // if(window.location.pathname.match(/\/pets\/\w+\/edit\//g)){
-    //     var id = window.location.pathname.substring(window.location.pathname.indexOf('/pets/')+'/pets/'.length, window.location.pathname.indexOf('/edit'));
-    //     console.log('id', id);
-    //     Pet.onePetEdit(id);
-    // }
-
 });
 },{"./api":1,"./pet":3}],3:[function(require,module,exports){
-var api         = require('./api');
-var Templates   = require('./templates');
+var api = require('./api');
+var Templates = require('./templates');
 
 function initializePetForm() {
 }
 
-function showPetList(list, element){
+function showPetList(list, element) {
     element.html("");
 
     function showOnePet(pet) {
         var html_code = Templates.Pet_Short({pet: pet});
         var $node = $(html_code);
 
-        $node.find(".image").attr('src', pet.pet.img);
         //$node.find(".buy-big").click(function(){});
 
         element.append($node);
@@ -110,11 +95,11 @@ function showPetList(list, element){
 }
 
 function initializeUserPetList(user_id) {
-    api.getPetsByAuthor(user_id, function(err, result){
-        if(err) {
+    api.getPetsByAuthor(user_id, function (err, result) {
+        if (err) {
             alert("Can't get user Pets");
         } else {
-            console.log('result: ',result);
+            console.log('result: ', result);
             showPetList(result, $("#profile_pets"));
         }
     });
@@ -122,8 +107,8 @@ function initializeUserPetList(user_id) {
 
 
 function initializeMainPetList() {
-    api.getAllPets(function(err, result){
-        if(err) {
+    api.getAllPets(function (err, result) {
+        if (err) {
             alert("Can't get all Pets");
         } else {
             showPetList(result, $("#pet_list"));
@@ -131,7 +116,7 @@ function initializeMainPetList() {
     });
 }
 
-function showOnePetFull(pet, element){
+function showOnePetFull(pet, element) {
     element.html("");
 
     function showOnePet(pet) {
@@ -148,46 +133,11 @@ function showOnePetFull(pet, element){
 }
 
 function onePetFull(pet_id) {
-    api.getPetById(pet_id,function(err, result){
-        if(err) {
+    api.getPetById(pet_id, function (err, result) {
+        if (err) {
             alert("Can't get the pet");
         } else {
             showOnePetFull(result, $("#pet_full"));
-        }
-    });
-}
-
-function fillPetEditForm(pet, element) {
-    element.html("");
-    var html_code = Templates.Pet_Edit({pet: pet});
-    var $node = $(html_code);
-
-    var $form = $node.find("#pet_edit_form");
-    var keys = Object.keys(pet.pet);
-    console.log(keys);
-    keys.forEach(function(item){
-        var temp = pet.pet[item];
-        switch (item){
-            case 'img': $form.append('<img src="'+temp+'"><input id="'+item+'" name="'+item+'" type="file" placeholder="'+item+'" value="'+temp+'" class="form-control input-md">');
-                        break;
-            default:    $form.append('<input id="'+item+'" name="'+item+'" type="text" placeholder="'+item+'" value="'+temp+'" class="form-control input-md">');
-                        break;
-        }
-    });
-    $form.append('<!-- Select Basic --><div class="form-group"><label class="col-md-4 control-label" for="selectbasic">Status</label><div class="col-md-4"><select id="selectbasic" name="selectbasic" class="form-control"><option value="free">free</option><option value="taken">taken</option></select></div></div>');
-    //$node.find(".buy-big").click(function(){});
-
-    element.append($node);
-
-}
-
-function onePetEdit(pet_id){
-    api.getPetById(pet_id, function(err, result){
-        if(err){
-            alert("Can't get pet info");
-        } else {
-            console.log('result: ',result);
-            fillPetEditForm(result, $("#pet_edit")); //todo
         }
     });
 }
@@ -196,13 +146,12 @@ exports.initializePetForm = initializePetForm;
 exports.initializeMainPetList = initializeMainPetList;
 exports.initializeUserPetList = initializeUserPetList;
 exports.onePetFull = onePetFull;
-exports.onePetEdit = onePetEdit;
 },{"./api":1,"./templates":4}],4:[function(require,module,exports){
 
 var ejs = require('ejs');
 
-exports.Pet_Short = ejs.compile("<!--TODO complete this page-->\r\n<!--<div>-->\r\n    <!--<span><a href=\"/pets/<%=pet._id%>/\">link</a>  : <%=pet.pet.species%> |-->\r\n        <!--<a href=\"/api/img/<%=pet.pet.img%>\">image</a> |-->\r\n        <!--<a href=\"/user/<%=pet.system.author%>\">author</a></span>-->\r\n    <!--<img class=\"image\"/>-->\r\n<!--</div>-->\r\n\r\n    <div class=\"panel\">\r\n        <div class=\"panel-heading\"><%=pet.pet.species%></div>\r\n        <div class=\"panel-body\">\r\n            <a href=\"/api/img/<%=pet.pet.img%>\">image</a>\r\n            <img class=\"image\"/>\r\n            <a href=\"/user/<%=pet.system.author%>\">author</a>\r\n            <a href=\"/pets/<%=pet._id%>/\">Докладніше</a>\r\n        </div>\r\n    </div>");
-exports.Pet_Full = ejs.compile("<!--TODO complete this page-->\r\n<div>\r\n    <h1>Full pet page</h1>\r\n    <div><a href=\"/pets/<%=pet._id%>\">link</a>  : <%=pet.pet.species%></div>\r\n    <img class=\"image\"/>\r\n</div>\r\n");
+exports.Pet_Short = ejs.compile("<div class=\"col-md-4\">\r\n    <div class=\"thumbnail pet-short\">\r\n        <a href=\"/pets/<%= pet._id %>/\"><img class=\"image\" src=\"<%= pet.pet.img %>\"></a>\r\n        <div class=\"caption\">\r\n            <h3><%= pet.pet.name %></h3>\r\n            <p>\r\n            <ul>\r\n                <li>Species: <%= pet.pet.species %></li>\r\n                <li>Gender: <%= pet.pet.sex %></li>\r\n                <li>Status: <%= pet.system.status %></li>\r\n            </ul>\r\n            </p>\r\n            <p class=\"text-center\">\r\n                <a href=\"/pets/<%= pet._id %>/\" class=\"btn btn-primary\" role=\"button\">Details</a>\r\n                <a href=\"/user/<%= pet.system.author %>/pets/\" class=\"btn btn-default\" role=\"button\">Author</a>\r\n            </p>\r\n        </div>\r\n    </div>\r\n</div>");
+exports.Pet_Full = ejs.compile("<div class=\"pet-full\">\r\n    <h1 class=\"text-center\"><%= pet.pet.name %></h1>\r\n    <div class=\"col-md-6\">\r\n        <img class=\"img-thumbnail\" src=\"<%= pet.pet.img %>\">\r\n    </div>\r\n    <div class=\"col-md-6\">\r\n        <div class=\"row\">\r\n            <h3>Pet info</h3>\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\" for=\"species\">Species</label>\r\n                <span class=\"col-md-4\" id=\"species\"><%= pet.pet.species %></span>\r\n            </div>\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\" for=\"gender\">Gender</label>\r\n                <span class=\"col-md-4\" id=\"gender\"><%= pet.pet.sex %></span>\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <h3>Author info</h3>\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\" for=\"species\">Species</label>\r\n                <span class=\"col-md-4\" id=\"species\"><%= pet.pet.species %></span>\r\n            </div>\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\" for=\"gender\">Gender</label>\r\n                <span class=\"col-md-4\" id=\"gender\"><%= pet.pet.sex %></span>\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n</div>\r\n");
 exports.Pet_Edit = ejs.compile("<!--TODO complete this page-->\r\n<div>\r\n    <h1>Edit pet page</h1>\r\n    <div><a href=\"/pets/<%=pet._id%>\">link</a>  : <%=pet.pet.species%></div>\r\n    <img class=\"image\"/>\r\n    <form id=\"pet_edit_form\">\r\n\r\n    </form>\r\n</div>\r\n");
 
 },{"ejs":5}],5:[function(require,module,exports){

@@ -1,17 +1,19 @@
-<!--TODO complete this page-->
-<!--<div>-->
-    <!--<span><a href="/pets/<%=pet._id%>/">link</a>  : <%=pet.pet.species%> |-->
-        <!--<a href="/api/img/<%=pet.pet.img%>">image</a> |-->
-        <!--<a href="/user/<%=pet.system.author%>">author</a></span>-->
-    <!--<img class="image"/>-->
-<!--</div>-->
-
-    <div class="panel">
-        <div class="panel-heading"><%=pet.pet.species%></div>
-        <div class="panel-body">
-            <a href="/api/img/<%=pet.pet.img%>">image</a>
-            <img class="image"/>
-            <a href="/user/<%=pet.system.author%>">author</a>
-            <a href="/pets/<%=pet._id%>/">Докладніше</a>
+<div class="col-md-4">
+    <div class="thumbnail pet-short">
+        <a href="/pets/<%= pet._id %>/"><img class="image" src="<%= pet.pet.img %>"></a>
+        <div class="caption">
+            <h3><%= pet.pet.name %></h3>
+            <p>
+            <ul>
+                <li>Species: <%= pet.pet.species %></li>
+                <li>Gender: <%= pet.pet.sex %></li>
+                <li>Status: <%= pet.system.status %></li>
+            </ul>
+            </p>
+            <p class="text-center">
+                <a href="/pets/<%= pet._id %>/" class="btn btn-primary" role="button">Details</a>
+                <a href="/user/<%= pet.system.author %>/pets/" class="btn btn-default" role="button">Author</a>
+            </p>
         </div>
     </div>
+</div>

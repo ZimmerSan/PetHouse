@@ -1,6 +1,31 @@
-<!--TODO complete this page-->
-<div>
-    <h1>Full pet page</h1>
-    <div><a href="/pets/<%=pet._id%>">link</a>  : <%=pet.pet.species%></div>
-    <img class="image"/>
+<div class="pet-full">
+    <h1 class="text-center"><%= pet.pet.name %></h1>
+    <div class="col-md-6">
+        <img class="img-thumbnail" src="<%= pet.pet.img %>">
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <h3>Pet info</h3>
+            <div class="row">
+                <label class="col-md-2 control-label" for="species">Species</label>
+                <span class="col-md-4" id="species"><%= pet.pet.species %></span>
+            </div>
+            <div class="row">
+                <label class="col-md-2 control-label" for="gender">Gender</label>
+                <span class="col-md-4" id="gender"><%= pet.pet.sex %></span>
+            </div>
+        </div>
+        <div class="row">
+            <h3>Author info</h3>
+            <div class="row">
+                <label class="col-md-2 control-label" for="species">Species</label>
+                <span class="col-md-4" id="species"><%= pet.pet.species %></span>
+            </div>
+            <div class="row">
+                <label class="col-md-2 control-label" for="gender">Gender</label>
+                <span class="col-md-4" id="gender"><%= pet.pet.sex %></span>
+            </div>
+        </div>
+    </div>
+
 </div>

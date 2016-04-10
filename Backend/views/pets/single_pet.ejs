@@ -1,12 +1,48 @@
 <% include ../common/header.ejs %>
-<!--TODO complete this page-->
-<!--TODO handle logged user: show control buttons for author, show contact form for other users-->
+<div class="container pet-full">
+    <div class="pet-full row">
+        <h1 class="text-center"><%= pet.pet.name %></h1>
+        <div class="col-md-5">
+            <img class="img-thumbnail" src="<%= pet.pet.img %>">
+        </div>
+        <div class="col-md-offset-1 col-md-6">
+            <div class="row">
+                <h3>Pet info</h3>
+                <div class="row">
+                    <label class="col-md-2 control-label" for="species">Species</label>
+                    <span class="col-md-4" id="species"><%= pet.pet.species %></span>
+                </div>
+                <div class="row">
+                    <label class="col-md-2 control-label" for="gender">Gender</label>
+                    <span class="col-md-4" id="gender"><%= pet.pet.sex %></span>
+                </div>
+                <div class="row">
+                    <label class="col-md-2 control-label" for="status">Status</label>
+                    <span class="col-md-4" id="status"><%= pet.system.status %></span>
+                </div>
+            </div>
+            <div class="row">
+                <h3>Author info</h3>
+                <div class="row">
+                    <label class="col-md-2 control-label" for="name">Name</label>
+                    <a href="/user/<%=author._id%>/pets/" class="col-md-4" id="name"><%= author.name %></a>
+                </div>
+                <div class="row">
+                    <label class="col-md-2 control-label" for="email">Email</label>
+                    <span class="col-md-4" id="email"><%= author.email %></span>
+                </div>
+                <% if(author.phone) { %>
+                <div class="row">
+                    <label class="col-md-2 control-label" for="phone">Phone</label>
+                    <span class="col-md-4" id="phone"><%= author.phone %></span>
+                </div>
+                <% } %>
+            </div>
+        </div>
 
-<div class="container">
-    <a href="/">На головну</a>
-    <div id="pet_full"></div>
+    </div>
     <% if (isAuthor){%>
-        <a href="edit/">Редагувати</a>
+        <a class="pull-right btn btn-warning btn-edit" href="edit/">Редагувати</a>
     <%}%>
 </div>
 <% include ../common/footer.ejs %>

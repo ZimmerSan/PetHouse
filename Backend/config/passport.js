@@ -167,8 +167,8 @@ module.exports = function (passport) {
                             // set all of the facebook information in our user model
                             newUser.facebook.id    = profile.id; // set the users facebook id
                             newUser.facebook.token = token; // we will save the token that facebook provides to the user
-                            newUser.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName; // look at the passport user profile to see how names are returned
-                            newUser.facebook.email = profile.emails[0].value; // facebook can return multiple emails so we'll take the first
+                            newUser.name  = profile.name.givenName + ' ' + profile.name.familyName; // look at the passport user profile to see how names are returned
+                            newUser.email = profile.emails[0].value; // facebook can return multiple emails so we'll take the first
 
                             // save our user to the database
                             newUser.save(function(err) {
@@ -187,8 +187,8 @@ module.exports = function (passport) {
                     // update the current users facebook credentials
                     user.facebook.id    = profile.id;
                     user.facebook.token = token;
-                    user.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName;
-                    user.facebook.email = profile.emails[0].value;
+                    user.name  = profile.name.givenName + ' ' + profile.name.familyName;
+                    user.email = profile.emails[0].value;
 
                     // save the user
                     user.save(function(err) {
@@ -232,10 +232,10 @@ module.exports = function (passport) {
                             var newUser          = new User();
 
                             // set all of the relevant information
-                            newUser.google.id    = profile.id;
-                            newUser.google.token = token;
-                            newUser.google.name  = profile.displayName;
-                            newUser.google.email = profile.emails[0].value; // pull the first email
+                            newUser.google.id       = profile.id;
+                            newUser.google.token    = token;
+                            newUser.name            = profile.displayName;
+                            newUser.email           = profile.emails[0].value; // pull the first email
 
                             // save the user
                             newUser.save(function(err) {
@@ -249,10 +249,10 @@ module.exports = function (passport) {
                     var user            = req.user; // pull the user out of the session
 
                     // update the current users facebook credentials
-                    user.google.id    = profile.id;
-                    user.google.token = token;
-                    user.google.name  = profile.displayName;
-                    user.google.email = profile.emails[0].value; // pull the first email
+                    user.google.id      = profile.id;
+                    user.google.token   = token;
+                    user.name           = profile.displayName;
+                    user.email          = profile.emails[0].value; // pull the first email
 
                     // save the user
                     user.save(function(err) {
@@ -300,8 +300,8 @@ module.exports = function (passport) {
                             // set all of the relevant information
                             newUser.vk.id       = profile.id;
                             newUser.vk.token    = token;
-                            newUser.vk.name     = profile.displayName;
-                            newUser.vk.email    = params.email;
+                            newUser.name        = profile.displayName;
+                            newUser.email       = params.email;
                             //newUser.vk.email = profile.emails[0].value; // pull the first email
 
                             // save the user
@@ -318,9 +318,8 @@ module.exports = function (passport) {
                     // update the current users facebook credentials
                     user.vk.id      = profile.id;
                     user.vk.token   = token;
-                    user.vk.name    = profile.displayName;
-                    //TODO: VK does not allow to get user's email. Ask user to enter his email.
-                    //newUser.vk.email = profile.emails[0].value; // pull the first email
+                    user.name       = profile.displayName;
+                    user.email      = params.email;
 
                     // save the user
                     user.save(function(err) {

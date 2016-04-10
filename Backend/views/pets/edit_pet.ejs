@@ -1,29 +1,27 @@
 <% include ../common/header.ejs %>
-<!--TODO complete this page-->
-<h1>Edit pet</h1>
+
 <div class="container">
-    <a href="/">На головну</a>
-    <!--TODO: complete the form-->
     <form class="form-horizontal create-pet-form" method="post" enctype="multipart/form-data">
         <fieldset>
 
             <!-- Form Name -->
-            <legend>Edit pet:</legend>
+            <legend>Edit pet</legend>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="name">Кличка:</label>
+                <label class="col-md-4 control-label" for="name">Name:</label>
                 <div class="col-md-4">
-                    <input id="name" name="name" type="text" placeholder="name" class="form-control input-md" value="<%=pet.pet.name%>">
+                    <input id="name" name="name" type="text" placeholder="name" class="form-control input-md"
+                           value="<%= pet.pet.name %>">
                 </div>
             </div>
 
             <!--todo: handle image upload-->
             <!--File Button-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="image">Додати фото:</label>
+                <label class="col-md-4 control-label" for="image">Image:</label>
                 <div class="col-md-4">
-                    <input type="hidden" name="imageOld" value="<%=pet.pet.img%>">
+                    <input type="hidden" name="imageOld" value="<%= pet.pet.img %>">
                     <input id="image" name="image" class="input-file" type="file">
                 </div>
             </div>
@@ -31,37 +29,37 @@
             <!--TODO: create enumeration of all available species and pass it here-->
             <!-- Select Basic -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="species">Вид:</label>
+                <label class="col-md-4 control-label" for="species">Species:</label>
                 <div class="col-md-4">
                     <select id="species" name="species" class="form-control">
                         <!--додати більше видів-->
-                        <option value="cat">Кіт</option>
-                        <option value="dog">Собака</option>
-                        <option value="rabbit">Кролик</option>
+                        <option value="cat">Cat</option>
+                        <option value="dog">Dog</option>
+                        <option value="rabbit">Rabbit</option>
                     </select>
                 </div>
             </div>
 
             <!-- Multiple Radios (inline) -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="sex">Стать:</label>
+                <label class="col-md-4 control-label" for="sex">Gender:</label>
                 <div class="col-md-4">
                     <label class="radio-inline" for="sex-male">
-                        <input type="radio" name="sex" id="sex-male" value="male" <%if(pet.pet.sex === 'male'){checked="checked"}%>>
-                        Хлопчик
+                        <input type="radio" name="sex" id="sex-male" value="male" <% if(pet.pet.sex === 'male'){ %> checked = "checked" <% } %>>
+                        Male
                     </label>
                     <label class="radio-inline" for="sex-female">
-                        <input type="radio" name="sex" id="sex-female" value="female" <%if(pet.pet.sex === 'female'){checked="checked"}%>>
-                        Дівчинка
+                        <input type="radio" name="sex" id="sex-female" value="female" <% if(pet.pet.sex === 'female'){ %> checked = "checked" <% } %>>
+                        Female
                     </label>
                 </div>
             </div>
 
             <!-- Textarea -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="other">Опис:</label>
+                <label class="col-md-4 control-label" for="other">Extra info:</label>
                 <div class="col-md-4">
-                    <textarea class="form-control" id="other" name="other" value="<%=pet.pet.other%>">Додайте опис про улюбленця...</textarea>
+                    <textarea class="form-control" id="other" name="other" value="<%= pet.pet.other %>"></textarea>
                 </div>
             </div>
 
@@ -76,5 +74,5 @@
         </fieldset>
     </form>
 </div>
-</div>
+
 <% include ../common/footer.ejs %>
