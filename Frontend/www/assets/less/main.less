@@ -12,6 +12,34 @@ body {
   background-color: @main-color;
 }
 
+.btn, a {
+  -webkit-transition: ease-in-out 0.1s;
+  -moz-transition: ease-in-out 0.1s;
+  -ms-transition: ease-in-out 0.1s;
+  -o-transition: ease-in-out 0.1s;
+  transition: ease-in-out 0.1s;
+}
+
+a:hover {
+  text-decoration: none;
+  color: @light-color;
+}
+
+.btn-dark {
+  background-color: @dark-color;
+  border: none;
+}
+.btn-dark:hover {
+  background-color: @light-color;
+}
+.btn-light {
+  background-color: @light-color;
+  border: none;
+}
+.btn-light:hover {
+  background-color: @dark-color;
+}
+
 header {
   margin: 0;
   background: @dark-color;
@@ -22,11 +50,6 @@ header {
   
   a {
     color: #fff;
-    -webkit-transition: ease-in-out 0.1s;
-    -moz-transition: ease-in-out 0.1s;
-    -ms-transition: ease-in-out 0.1s;
-    -o-transition: ease-in-out 0.1s;
-    transition: ease-in-out 0.1s;
   }
 
   a:hover {
@@ -63,6 +86,7 @@ header {
 
   .btn-edit {
     margin-top: -25px;
+    margin-bottom: 50px;
   }
 
   margin-bottom: 50px;

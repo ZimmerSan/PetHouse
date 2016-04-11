@@ -1,8 +1,13 @@
 <% include ../common/header.ejs %>
 
+<%
+var myProfile = false;
+if (user && user._id.toString() === profile._id.toString()) myProfile = true;
+%>
+
 <div class="container">
     <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span>Мої тваринки</h1>
+        <h1><span class="fa fa-anchor"></span><% if(myProfile) { %>My pets<% } else { %>Pets of <%= profile.name %><% } %></h1>
     </div>
     <div class="row">
         <div id="profile_pets"></div>

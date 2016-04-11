@@ -47,10 +47,16 @@ module.exports = function (app, passport) {
     });
 
     app.get('/user/:user_id/pets', function (req, res) {
-        res.render('profile/pets.ejs', {
-            user        : req.user, // get the user out of session and pass to template
-            author      : req.param('user_id'),
-            pageTitle   : 'Profile'
+        request(API_URL+'/api/users/'+req.param('user_id'), function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                res.render('profile/pets.ejs', {
+                    user        : req.user, // get the user out of session and pass to template
+                    profile      : JSON.parse(body),
+                    pageTitle   : "User's pets"
+                });
+            } else {
+                res.redirect('/');
+            }
         });
     });
 
