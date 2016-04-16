@@ -9,7 +9,10 @@ var API_URL = "http://localhost:5050";
 var dbox    = require("dbox");
 var dbox_config = require("../config/dropbox");
 var app     = dbox.app({ "app_key": dbox_config.key, "app_secret": dbox_config.secret });
-var client  = app.client(dbox_config.accessToken)
+var client  = app.client(dbox_config.accessToken);
+var gmaps   = require("googlemaps");
+var gmap_config = require("../config/googlemaps");
+var gmAPI   = new gmaps(gmap_config);
 
 module.exports = function (app, passport) {
 
@@ -19,9 +22,19 @@ module.exports = function (app, passport) {
     // HOME PAGE (with login links) ========
     // =====================================
     app.get('/', function (req, res) {
-        res.render('index', {
-            user        : req.user,
-            pageTitle   : 'Main page'
+        request(API_URL+'/pets/', function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                res.render('index', {
+                    user        : req.user, // get the user out of session and pass to template
+                    pets        : JSON.parse(body),
+                    pageTitle   : 'Latest pets'
+                });
+            } else {
+                res.render('index', {
+                    user        : req.user,
+                    pageTitle   : 'Main page'
+                });
+            }
         });
     });
 
@@ -124,12 +137,25 @@ module.exports = function (app, passport) {
                     uri     : API_URL+"/api/users/"+pet.system.author,
                     method  : "GET",
                 }, function (err, response, body) {
+                    var params = {
+                        center: pet.pet.location,
+                        zoom: 10,
+                        size: '500x250',
+                        markers: [
+                            {
+                                location: pet.pet.location,
+                                shadow  : true
+                            }
+                        ]
+                    };
+                    console.log(gmAPI.staticMap(params));
                     res.render('pets/single_pet', {
                         isAuthor    : isAuthor,
                         user        : req.user, // get the user out of session and pass to template
                         pageTitle   : 'Single pet',
                         pet         : pet,
-                        author      : JSON.parse(body)
+                        author      : JSON.parse(body),
+                        map         : gmAPI.staticMap(params)
                     })
                 });
             });

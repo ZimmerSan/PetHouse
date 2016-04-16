@@ -7,49 +7,60 @@
         </div>
         <div class="col-md-offset-1 col-md-6">
             <div class="row">
-                <h3>Pet info</h3>
-                <div class="row">
-                    <label class="col-md-2 control-label" for="species">Species</label>
-                    <span class="col-md-4" id="species"><%= pet.pet.species %></span>
+                <div class="col-md-7">
+                    <div class="row">
+                        <h3>Pet info</h3>
+                        <div class="row">
+                            <label class="col-md-2 control-label" for="species">Species</label>
+                            <span class="col-md-4" id="species"><%= pet.pet.species %></span>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-2 control-label" for="gender">Gender</label>
+                            <span class="col-md-4" id="gender"><%= pet.pet.sex %></span>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-2 control-label" for="location">Location </label>
+                            <span class="col-md-10" id="location"><%= pet.pet.location %></span>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-2 control-label" for="status">Status</label>
+                            <span class="col-md-4" id="status"><%= pet.system.status %></span>
+                        </div>
+                    </div>
                 </div>
-                <div class="row">
-                    <label class="col-md-2 control-label" for="gender">Gender</label>
-                    <span class="col-md-4" id="gender"><%= pet.pet.sex %></span>
-                </div>
-                <div class="row">
-                    <label class="col-md-2 control-label" for="status">Status</label>
-                    <span class="col-md-4" id="status"><%= pet.system.status %></span>
+                <div class="col-md-5">
+                    <div class="row">
+                        <h3>Author info</h3>
+                        <div class="row">
+                            <label class="col-md-2 control-label" for="name">Name</label>
+                            <a href="/user/<%=author._id%>/pets/" class="col-md-4" id="name"><%= author.name %></a>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-2 control-label" for="email">Email</label>
+                            <span class="col-md-4" id="email"><%= author.email %></span>
+                        </div>
+                        <% if(author.phone) { %>
+                        <div class="row">
+                            <label class="col-md-2 control-label" for="phone">Phone</label>
+                            <span class="col-md-4" id="phone"><%= author.phone %></span>
+                        </div>
+                        <% } %>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <h3>Author info</h3>
-                <div class="row">
-                    <label class="col-md-2 control-label" for="name">Name</label>
-                    <a href="/user/<%=author._id%>/pets/" class="col-md-4" id="name"><%= author.name %></a>
+            <br/><br/>
+            <div class="row text-center">
+                <div class="col-md-10">
+                    <img alt="Google Maps (Scotland)" src="<%=map%>">
                 </div>
-                <div class="row">
-                    <label class="col-md-2 control-label" for="email">Email</label>
-                    <span class="col-md-4" id="email"><%= author.email %></span>
-                </div>
-                <% if(author.phone) { %>
-                <div class="row">
-                    <label class="col-md-2 control-label" for="phone">Phone</label>
-                    <span class="col-md-4" id="phone"><%= author.phone %></span>
-                </div>
-                <% } %>
             </div>
         </div>
-
     </div>
     <% if (isAuthor){%>
         <a class="pull-right btn btn-warning btn-edit btn-dark" href="edit/">Редагувати</a>
     <%}%>
     <div id="disqus_thread"></div>
     <script>
-        /**
-         * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-         * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-         */
         /*
          var disqus_config = function () {
          this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
