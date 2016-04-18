@@ -1,5 +1,8 @@
 <% include ../common/header.ejs %>
 <div class="container last_added">
     <h1 class="text-center">Результати пошуку:</h1>
+    <% for (var i = 0; i < pets.length; i++) { %>
+        <span><%=pets[i]._id%></span><br/>
+    <% } %>
 </div>
 <% include ../common/footer.ejs %>

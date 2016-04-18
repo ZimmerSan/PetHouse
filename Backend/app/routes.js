@@ -182,11 +182,17 @@ module.exports = function (app, passport) {
     });
 
     app.get('/s_result', function (req, res) {
-        console.log(req);
-        res.render('pets/s_result.ejs', {
-            pet_sex : req.sex,
-            pet_species:req.srecies,
-            pageTitle   : 'Find pet'
+        request(API_URL+'/api/pets/find', function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                console.log("body", JSON.parse(body));
+                res.render('pets/s_result', {
+                    pets        : JSON.parse(body),
+                    pageTitle   : 'Find pet',
+                    user        : req.user
+                });
+            } else {
+                res.redirect('/');
+            }
         });
     });
 
