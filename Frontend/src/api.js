@@ -1,4 +1,4 @@
-var API_URL = "http://localhost:5050";
+var API_URL = "http://pethouse-pethouse.rhcloud.com";
 
 function backendGet(url, callback) {
     $.ajax({

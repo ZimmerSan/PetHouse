@@ -14,6 +14,10 @@ var api     = require('./app/api');
 
 var configDB = require('./config/database.js');
 
+
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
+
 function configureEndpoints(app) {
     var router = express.Router();
 
@@ -75,7 +79,7 @@ function configureEndpoints(app) {
     app.use(express.static(path.join(__dirname, '../Frontend/www')));
 }
 
-function startServer(port) {
+function startServer() {
 
     // configuration -------------------------------------
     mongoose.connect(configDB.url); // connect to our database
@@ -107,8 +111,9 @@ function startServer(port) {
     configureEndpoints(app);
 
     //Запуск додатка за вказаним портом
-    app.listen(port, function () {
-        console.log('My Application Running on http://localhost:'+port+'/');
+    app.listen(server_port, server_ip_address, function () {
+        // console.log('My Application Running on http://localhost:'+port+'/');
+        console.log( "Listening on " + server_ip_address + ", server_port " + server_port )
     });
 }
 exports.startServer = startServer;
