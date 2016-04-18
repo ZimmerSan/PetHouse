@@ -131,6 +131,27 @@ function getPetsByAuthor(req, res) {
     });
 }
 
+function getPetsSortBySexASpecies(req, res) {
+    Pet.find({}, null, {sort: {'system.created_at': -1}}, function(err, pets) {
+        var key1 = "sex";
+        var key2 = "species";
+        if(key1==="Не важливо"){
+            for (var pet in pets) {
+                if ((pet[key2] !== req.param.pet_species))
+                    delete pet;
+            }
+        }
+       else {
+            for (var pet in pets) {
+                if ((pet[key1] !== req.param.pet_sex) || (pet[key2] !== req.param.pet_species))
+                    delete pet;
+            }
+        }
+        if (err) res.send(err);
+        res.json(pets);
+    });
+}
+
 //todo upload images to remote storage
 function uploadImg(req, res) {
     var fs      = require('fs');
@@ -206,6 +227,7 @@ exports.getAllPets      = getAllPets;
 exports.getPetById      = getPetById;
 exports.updatePetById   = updatePetById;
 exports.getPetsByAuthor = getPetsByAuthor;
+exports.getPetsSortBySexASpecies = getPetsSortBySexASpecies;
 
 exports.uploadImg       = uploadImg;
 exports.getImgById      = getImgById;

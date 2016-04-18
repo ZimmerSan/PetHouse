@@ -1,48 +1,53 @@
 <% include ../common/header.ejs %>
+<img class="profileP" src="https://dl.dropboxusercontent.com/u/92390430/animal-pet-close-up-view-hairs.png">
 <div class="container pet-full">
     <div class="pet-full row">
         <h1 class="text-center"><%= pet.pet.name %></h1>
-        <div class="col-md-5">
+        <div class="col-md-4">
             <img class="img-thumbnail" src="<%= pet.pet.img %>">
         </div>
         <div class="col-md-offset-1 col-md-6">
+
             <div class="row">
-                <h3>Pet info</h3>
+                <h3>Інформація про тваринку</h3>
                 <div class="row">
-                    <label class="col-md-2 control-label" for="species">Species</label>
+                    <label class="col-md-2 control-label" for="species">Вид:</label>
                     <span class="col-md-4" id="species"><%= pet.pet.species %></span>
                 </div>
                 <div class="row">
-                    <label class="col-md-2 control-label" for="gender">Gender</label>
+                    <label class="col-md-2 control-label" for="gender">Стать:</label>
                     <span class="col-md-4" id="gender"><%= pet.pet.sex %></span>
                 </div>
                 <div class="row">
-                    <label class="col-md-2 control-label" for="status">Status</label>
+                    <label class="col-md-2 control-label" for="status">Статус:</label>
                     <span class="col-md-4" id="status"><%= pet.system.status %></span>
                 </div>
             </div>
             <div class="row">
-                <h3>Author info</h3>
+                <h3>Автор</h3>
                 <div class="row">
-                    <label class="col-md-2 control-label" for="name">Name</label>
+                    <label class="col-md-2 control-label" for="name">Ім'я:</label>
                     <a href="/user/<%=author._id%>/pets/" class="col-md-4" id="name"><%= author.name %></a>
                 </div>
                 <div class="row">
-                    <label class="col-md-2 control-label" for="email">Email</label>
+                    <label class="col-md-2 control-label" for="email">Email:</label>
                     <span class="col-md-4" id="email"><%= author.email %></span>
                 </div>
                 <% if(author.phone) { %>
                 <div class="row">
-                    <label class="col-md-2 control-label" for="phone">Phone</label>
+                    <label class="col-md-2 control-label" for="phone">Phone:</label>
                     <span class="col-md-4" id="phone"><%= author.phone %></span>
                 </div>
                 <% } %>
             </div>
+                <% if (isAuthor){%>
+            <div class="row edit">
+                <a class="pull-left btn btn-warning btn-edit" href="edit/">Редагувати</a>
+            </div>
+                <%}%>
+
         </div>
 
     </div>
-    <% if (isAuthor){%>
-        <a class="pull-right btn btn-warning btn-edit" href="edit/">Редагувати</a>
-    <%}%>
 </div>
 <% include ../common/footer.ejs %>

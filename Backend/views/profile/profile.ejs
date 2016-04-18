@@ -1,10 +1,10 @@
 <% include ../common/header.ejs %>
-
+<div class="myP">
+<div class="imag-back">
 <%
 var myProfile = false;
 if (user && user._id.toString() === profile._id.toString()) myProfile = true;
 %>
-
 <div class="container">
     <div class="page-header text-center">
         <h1><span class="fa fa-anchor"></span><%=profile.name%></h1>
@@ -23,7 +23,6 @@ if (user && user._id.toString() === profile._id.toString()) myProfile = true;
             <% if (profile.img) { %><br/><img src="<%=profile.img%>"><% } %>
         </div>
     </div>
-
 </div>
-
-<% include ../common/footer.ejs %>
+</div>
+    </div>

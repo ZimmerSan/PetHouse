@@ -1,9 +1,9 @@
 @main-color: #fff;
-@dark-color: #393A39;
+@dark-color: #38161c;
 @light-color: #F78F1E;
 
 *{
-  font-family: 'Roboto', sans-serif;
+  font-family: Calibri;
 }
 
 @import "login-form";
@@ -14,12 +14,14 @@ body {
 
 header {
   margin: 0;
-  background: @dark-color;
-  padding: 25px;
+  background: #574C46;
+  padding: 10px;
   width: 100%;
   color: @main-color;
-  margin-bottom: 50px;
-  
+  margin-bottom: 150px;
+  position:fixed;
+  float:none;
+  z-index: 2;
   a {
     color: #fff;
     -webkit-transition: ease-in-out 0.1s;
@@ -47,7 +49,8 @@ header {
 }
 
 #pet_list {
-  margin-top: 50px;
+  z-index:2;
+
 }
 
 .pet-short {
@@ -66,4 +69,161 @@ header {
   }
 
   margin-bottom: 50px;
+}
+.logo{
+  position: absolute;
+  z-index: 3;
+  display: inline-block;
+  vertical-align: middle;
+  height: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  padding-top: 32px;
+  width:6%;
+
+}
+.logo-circle{
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 10px;
+  margin: auto;
+  height: 170px;
+  width: 220px;
+  z-index: 2;
+  border-radius: 0 0 260px 260px;
+  background: #574C46;
+  position: absolute;
+}
+h1, h2, h3, h4, header footer .footer-nav > li > a, h5, h6 {
+  font-family: Calibri;
+  font-weight: 700;
+  color: #574C46;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  text-decoration: none !important;
+}
+.menu-element{
+  padding: 20px 10px 10px 10px;
+  font-size:20px;
+}
+footer {
+  height: 10%;
+  width: 100%;
+  background:white;
+  opacity:0.1;
+  position:relative;
+  ul{
+    color:white;
+    font-family: Calibri;
+    list-style: none;
+  }
+  li{
+    font-family: Calibri;
+    text-decoration: none !important;
+  }
+//background-image: url("https://dl.dropboxusercontent.com/u/92390430/Untitled-1.png");
+//  background-repeat: repeat-x;
+//  background-size: 220px;
+}
+
+.logo{
+  opacity: 1;
+  color: #000000;
+  font-size: 20px;
+}
+
+.imag-back{
+  position	: relative;
+  margin-bottom: 200px;
+}
+.container{
+  z-index:3;
+  width		: 100%;
+  padding-bottom: 130px;
+}
+.profileP{
+  background-image: url("https://dl.dropboxusercontent.com/u/92390430/FBDF4RCNJW.png");
+  background-repeat: none;
+  position: relative;
+  background-color: white;
+  opacity:0.7;
+ width: 100%;
+  height: 80%;
+ z-index: 0;
+  padding-bottom: 450px;
+}
+
+.myP{
+  background-image: url("https://dl.dropboxusercontent.com/u/92390430/pexels-photo-57627.jpeg");
+  position: relative;
+  background-color: white;
+  opacity:0.7;
+  width: 100%;
+  height: 80%;
+  z-index: 0;
+  padding-bottom: 450px;
+  background-repeat: none;
+}
+
+.mainP{
+  background-image: url("https://dl.dropboxusercontent.com/u/92390430/pexels-photo-53813.jpeg");
+  position: relative;
+  background-color: white;
+  opacity:0.7;
+  width: 100%;
+  height: 80%;
+  z-index: 0;
+  padding-bottom: 430px;
+  background-repeat: none;
+}
+
+.tester{
+  height: 100%;
+}
+.last_added{
+  h1{
+    padding-bottom: 25px;
+    font-family: Calibri;
+    color:white;
+  }
+}
+.pet-short{
+  width: 55%;
+  height: 70%;
+  margin-left:15%;
+}
+.create-pet-form{
+  height: 400px;
+  margin-top: 170px;
+  background-color: none;
+  font-family: "Lato", Helvetica, Calibri, sans-serif;
+  z-index:2;
+  opacity:1;
+}
+.edit{
+  margin-top:30px;
+}
+.search{
+  padding-top: 230px;
+  color:white;
+  font-family:Calibri ;
+  font-size: 20px;
+  p{
+    font-family:Calibri ;
+    font-size: 25px;
+  }
+}
+.ppp{
+  padding-top: 150px;
+  h1{
+    color: white;
+  }
+}
+.find{
+  font-family: Calibri;
+  font-size: 19px;
 }

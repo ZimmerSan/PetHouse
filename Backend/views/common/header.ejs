@@ -11,21 +11,28 @@
     <!-- LESS JavaScript компілятор -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
     <!-- Шрифт -->
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,400italic,900' rel='stylesheet' type='text/css'>
 </head>
 <body>
     <header>
-        <a href="/">PET HOUSE</a>
-        <ul class="login-buttons pull-right">
+        <a href="/">
+        <img class="logo" src="https://dl.dropboxusercontent.com/u/92390430/TGH-3.png">
+        <div class="logo-circle"></div>
+        </a>
+        <ul class="navbar login-buttons pull-left">
+            <li class ="menu-element"><a href="/about">Про проект</a></li>
+            <li class="menu-element"><a href="/auth">Новини</a></li>
+        </ul>
+        <ul class="navbar login-buttons pull-right">
             <% if( !user ) {%>
-            <span>Sign in:</span>
-            <li><a href="/auth/facebook">Facebook</a></li>
-            <li><a href="/auth/vk">Vk</a></li>
-            <li><a href="/auth/google">Google+</a></li>
+            <li class ="menu-element"><a href="/auth/facebook">Facebook</a></li>
+            <li class="menu-element"><a href="/auth/vk">Vk</a></li>
+            <li class="menu-element"><a href="/auth/google">Google+</a></li>
+            <li class ="menu-element"><span class="glyphicon glyphicon-user"></span> Sign in:</li>
             <% } else {%>
-            <li><a href="/logout">Sign out</a></li>
-            <li><a href="/user/<%=user._id%>/pets/">My pets</a></li>
-            <li><a href="/pets/create/">Create pet</a></li>
+            <li class="menu-element"><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Sign out</a></li>
+            <li class="menu-element"><a href="/user/<%=user._id%>/pets/">Мої тваринки</a></li>
+            <li class="menu-element"><a href="/pets/create/">ВДобріРуки</a></li>
             <% } %>
         </ul>
     </header>

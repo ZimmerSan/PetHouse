@@ -54,6 +54,9 @@ function configureEndpoints(app) {
         .post(api.createPet)
         .get(api.getAllPets);
 
+    router.route('/pets/find')
+        .get(api.getPetsSortBySexASpecies);
+
     router.route('/pets/author/:author_id')
         .get(api.getPetsByAuthor);
 

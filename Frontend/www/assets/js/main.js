@@ -51,7 +51,11 @@ exports.uploadImg = function(filepath, callback) {
 
 exports.getImg = function(img_id, callback) {
     backendGet("/api/img/"+img_id, callback);
-}
+};
+
+//exports.findPets = function(pet_info,callback) {
+//    backendGet("/api/pets/find", callback);
+//};
 
 },{}],2:[function(require,module,exports){
 $(function () {
@@ -142,18 +146,29 @@ function onePetFull(pet_id) {
     });
 }
 
+function petSearch(pet_info) {
+    api.getPetsSortBySexASpecies(pet_info, function (err, result) {
+        if (err) {
+            alert("Can't search the pet");
+        } else {
+            showPetList(result, $(".last_added"));
+        }
+    });
+}
+
 exports.initializePetForm = initializePetForm;
 exports.initializeMainPetList = initializeMainPetList;
 exports.initializeUserPetList = initializeUserPetList;
 exports.onePetFull = onePetFull;
+exports.petSearch=petSearch;
 },{"./api":1,"./templates":4}],4:[function(require,module,exports){
 
 var ejs = require('ejs');
 
-exports.Pet_Short = ejs.compile("<div class=\"col-md-4\">\r\n    <div class=\"thumbnail pet-short\">\r\n        <a href=\"/pets/<%= pet._id %>/\"><img class=\"image\" src=\"<%= pet.pet.img %>\"></a>\r\n        <div class=\"caption\">\r\n            <h3><%= pet.pet.name %></h3>\r\n            <p>\r\n            <ul>\r\n                <li>Species: <%= pet.pet.species %></li>\r\n                <li>Gender: <%= pet.pet.sex %></li>\r\n                <li>Status: <%= pet.system.status %></li>\r\n            </ul>\r\n            </p>\r\n            <p class=\"text-center\">\r\n                <a href=\"/pets/<%= pet._id %>/\" class=\"btn btn-primary\" role=\"button\">Details</a>\r\n                <a href=\"/user/<%= pet.system.author %>/pets/\" class=\"btn btn-default\" role=\"button\">Author</a>\r\n            </p>\r\n        </div>\r\n    </div>\r\n</div>");
-exports.Pet_Full = ejs.compile("<div class=\"pet-full\">\r\n    <h1 class=\"text-center\"><%= pet.pet.name %></h1>\r\n    <div class=\"col-md-6\">\r\n        <img class=\"img-thumbnail\" src=\"<%= pet.pet.img %>\">\r\n    </div>\r\n    <div class=\"col-md-6\">\r\n        <div class=\"row\">\r\n            <h3>Pet info</h3>\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\" for=\"species\">Species</label>\r\n                <span class=\"col-md-4\" id=\"species\"><%= pet.pet.species %></span>\r\n            </div>\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\" for=\"gender\">Gender</label>\r\n                <span class=\"col-md-4\" id=\"gender\"><%= pet.pet.sex %></span>\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <h3>Author info</h3>\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\" for=\"species\">Species</label>\r\n                <span class=\"col-md-4\" id=\"species\"><%= pet.pet.species %></span>\r\n            </div>\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\" for=\"gender\">Gender</label>\r\n                <span class=\"col-md-4\" id=\"gender\"><%= pet.pet.sex %></span>\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n</div>\r\n");
+exports.Pet_Short = ejs.compile("<div class=\"col-md-4\">\r\n    <div class=\"thumbnail pet-short\">\r\n        <table>\r\n            <caption class=\"text-center\"><h3 class=\"text-center\"><%= pet.pet.name %></h3><hr></caption>\r\n\r\n            <tr>\r\n                <td>\r\n                    <ul>\r\n                        <li>Вид: <%= pet.pet.species %></li>\r\n                        <li>Стать: <%= pet.pet.sex %></li>\r\n                        <li>Статус: <%= pet.system.status %></li>\r\n                    </ul>\r\n                <td>\r\n                <th>\r\n                    <a href=\"/pets/<%= pet._id %>/\"><img class=\"image\" src=\"<%= pet.pet.img %>\"></a>\r\n                </th>\r\n            </tr>\r\n            <tr class=\"text-center\">\r\n\r\n             <td><hr>       <a href=\"/pets/<%= pet._id %>/\" class=\"btn btn-warning\" role=\"button\">Детальніше</a></td>\r\n             <td><hr>  <a href=\"/user/<%= pet.system.author %>/pets/\" class=\"btn btn-default\" role=\"button\">Автор</a></td>\r\n\r\n            </tr>\r\n        </table>\r\n    </div>\r\n</div>");
+exports.Pet_Full = ejs.compile("\r\n<div class=\"pet-full\">\r\n    <h1 class=\"text-center\"><%= pet.pet.name %></h1>\r\n    <div class=\"col-md-6\">\r\n        <img class=\"img-thumbnail\" src=\"<%= pet.pet.img %>\">\r\n    </div>\r\n    <div class=\"col-md-6\">\r\n        <div class=\"row\">\r\n            <h3>Профіль тваринки</h3>\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\" for=\"species\">Вид:</label>\r\n                <span class=\"col-md-4\" id=\"species\"><%= pet.pet.species %></span>\r\n            </div>\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\" for=\"gender\">Стать</label>\r\n                <span class=\"col-md-4\" id=\"gender\"><%= pet.pet.sex %></span>\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <h3>Автор</h3>\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\" for=\"species\">Species</label>\r\n                <span class=\"col-md-4\" id=\"species\"><%= pet.pet.species %></span>\r\n            </div>\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\" for=\"gender\">Gender</label>\r\n                <span class=\"col-md-4\" id=\"gender\"><%= pet.pet.sex %></span>\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n</div>\r\n");
 exports.Pet_Edit = ejs.compile("<!--TODO complete this page-->\r\n<div>\r\n    <h1>Edit pet page</h1>\r\n    <div><a href=\"/pets/<%=pet._id%>\">link</a>  : <%=pet.pet.species%></div>\r\n    <img class=\"image\"/>\r\n    <form id=\"pet_edit_form\">\r\n\r\n    </form>\r\n</div>\r\n");
-
+exports.Pet_Search=ejs.compile("<div class=\"container search\">\r\n    <div class=\" text-center\">\r\n       <p> Знайди друга у три кліки:</p>\r\n<form class=\"form-inline\" role=\"form\" id=\"findForm\">\r\n    <div class=\"form-group\">\r\n        <label class=\"col-md-4 control-label\" for=\"species\">Вид:</label>\r\n        <div class=\"col-md-4\">\r\n            <select id=\"species\" name=\"species\" class=\"form-control\">\r\n                <option value=\"cat\">Кіт</option>\r\n                <option value=\"dog\">Собака</option>\r\n                <option value=\"rabbit\">Кроль</option>\r\n                <option value=\"bird\">Птах</option>\r\n                <option value=\"rodent\">Гризун</option>\r\n                <option value=\"reptile\">Плазун</option>\r\n            </select>\r\n        </div>\r\n    </div>\r\n    <div class=\"form-group\">\r\n        <label class=\"col-md-4 control-label\" for=\"sex\">Cтать:</label>\r\n        <div class=\"col-md-4\">\r\n            <select id=\"sex\" name=\"sex\" class=\"form-control\">\r\n                <option value=\"male\" id=\"sex-male\">Хлопчик</option>\r\n                <option value=\"female\" id=\"sex-female\">Дівчинка</option>\r\n                <!--name=\"sex\" id=\"sex-male\" value=\"male\"-->\r\n                <!--<option value=\"both\">Не важливо</option>-->\r\n            </select>\r\n        </div>\r\n    </div>\r\n\r\n    <!--<div class=\"checkbox\">-->\r\n        <!--<label><input type=\"checkbox\"> Стать не важлива</label>-->\r\n    <!--</div>-->\r\n    <!--<a href=\"/pets//\" class=\"btn btn-warning\" role=\"button\">Детальніше</a>-->\r\n    <a href=\"/pets/\" onclick=\"document.getElementById('findForm').submit()\" class=\"btn btn-warning find\">Знайти друга</a>\r\n    <!--<button type=\"submit\" class=\"btn btn-warning find\">Знайти друга</button>-->\r\n    </form>\r\n        </div>\r\n    </div>");
 },{"ejs":5}],5:[function(require,module,exports){
 /*
  * EJS Embedded JavaScript templates

@@ -1,0 +1,39 @@
+<div class="container search">
+    <div class=" text-center">
+       <p> Знайди друга у три кліки:</p>
+<form class="form-inline" role="form" id="findForm" action="/s_result">
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="species">Вид:</label>
+        <div class="col-md-4">
+            <select id="species" name="species" class="form-control">
+                <option value="cat">Кіт</option>
+                <option value="dog">Собака</option>
+                <option value="rabbit">Кроль</option>
+                <option value="bird">Птах</option>
+                <option value="rodent">Гризун</option>
+                <option value="reptile">Плазун</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="sex">Cтать:</label>
+        <div class="col-md-4">
+            <select id="sex" name="sex" class="form-control">
+                <option value="male" id="sex-male">Хлопчик</option>
+                <option value="female" id="sex-female">Дівчинка</option>
+                <!--name="sex" id="sex-male" value="male"-->
+                <!--<option value="both">Не важливо</option>-->
+            </select>
+        </div>
+    </div>
+
+    <!--<div class="checkbox">-->
+        <!--<label><input type="checkbox"> Стать не важлива</label>-->
+    <!--</div>-->
+    <!--<a href="/pets//" class="btn btn-warning" role="button">Детальніше</a>-->
+
+    <!--<a href="/s_result" onclick="document.getElementById('findForm').submit()" class="btn btn-warning find">Знайти друга</a>-->
+    <button type="submit" class="btn btn-warning find">Знайти друга</button>
+    </form>
+        </div>
+    </div>

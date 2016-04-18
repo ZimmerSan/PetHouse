@@ -181,6 +181,15 @@ module.exports = function (app, passport) {
         }
     });
 
+    app.get('/s_result', function (req, res) {
+        console.log(req);
+        res.render('pets/s_result.ejs', {
+            pet_sex : req.sex,
+            pet_species:req.srecies,
+            pageTitle   : 'Find pet'
+        });
+    });
+
     // =====================================
     // IMAGES ==============================
     // =====================================

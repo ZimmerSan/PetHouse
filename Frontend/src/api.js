@@ -50,4 +50,8 @@ exports.uploadImg = function(filepath, callback) {
 
 exports.getImg = function(img_id, callback) {
     backendGet("/api/img/"+img_id, callback);
-}
+};
+
+//exports.findPets = function(pet_info,callback) {
+//    backendGet("/api/pets/find", callback);
+//};

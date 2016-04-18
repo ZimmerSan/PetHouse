@@ -67,7 +67,18 @@ function onePetFull(pet_id) {
     });
 }
 
+function petSearch(pet_info) {
+    api.getPetsSortBySexASpecies(pet_info, function (err, result) {
+        if (err) {
+            alert("Can't search the pet");
+        } else {
+            showPetList(result, $(".last_added"));
+        }
+    });
+}
+
 exports.initializePetForm = initializePetForm;
 exports.initializeMainPetList = initializeMainPetList;
 exports.initializeUserPetList = initializeUserPetList;
 exports.onePetFull = onePetFull;
+exports.petSearch=petSearch;

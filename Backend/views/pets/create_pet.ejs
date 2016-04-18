@@ -1,16 +1,17 @@
 <% include ../common/header.ejs %>
-
+<div class="profileP">
+<!--<img class="profileP" src="https://dl.dropboxusercontent.com/u/92390430/FBDF4RCNJW.png">-->
 <div class="container">
-    <div class="jumbotron text-center">
+    <div class=" text-center">
         <form class="form-horizontal create-pet-form" method="post" action="/pets" enctype="multipart/form-data">
             <fieldset>
 
                 <!-- Form Name -->
-                <legend>Create pet</legend>
+                <legend>Створити оголошення:</legend>
 
                 <!-- Text input-->
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="name">Name:</label>
+                    <label class="col-md-4 control-label" for="name">Кличка:</label>
                     <div class="col-md-4">
                         <input id="name" name="name" type="text" placeholder="name" class="form-control input-md">
                     </div>
@@ -18,7 +19,7 @@
 
                  <!--File Button-->
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="image">Image:</label>
+                    <label class="col-md-4 control-label" for="image">Фото:</label>
                     <div class="col-md-4">
                         <input id="image" name="image" class="input-file" type="file">
                     </div>
@@ -26,50 +27,52 @@
 
                 <!-- Select Basic -->
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="species">Species:</label>
+                    <label class="col-md-4 control-label" for="species">Вид:</label>
                     <div class="col-md-4">
                         <select id="species" name="species" class="form-control">
                             <!--додати більше видів-->
-                            <option value="cat">Cat</option>
-                            <option value="dog">Dog</option>
-                            <option value="rabbit">Rabbit</option>
+                            <option value="cat">Кіт</option>
+                            <option value="dog">Собака</option>
+                            <option value="rabbit">Кроль</option>
+                            <option value="bird">Птах</option>
+                            <option value="rodent">Гризун</option>
+                            <option value="reptile">Плазун</option>
                         </select>
                     </div>
                 </div>
 
                 <!-- Multiple Radios (inline) -->
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="sex">Gender:</label>
+                    <label class="col-md-4 control-label" for="sex">Стать:</label>
                     <div class="col-md-4">
                         <label class="radio-inline" for="sex-male">
                             <input type="radio" name="sex" id="sex-male" value="male" checked="checked">
-                           Male
+                           Хлопчик
                         </label>
                         <label class="radio-inline" for="sex-female">
                             <input type="radio" name="sex" id="sex-female" value="female">
-                            Female
+                            Дівчинка
                         </label>
                     </div>
                 </div>
 
                 <!-- Textarea -->
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="other">Extra info:</label>
+                    <label class="col-md-4 control-label" for="other">Докладніше:</label>
                     <div class="col-md-4">
                         <textarea class="form-control" id="other" name="other"></textarea>
                     </div>
                 </div>
-
                 <!-- Button -->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="create-pet-button"></label>
                     <div class="col-md-4">
-                        <button id="create-pet-button" type="submit" class="btn btn-success">Create</button>
+                        <button id="create-pet-button" type="submit" class="btn btn-warning">ToGoodHands</button>
                     </div>
                 </div>
             </fieldset>
         </form>
     </div>
 </div>
-
+</div>
 <% include ../common/footer.ejs %>
