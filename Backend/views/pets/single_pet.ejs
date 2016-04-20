@@ -1,6 +1,5 @@
 <% include ../common/header.ejs %>
-<img class="profileP" src="https://dl.dropboxusercontent.com/u/92390430/animal-pet-close-up-view-hairs.png">
-<div class="container pet-full">
+<div class="container fullP">
     <div class="pet-full row">
         <h1 class="text-center"><%= pet.pet.name %></h1>
         <div class="col-md-4">
@@ -9,7 +8,7 @@
         <div class="col-md-offset-1 col-md-6">
 
             <div class="row">
-                <h3>Інформація про тваринку</h3>
+                <h3>Інформація про улюбленця</h3>
                 <div class="row">
                     <label class="col-md-2 control-label" for="species">Вид:</label>
                     <span class="col-md-4" id="species"><%= pet.pet.species %></span>
